@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Content Calendar — Anna Chikhiashvili</title>
+<meta name="description" content="Monthly content calendar — Instagram & LinkedIn posting plan." />
+<meta name="theme-color" content="#120b33" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23120b33'/%3E%3Ctext x='16' y='23' font-family='Fredoka,Arial' font-size='20' font-weight='700' fill='%23FFD23F' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@600;700;800;900&family=Noto+Sans+Georgian:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ===========================================================
+   ANIKO — Monthly Content Calendar
+   Exact replica of the Canva layout: dark navy canvas, white
+   rounded day cells, Platform legend (IG yellow / LI pink),
+   colored platform bars under each post.
+   =========================================================== */
+:root{
+  --bg:#120b33; --bg-page:#0d0a3a; --card:#FBF7F1; --legend-dark:#2A1240;
+  --ink:#F3F1FF; --ink-dim:#b9b1e6; --ink-dark:#1c1240; --cell-muted:#7a7590;
+  --yellow:#F8C81C; --pink:#F06CA8;
+  --line:rgba(255,255,255,.10);
+  --font-display:'Fredoka',system-ui,sans-serif;
+  --font:'Montserrat',system-ui,sans-serif;
+  --font-ka:'Noto Sans Georgian','Montserrat',sans-serif;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg-page);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;background:var(--yellow);color:#000;padding:10px 16px;border-radius:8px;font-weight:700;z-index:200}
+.skip:focus{left:16px;top:16px}
+
+/* ---------- header — floating pill (same as index-aniko) ---------- */
+header.nav{position:fixed;top:14px;left:0;right:0;z-index:100}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;
+  background:rgba(10,7,46,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line);border-radius:999px;padding:0 22px 0 26px;
+  box-shadow:0 10px 36px rgba(0,0,0,.25)}
+.logo{font-family:var(--font-display);font-weight:700;font-size:1.5rem;display:flex;align-items:center;gap:.18em;color:var(--ink)}
+.logo .mk{color:#FF6FAE;display:inline-block;line-height:0}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--ink-dim);transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
+.burger svg{width:26px;height:26px}
+
+/* ---------- calendar board ("Canva page") ---------- */
+main{padding-top:78px}
+.board{background:var(--bg);border-radius:28px;padding:56px 54px;margin:36px 0;
+  display:grid;grid-template-columns:250px 1fr;gap:44px;align-items:start}
+.board + .board{margin-top:44px}
+
+/* left column */
+.side h2{font-family:var(--font);font-weight:800;font-size:1.45rem;letter-spacing:.01em;margin:0;color:var(--ink);text-transform:uppercase;line-height:1.25}
+.side .month{font-family:var(--font);font-weight:800;font-size:clamp(2.2rem,4vw,3rem);margin:.35em 0 .5em;color:#fff}
+.year-pill{display:inline-block;background:var(--card);color:var(--ink-dark);font-weight:800;font-size:1rem;
+  padding:8px 26px;border-radius:999px}
+.legend{background:var(--card);border-radius:22px;padding:18px 16px 12px;margin-top:120px;max-width:250px}
+.legend .t{font-family:var(--font);font-weight:800;font-size:1.15rem;color:var(--ink-dark);margin:0 0 14px 8px}
+.legend-pills{background:var(--legend-dark);border-radius:999px;padding:7px;display:flex;gap:7px}
+.legend-pills span{flex:1;text-align:center;font-weight:800;font-size:.86rem;color:var(--ink-dark);padding:9px 6px;border-radius:999px}
+.legend-pills .ig{background:var(--yellow)}
+.legend-pills .li{background:var(--pink)}
+
+/* grid */
+.cal-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cal{min-width:720px}
+.cal-head{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;margin-bottom:12px}
+.cal-head div{text-align:center;font-weight:800;font-size:.82rem;letter-spacing:.08em;color:var(--ink)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.cell{background:var(--card);border-radius:14px;min-height:118px;padding:9px 11px 11px;
+  display:flex;flex-direction:column;color:var(--ink-dark)}
+.cell.empty{background:var(--card);opacity:1}
+.cell .d{font-weight:700;font-size:.85rem;color:var(--ink-dark)}
+.cell .post-t{font-family:var(--font-ka);font-weight:800;font-size:.6rem;line-height:1.35;margin-top:6px;text-transform:uppercase}
+.cell .post-k{font-family:var(--font-ka);font-weight:600;font-size:.52rem;color:var(--cell-muted);margin-top:5px}
+.cell .bar{height:8px;border-radius:999px;width:78%;margin-top:auto}
+.cell .bar.ig{background:var(--yellow)}
+.cell .bar.li{background:var(--pink)}
+.cell:not(.has):hover{}
+.cell.has{transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s}
+.cell.has:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.35)}
+
+/* ---------- motion (site vocabulary) ---------- */
+.m{opacity:0}
+.m-float.in{animation:floatIn .8s cubic-bezier(.22,.61,.36,1) var(--d,0s) both}
+@keyframes floatIn{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+
+/* ---------- footer ---------- */
+footer{padding:48px 0 36px;border-top:1px solid var(--line);margin-top:30px}
+.foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--ink-dim);font-size:.85rem}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .board{grid-template-columns:1fr;padding:34px 24px;gap:22px}
+  .legend{margin-top:14px}
+  .side .month{margin-bottom:.3em}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:74px;left:8px;right:8px;flex-direction:column;background:rgba(7,5,52,.97);border:1px solid var(--line);border-radius:22px;padding:20px 28px;gap:18px;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+  .burger{display:inline-flex}
+  .wrap{padding:0 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .m{opacity:1!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo">aniko<span class="mk" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"/><line x1="18.5" y1="5.5" x2="5.5" y2="18.5"/></g></svg></span></a>
+    <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <a href="#">Portfolio</a>
+      <a href="#">Research</a>
+      <a href="content-calendar.html" class="active">Content Calendar</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap" id="boards"><!-- months render here --></div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Anna Chikhiashvili</span>
+    <a href="index.html">← Back to home</a>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONTENT DATA — ედიტირებადი ნაწილი.
+   p: 'ig' = Instagram (ყვითელი) · 'li' = LinkedIn (ვარდისფერი)
+   k: პოსტის ტიპი (ვიდეო პოსტი / კარუსელი პოსტი / პოსტი)
+   ============================================================ */
+var CAL = [
+  {
+    name: 'October', year: 2026, month: 9, // JS month index (9 = October)
+    entries: {
+      3:  { t: 'მოტივაცია VS დისციპლინა', k: 'ვიდეო პოსტი', p: 'ig' },
+      5:  { t: 'რატომ მგონია რომ 20-იან წლებში ყველაზე უფრო ვცდები?', k: 'პოსტი', p: 'li' },
+      7:  { t: '3 TOOL ვიზუალური კონტენტის შესაქმნელად', k: 'კარუსელი პოსტი', p: 'ig' },
+      9:  { t: 'რით განსხვავდებიან ერთმანეთისგან მიკრო და მაკრო ინფლუენსერები?', k: 'ვიდეო პოსტი', p: 'ig' },
+      11: { t: 'რატომ არ არის მოტივაცია საკმარისი?', k: 'პოსტი', p: 'li' },
+      15: { t: 'ფერების ფსიქოლოგია - როგორ ირჩევენ ბრენდები ფერებს.', k: 'ვიდეო პოსტი', p: 'ig' },
+      19: { t: 'როგორ დავგეგმო დღე ეფექტურად?', k: 'პოსტი', p: 'li' },
+      21: { t: '3 ნაბიჯი იდეიდან მზა კონტენტამდე', k: 'ვიდეო პოსტი', p: 'ig' },
+      23: { t: 'როგორ შევარჩიოთ რელევანტური ინფლუენსერი ბრენდისთვის?', k: 'კარუსელი პოსტი', p: 'ig' },
+      25: { t: 'რატომ არის აუცილებელი ადამიანისთვის პირადი ბრენდის ქონა LINKEDIN-ზე.', k: 'პოსტი', p: 'li' },
+      27: { t: 'თულები: MIRO და TRELLO. რომელი ჯობია იდეების ბრეინშტორმინგისთვის?', k: 'კარუსელი პოსტი', p: 'ig' },
+      29: { t: 'რა შეიცვალა ბოლო წლებში ინფლუენსერ მარკეტინგში?', k: 'პოსტი', p: 'li' }
+    }
+  },
+  {
+    name: 'November', year: 2026, month: 10,
+    entries: {
+      2:  { t: 'როგორ დავგეგმოთ სწორი და მარტივი ინფლუენსერ კამპანია.', k: 'პოსტი', p: 'li' },
+      5:  { t: "'UGC' (USER-GENERATED CONTENT) - რატომ ენდობა ხალხი რეალურ ადამიანებს და არა რეკლამებს.", k: 'კარუსელი პოსტი', p: 'ig' },
+      10: { t: 'რატომ გვიყვარს ეფექტური შეხვედრები და ლიდერობის პროგრამები?', k: 'პოსტი', p: 'li' },
+      13: { t: 'რატომ არ მუშაობს დაუგეგმავი კონტენტი გრძელვადიანი წარმატებისთვის.', k: 'ვიდეო პოსტი', p: 'ig' },
+      16: { t: 'NOTION-ის თემფლეითი კამპანიების და ბიუჯეტების მონიტორინგისთვის.', k: 'კარუსელი პოსტი', p: 'ig' },
+      18: { t: 'დაბადების დღის მილოცვა და პირადი ამბავი.', k: 'პოსტი', p: 'li' }
+    }
+  }
+];
+
+(function(){
+  var DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  var root = document.getElementById('boards');
+
+  CAL.forEach(function(mo, mi){
+    var first = new Date(mo.year, mo.month, 1).getDay();          // weekday of the 1st
+    var dim   = new Date(mo.year, mo.month + 1, 0).getDate();     // days in month
+    var rows  = Math.ceil((first + dim) / 7);
+
+    var board = document.createElement('section');
+    board.className = 'board m m-float';
+    board.style.setProperty('--d', (mi * .08) + 's');
+
+    /* left column */
+    var side = document.createElement('div');
+    side.className = 'side';
+    side.innerHTML =
+      '<h2>Monthly Content Calendar</h2>' +
+      '<div class="month">' + mo.name + '</div>' +
+      '<span class="year-pill">' + mo.year + '</span>' +
+      '<div class="legend"><p class="t">Platform</p>' +
+      '<div class="legend-pills"><span class="ig">Instagram</span><span class="li">LinkedIn</span></div></div>';
+    board.appendChild(side);
+
+    /* calendar */
+    var scroll = document.createElement('div');
+    scroll.className = 'cal-scroll';
+    var cal = document.createElement('div');
+    cal.className = 'cal';
+
+    var head = document.createElement('div');
+    head.className = 'cal-head';
+    DAYS.forEach(function(d){ var c = document.createElement('div'); c.textContent = d; head.appendChild(c); });
+    cal.appendChild(head);
+
+    var grid = document.createElement('div');
+    grid.className = 'cal-grid';
+    var total = rows * 7;
+    for (var i = 0; i < total; i++){
+      var day = i - first + 1;
+      var cell = document.createElement('div');
+      if (day < 1 || day > dim){
+        cell.className = 'cell empty';
+      } else {
+        var e = mo.entries[day];
+        cell.className = 'cell' + (e ? ' has' : '');
+        var html = '<span class="d">' + day + '</span>';
+        if (e){
+          html += '<span class="post-t">' + e.t + '</span>' +
+                  '<span class="post-k">' + e.k + '</span>' +
+                  '<span class="bar ' + e.p + '"></span>';
+        }
+        cell.innerHTML = html;
+      }
+      grid.appendChild(cell);
+    }
+    cal.appendChild(grid);
+    scroll.appendChild(cal);
+    board.appendChild(scroll);
+    root.appendChild(board);
+  });
+
+  /* entrance reveal */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.06});
+  document.querySelectorAll('.m').forEach(function(el){ io.observe(el); });
+
+  /* mobile nav */
+  var burger = document.getElementById('burger'), links = document.getElementById('navlinks');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open'); burger.setAttribute('aria-expanded', open);
+  });
+})();
+</script>
+</body>
+</html>
