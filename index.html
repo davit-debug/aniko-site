@@ -141,12 +141,17 @@ header.nav.scrolled .b-rest{max-width:0;opacity:0}
 .shape{position:absolute;pointer-events:none;z-index:0;opacity:.9}
 .deco-wrap{position:relative;z-index:1}
 
-/* ---------- ticker marquee (Yuki Nakamura / Thrive style) ---------- */
-.ticker{overflow:hidden;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
-.ticker-in{display:flex;white-space:nowrap;width:max-content;animation:scrollX 26s linear infinite}
-.ticker span{font-family:'Agrandir','Syne',sans-serif;font-weight:400;font-size:clamp(1.9rem,4.7vw,3.4rem);letter-spacing:.01em;padding-right:.6em}
-.ticker .o{color:transparent;-webkit-text-stroke:1.6px var(--ink-dim)}
-.ticker .f1{color:var(--yellow)} .ticker .f2{color:var(--pink)} .ticker .f3{color:var(--green)}
+/* ---------- ticker marquee — dual counter-scroll (Thrive style) ---------- */
+.ticker{overflow:hidden;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.ticker-in{display:flex;align-items:center;white-space:nowrap;width:max-content;animation:scrollX 30s linear infinite}
+.ticker-in.rev{animation-direction:reverse;animation-duration:36s;margin-top:10px}
+.ticker:hover .ticker-in{animation-play-state:paused}
+.ticker span{font-family:'Agrandir','Syne',sans-serif;letter-spacing:.01em;padding-right:.6em}
+.ticker .o{color:transparent;-webkit-text-stroke:1.4px var(--ink-dim);font-weight:400;font-size:clamp(1.5rem,3.6vw,2.5rem)}
+.ticker-in.rev .o{-webkit-text-stroke:0;color:var(--ink-dim);opacity:.65;font-size:clamp(1.1rem,2.4vw,1.7rem)}
+.ticker .s{color:var(--green);font-size:clamp(1.2rem,2.4vw,1.7rem)}
+.ticker-in.rev .s{color:var(--pink)}
 @keyframes scrollX{to{transform:translateX(-50%)}}
 
 /* ---------- about — mind-map ---------- */
@@ -409,15 +414,37 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   </div>
 </section>
 
-<!-- ============ TICKER ============ -->
+<!-- ============ TICKER — dual counter-scroll ============ -->
 <div class="ticker" aria-hidden="true">
+  <!-- top row → scrolls left, big outlined, green ✳ -->
   <div class="ticker-in">
-    <span class="o">CONTENT MARKETING</span><span class="f1">✳</span>
-    <span class="o">GRAPHIC DESIGN</span><span class="f2">✳</span>
-    <span class="o">INFLUENCER MARKETING</span><span class="f3">✳</span>
-    <span class="o">CONTENT MARKETING</span><span class="f1">✳</span>
-    <span class="o">GRAPHIC DESIGN</span><span class="f2">✳</span>
-    <span class="o">INFLUENCER MARKETING</span><span class="f3">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+  </div>
+  <!-- bottom row → scrolls right, smaller filled, pink ✳ -->
+  <div class="ticker-in rev">
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
+    <span class="o">INFLUENCER MARKETING</span><span class="s">✳</span>
+    <span class="o">GRAPHIC DESIGN</span><span class="s">✳</span>
+    <span class="o">CONTENT MARKETING</span><span class="s">✳</span>
   </div>
 </div>
 
