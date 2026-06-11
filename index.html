@@ -68,12 +68,16 @@ section[id],footer[id]{scroll-margin-top:96px}
 .btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
 
 /* ---------- header — full-width frosted pill, centered brand (Aurora's House 1:1) ---------- */
-header.nav{position:fixed;top:18px;left:0;right:0;z-index:100;padding:0 clamp(14px,2.8vw,40px)}
+header.nav{position:fixed;top:18px;left:0;right:0;z-index:100;padding:0 clamp(14px,2.8vw,40px);
+  transition:padding .5s cubic-bezier(.22,.61,.36,1),top .5s cubic-bezier(.22,.61,.36,1)}
 .nav-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:62px;padding:0 30px;
   background:rgba(255,255,255,.07);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
   border:1px solid rgba(255,255,255,.13);border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,.28);
-  transition:background .35s,box-shadow .35s}
-header.nav.scrolled .nav-bar{background:rgba(38,15,55,.78);box-shadow:0 16px 44px rgba(0,0,0,.5)}
+  transition:background .45s,box-shadow .45s,height .45s cubic-bezier(.22,.61,.36,1)}
+/* Aurora scroll morph: the pill narrows + darkens into a compact bar */
+header.nav.scrolled{padding:0 clamp(28px,8vw,130px);top:12px}
+header.nav.scrolled .nav-bar{background:rgba(14,6,22,.92);height:54px;
+  border-color:rgba(255,255,255,.08);box-shadow:0 16px 44px rgba(0,0,0,.5)}
 .nav-side{display:flex;align-items:center;gap:30px}
 .nav-side.left{justify-content:flex-start}
 .nav-side.right{justify-content:flex-end}
