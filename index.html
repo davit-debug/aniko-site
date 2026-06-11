@@ -15,8 +15,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;700;800&family=Syne:wght@800&display=swap" rel="stylesheet" />
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet" />
 <style>
+/* Agrandir (Pangram Pangram) — client-provided files, self-hosted */
+@font-face{font-family:'Agrandir';src:url('aniko-refs/fonts/agrandir-tight.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Agrandir';src:url('aniko-refs/fonts/agrandir-thin.woff2') format('woff2');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Agrandir Wide';src:url('aniko-refs/fonts/agrandir-wide-black.woff2') format('woff2');font-weight:900;font-style:italic;font-display:swap}
+@font-face{font-family:'Agrandir Wide';src:url('aniko-refs/fonts/agrandir-wide-light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 /* ===========================================================
    ANIKO (Anna) — playful retro brand site  ·  docx-driven build
    bg: deep indigo  ·  Fredoka display  ·  colorful organic decor
@@ -142,7 +146,7 @@ header.nav.scrolled .nav-side{gap:22px}
 /* ---------- ticker marquee (Yuki Nakamura / Thrive style) ---------- */
 .ticker{overflow:hidden;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
 .ticker-in{display:flex;white-space:nowrap;width:max-content;animation:scrollX 26s linear infinite}
-.ticker span{font-family:'Clash Display','Syne',sans-serif;font-weight:700;font-size:clamp(1.8rem,4.5vw,3.2rem);letter-spacing:.02em;padding-right:.6em}
+.ticker span{font-family:'Agrandir','Syne',sans-serif;font-weight:400;font-size:clamp(1.9rem,4.7vw,3.4rem);letter-spacing:.01em;padding-right:.6em}
 .ticker .o{color:transparent;-webkit-text-stroke:1.6px var(--ink-dim)}
 .ticker .f1{color:var(--yellow)} .ticker .f2{color:var(--pink)} .ticker .f3{color:var(--green)}
 @keyframes scrollX{to{transform:translateX(-50%)}}
