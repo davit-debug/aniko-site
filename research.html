@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Research — საბანკო ბრენდკომუნიკაციის ტრანსფორმაცია | Anna Chikhiashvili</title>
-<meta name="description" content="ანა ჩიხიაშვილის სადიპლომო ნაშრომი (GIPA, 2026): ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე — საქართველოს ბანკისა და თიბისის ბრენდკომუნიკაციის შედარებითი კვლევა." />
+<title>Research — ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე | Anna Chikhiashvili</title>
+<meta name="description" content="ანა ჩიხიაშვილის სადიპლომო ნაშრომი (GIPA, 2026): ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე — საქართველოს ბანკისა და თიბისის ბრენდკომუნიკაციის შედარებითი კვლევა, ინტერაქციული დაშბორდი." />
 <meta name="theme-color" content="#1b1030" />
 <meta name="color-scheme" content="dark" />
 <link rel="icon" type="image/png" href="aniko-refs/favicon.png" />
-<meta property="og:title" content="ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე — კვლევა" />
+<meta property="og:title" content="ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე — ინტერაქციული დაშბორდი" />
 <meta property="og:description" content="როგორ დაიწყო ბანკმა შენთან ლაპარაკი — ანა ჩიხიაშვილის სადიპლომო ნაშრომი, GIPA 2026." />
 <meta property="og:image" content="https://davit-debug.github.io/aniko-site/aniko-refs/image6.png" />
 <link rel="canonical" href="https://davit-debug.github.io/aniko-site/research.html" />
@@ -17,167 +17,376 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;700;800&family=Syne:wght@700;800&family=Noto+Sans+Georgian:wght@400;500;700;800&family=Noto+Serif+Georgian:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="aniko-portfolio.css" />
 <style>
-/* Georgian text falls back from the Latin brand fonts to Noto Georgian */
+/* ===========================================================
+   ANIKO — Research · VARIANT "Interactive Findings Dashboard"
+   Left sticky chapter rail (scroll-spy) + interactive panels.
+   Tokens / nav / footer / motion inherit from aniko-portfolio.css.
+   All thesis copy is rendered from window.RESEARCH (see render script).
+   =========================================================== */
+
+/* Georgian font fallback off the Latin brand fonts */
 body{font-family:'Montserrat','Noto Sans Georgian',system-ui,-apple-system,sans-serif}
 h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
-.sec-g{font-family:'Syne','Noto Sans Georgian',system-ui,sans-serif;font-weight:800;font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.08}
 .btn{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
+.sec-g{font-family:'Syne','Noto Sans Georgian',system-ui,sans-serif;font-weight:800;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.1;letter-spacing:-.01em}
 
-/* ---------- hero: institutional → personalized transformation ---------- */
-.rs-hero{min-height:88vh;display:flex;align-items:center;padding:150px 0 64px;overflow:hidden}
-.rs-hero .wrap{position:relative;z-index:1;max-width:900px;text-align:center}
-.rs-shape{transition:opacity 1s ease .15s, transform 1s ease .15s}
-body.formal .rs-shape{opacity:0;transform:scale(.6)}
+/* ---------- app shell: rail + content ---------- */
+.app{
+  display:grid;
+  grid-template-columns:248px minmax(0,1fr);
+  gap:clamp(26px,3.4vw,54px);
+  max-width:1240px;margin:0 auto;
+  padding:108px clamp(16px,3vw,40px) 30px;
+  align-items:start;
+}
 
-.mode{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:5px;margin-bottom:38px}
-.mode button{font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-size:.86rem;font-weight:500;color:var(--ink-dim);background:none;border:0;border-radius:999px;padding:9px 18px;cursor:pointer;transition:background .35s,color .35s}
-.mode button[aria-pressed="true"]{background:var(--yellow);color:#171042}
-body.formal .mode button[data-mode="formal"]{background:#8b8b96;color:#15151c}
-body.formal .mode button[data-mode="personal"]{background:none;color:var(--ink-dim)}
+/* ---------- LEFT chapter rail (sticky scroll-spy) ---------- */
+.rail{
+  position:sticky;top:104px;align-self:start;
+  max-height:calc(100vh - 130px);overflow:auto;
+  scrollbar-width:thin;
+}
+.rail::-webkit-scrollbar{width:5px}
+.rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.rail-head{
+  font-family:var(--font);font-size:.66rem;font-weight:800;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--green);margin:0 0 14px;padding-left:14px;
+}
+.rail-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.rail-list a{
+  display:flex;align-items:center;gap:11px;
+  padding:11px 13px;border-radius:12px;
+  font-family:var(--font-display);font-weight:500;font-size:.93rem;
+  color:var(--ink-dim);position:relative;line-height:1.25;
+  transition:color .18s,background .18s;
+}
+.rail-list a .ix{
+  flex:none;font-family:var(--font-syne);font-weight:800;font-size:.68rem;
+  width:1.6em;color:var(--ink-dim);opacity:.6;transition:color .18s,opacity .18s;
+}
+.rail-list a:hover{color:var(--ink);background:rgba(255,255,255,.04)}
+.rail-list a.active{color:var(--ink);background:rgba(255,255,255,.07)}
+.rail-list a.active .ix{color:var(--yellow);opacity:1}
+.rail-list a.active::before{
+  content:"";position:absolute;left:-1px;top:50%;transform:translateY(-50%);
+  width:3px;height:60%;border-radius:3px;background:var(--yellow);
+}
+.rail-foot{margin-top:18px;padding:0 6px}
+.rail-foot .btn{width:100%;justify-content:center;padding:12px 16px;font-size:.92rem}
 
-.greet{display:grid;margin-bottom:26px}
-.greet>div{grid-area:1/1;transition:opacity .7s ease,transform .7s ease}
-.g-f{opacity:0;transform:translateY(-10px);pointer-events:none}
-body.formal .g-f{opacity:1;transform:none}
-body.formal .g-p{opacity:0;transform:translateY(10px)}
-.g-f .stamp{display:inline-block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#9d9daa;border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:3px;margin-bottom:16px}
-.g-f .dear{font-family:'Noto Serif Georgian',serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.9rem);color:#c9c9d4;line-height:1.25}
-.g-f .clause{font-family:'Noto Serif Georgian',serif;font-size:1rem;color:#8e8e9c;margin:12px 0 0}
-.g-p .hey{font-weight:700;font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.12}
-.g-p .hey .you{color:var(--yellow)}
-.g-p .sub{color:var(--ink-dim);font-size:1.08rem;margin:12px 0 0}
-.spark-y{color:var(--yellow)}
+/* ---------- top scroll-spy bar (≤900px) ---------- */
+.spybar{display:none}
+@media(max-width:900px){
+  .app{grid-template-columns:1fr;padding-top:96px;gap:0}
+  .rail{display:none}
+  .spybar{
+    display:block;position:sticky;top:84px;z-index:40;
+    margin:0 -16px 8px;background:rgba(18,10,34,.92);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .spybar-track{
+    display:flex;gap:6px;overflow-x:auto;padding:11px 16px;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .spybar-track::-webkit-scrollbar{display:none}
+  .spybar-track a{
+    flex:none;display:inline-flex;align-items:center;gap:7px;
+    padding:7px 14px;border-radius:999px;border:1.4px solid var(--line);
+    font-family:var(--font-display);font-weight:600;font-size:.84rem;
+    color:var(--ink-dim);white-space:nowrap;background:rgba(255,255,255,.03);
+    transition:color .18s,border-color .18s,background .18s;
+  }
+  .spybar-track a .ix{font-family:var(--font-syne);font-weight:800;font-size:.66rem;opacity:.7}
+  .spybar-track a.active{color:var(--ink-dark);background:var(--yellow);border-color:var(--yellow)}
+  .spybar-track a.active .ix{opacity:1}
+}
 
-.rs-title{font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:600;line-height:1.3;margin:8px 0 6px;transition:filter .9s ease,opacity .9s ease}
-.rs-title em{font-style:normal;color:var(--pink)}
-.rs-subtitle{color:var(--ink-dim);font-size:clamp(1rem,2vw,1.16rem);max-width:56ch;margin:0 auto}
-.rs-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:26px 0 30px;transition:filter .9s ease,opacity .9s ease}
-.chip{font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--ink-dim)}
-.rs-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;transition:filter .9s ease,opacity .9s ease}
-body.formal .rs-title,body.formal .rs-chips,body.formal .rs-cta{filter:grayscale(1);opacity:.32}
+/* ---------- content column ---------- */
+.content{min-width:0;display:flex;flex-direction:column;gap:clamp(46px,6vw,72px)}
+.block{scroll-margin-top:110px}
+@media(max-width:900px){.block{scroll-margin-top:150px}}
 
-/* ---------- facts counter bar ---------- */
-.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
-.facts .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding-top:30px;padding-bottom:30px;text-align:center}
-.fact b{display:block;font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-weight:700;font-size:clamp(1.7rem,3.6vw,2.6rem);color:var(--yellow)}
-.fact:nth-child(2) b{color:var(--pink)}.fact:nth-child(3) b{color:var(--green)}.fact:nth-child(4) b{color:var(--purple)}.fact:nth-child(5) b{color:var(--orange)}
-.fact span{font-size:.78rem;color:var(--ink-dim);font-weight:600}
+.eyebrow-g{
+  font-family:var(--font);font-size:.7rem;font-weight:800;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--green);display:block;margin-bottom:12px;
+}
+.block > .sec-g{margin-bottom:6px}
+.lead{color:var(--ink-dim)}
 
-/* ---------- shared section rhythm ---------- */
-.rs-sec{padding:84px 0 0}
-.rs-sec .eyebrow{display:block;margin-bottom:12px}
-.rs-lead{color:var(--ink-dim);font-size:1.06rem;line-height:1.85;max-width:72ch;margin:18px 0 0}
+/* ---------- COMPACT HERO ---------- */
+.hero{
+  background:linear-gradient(150deg,var(--surface) 0%,var(--surface-2) 60%,var(--bg-2) 100%);
+  border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:clamp(24px,3.6vw,42px);position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;
+  border-radius:50%;background:radial-gradient(circle,rgba(255,210,63,.16),transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-family:var(--font);font-size:.7rem;font-weight:800;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;
+  flex-wrap:wrap;gap:8px 14px;align-items:center;
+}
+.hero-eyebrow .org{color:var(--ink-dim)}
+.hero h1{
+  font-family:'Syne','Noto Sans Georgian',system-ui,sans-serif;font-weight:800;
+  font-size:clamp(1.5rem,3.4vw,2.5rem);line-height:1.14;letter-spacing:-.01em;
+  max-width:24ch;color:var(--ink);
+}
+.hero-sub{margin-top:14px;color:var(--ink-dim);font-size:clamp(1rem,1.7vw,1.12rem);max-width:60ch;line-height:1.6}
+.hero-meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:9px 10px;align-items:center}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:var(--font-display);font-weight:500;font-size:.86rem;
+  padding:7px 14px;border-radius:999px;border:1.4px solid var(--line);
+  background:rgba(255,255,255,.04);color:var(--ink-dim);
+}
+.hero-chip b{font-weight:700;color:var(--ink)}
+.hero-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--yellow));flex:none}
+.hero-cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px}
 
-/* ---------- hypotheses ---------- */
-.hyp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
-.hyp{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px}
-.hyp .tag{align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.95rem;color:#171042;border-radius:10px;padding:4px 12px}
-.hyp.h1 .tag{background:var(--yellow)}.hyp.h2 .tag{background:var(--pink)}.hyp.h3 .tag{background:var(--green)}.hyp.h4 .tag{background:var(--purple)}
-.hyp p.txt{margin:0;font-size:1.04rem;font-weight:600;line-height:1.6}
-.hyp .verdict{margin-top:auto;border-top:1px dashed var(--line);padding-top:14px;font-size:.9rem;color:var(--ink-dim);line-height:1.6}
-.hyp .verdict b{color:var(--ink);font-weight:700}
+/* ---------- STAT TILES (count-up) ---------- */
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px;
+}
+.fact{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px 18px;position:relative;overflow:hidden;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .35s;
+}
+.fact:hover{transform:translateY(-4px);border-color:var(--c,var(--yellow))}
+.fact::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,var(--yellow));
+}
+.fact b{
+  display:block;font-family:var(--font-syne);font-weight:800;
+  font-size:clamp(2rem,4vw,2.8rem);line-height:1;color:var(--c,var(--yellow));
+  font-variant-numeric:tabular-nums;
+}
+.fact span{display:block;margin-top:8px;font-family:var(--font-display);font-weight:500;font-size:.92rem;color:var(--ink-dim)}
 
-/* ---------- methodology ---------- */
-.meth-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
-.meth{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 18px}
-.meth .n{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--yellow);display:block;margin-bottom:10px}
-.meth h3{font-size:1rem;margin-bottom:8px}
-.meth p{margin:0;font-size:.82rem;color:var(--ink-dim);line-height:1.6}
-.seg-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.seg{font-size:.8rem;font-weight:600;color:var(--ink-dim);background:rgba(255,255,255,.04);border:1px dashed var(--line);border-radius:999px;padding:8px 16px}
-.seg b{color:var(--green);font-weight:800}
+/* ---------- generic data panel ---------- */
+.panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(20px,2.6vw,30px);
+}
+.excerpt-list{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.excerpt{
+  display:flex;gap:14px;align-items:flex-start;
+  color:var(--ink-dim);font-size:1rem;line-height:1.62;
+}
+.excerpt .mark{
+  flex:none;width:26px;height:26px;border-radius:8px;margin-top:2px;
+  display:grid;place-items:center;background:rgba(255,210,63,.14);
+  color:var(--yellow);font-family:var(--font-syne);font-weight:800;font-size:.78rem;
+}
 
-/* ---------- two streams ---------- */
-.str-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
-.str{border-radius:var(--r-lg);padding:30px 28px;border:1px solid var(--line)}
-.str.ok{background:linear-gradient(160deg,rgba(126,217,87,.12),var(--surface) 55%)}
-.str.bad{background:linear-gradient(160deg,rgba(255,90,77,.13),var(--surface) 55%)}
-.str h3{font-size:1.2rem;display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.str .mark{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:1rem;font-weight:800;flex:none}
-.str.ok .mark{background:var(--green);color:#10240a}
-.str.bad .mark{background:var(--coral);color:#fff}
-.str .kicker{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.str.ok .kicker{color:var(--green)}.str.bad .kicker{color:var(--coral)}
-.str ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
-.str li{font-size:.94rem;color:var(--ink-dim);line-height:1.6;padding-left:22px;position:relative}
-.str li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%}
-.str.ok li::before{background:var(--green)}.str.bad li::before{background:var(--coral)}
-.paradox{margin-top:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 28px;display:flex;gap:20px;align-items:flex-start}
-.paradox .ic{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:var(--purple);flex:none;line-height:1}
-.paradox h3{font-size:1.05rem;margin-bottom:6px}
-.paradox p{margin:0;font-size:.94rem;color:var(--ink-dim);line-height:1.7}
+/* ---------- HYPOTHESES interactive grid ---------- */
+.hypo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
+.hypo{
+  text-align:left;cursor:pointer;font:inherit;color:inherit;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-md);
+  padding:20px;position:relative;overflow:hidden;
+  transition:border-color .25s,background .25s,transform .3s cubic-bezier(.22,.61,.36,1);
+}
+.hypo:hover{border-color:var(--purple);transform:translateY(-3px)}
+.hypo.open{border-color:var(--purple);background:var(--surface-2)}
+.hypo-id{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--font-syne);font-weight:800;font-size:.9rem;
+  color:var(--ink-dark);background:var(--purple);
+  width:42px;height:30px;border-radius:8px;margin-bottom:14px;
+}
+.hypo-teaser{font-family:var(--font-display);font-weight:600;font-size:1.04rem;color:var(--ink);line-height:1.3;display:block}
+.hypo-body{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s ease,opacity .35s ease,margin .35s ease;
+  color:var(--ink-dim);font-size:.96rem;line-height:1.6;margin-top:0;
+}
+.hypo.open .hypo-body{max-height:360px;opacity:1;margin-top:12px}
+.hypo-cue{
+  position:absolute;top:16px;right:18px;color:var(--ink-dim);
+  font-size:1.2rem;font-weight:700;font-family:var(--font);line-height:1;transition:color .2s;
+}
+.hypo:hover .hypo-cue,.hypo.open .hypo-cue{color:var(--purple)}
 
-/* ---------- case study: two banks ---------- */
-.bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
-.bank{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;border-top:6px solid}
-.bank.bog{border-top-color:var(--orange)}
-.bank.tbc{border-top-color:var(--cyan)}
-.bank .who{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-.bank.bog .who{color:var(--orange)}.bank.tbc .who{color:var(--cyan)}
-.bank .slogan{font-weight:700;font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.3;margin:10px 0 4px}
-.bank .camp{font-size:.86rem;color:var(--ink-dim);margin:0 0 18px}
-.bank .camp b{color:var(--ink)}
-.tone-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.tone{font-size:.72rem;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink-dim)}
-.bank.bog .tone{background:rgba(255,122,60,.1)}
-.bank.tbc .tone{background:rgba(63,212,227,.08)}
-.bank .pos{margin:0;font-size:.92rem;color:var(--ink-dim);line-height:1.7;border-top:1px dashed var(--line);padding-top:16px}
-.bank .pos b{color:var(--ink)}
+/* ---------- METHOD list ---------- */
+.method-list{display:grid;gap:12px;margin-top:20px}
+.method{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px 22px;transition:border-color .3s,transform .3s;
+}
+.method:hover{border-color:var(--green);transform:translateX(4px)}
+.method .mn{
+  font-family:var(--font-syne);font-weight:800;font-size:1.5rem;color:var(--green);
+  line-height:1;padding-top:2px;
+}
+.method h3{font-family:var(--font-display);font-weight:600;font-size:1.12rem;color:var(--ink);margin-bottom:6px}
+.method p{color:var(--ink-dim);font-size:.96rem;line-height:1.58;margin:0}
 
-/* ---------- quotes ---------- */
-.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
-.q .qm{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;line-height:.6;color:var(--yellow)}
-.q:nth-child(2) .qm{color:var(--pink)}.q:nth-child(3) .qm{color:var(--green)}
-.q blockquote{margin:0;font-size:.93rem;color:var(--ink);line-height:1.75;font-style:italic}
-.q figcaption{margin-top:auto;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim)}
+/* ---------- BANK TOGGLE (case) ---------- */
+.toggle{display:inline-flex;flex-wrap:wrap;padding:5px;gap:5px;background:var(--bg-2);border:1px solid var(--line);border-radius:999px;margin-bottom:22px}
+.toggle button{
+  font:inherit;font-family:var(--font-display);font-weight:600;font-size:.95rem;
+  border:0;cursor:pointer;padding:10px 22px;border-radius:999px;
+  background:transparent;color:var(--ink-dim);transition:color .25s,background .25s;
+}
+.toggle button.active{color:var(--ink-dark);background:var(--c,var(--yellow))}
+.bank-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(22px,3vw,34px);position:relative;overflow:hidden;
+  border-top:4px solid var(--c,var(--yellow));
+}
+.bank-name{font-family:var(--font-display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--ink)}
+.bank-slogan{
+  margin-top:8px;font-family:'Noto Serif Georgian',var(--font-display);
+  font-size:clamp(1.15rem,2.4vw,1.55rem);font-weight:600;font-style:italic;
+  color:var(--c,var(--yellow));line-height:1.3;
+}
+.bank-slogan::before{content:"\201C"}
+.bank-slogan::after{content:"\201D"}
+.tones{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tone{
+  font-family:var(--font-display);font-weight:600;font-size:.84rem;
+  padding:6px 14px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1.3px solid var(--line);color:var(--ink);
+}
+.bank-excerpts{margin-top:24px;display:flex;flex-direction:column;gap:14px;padding:0}
+.bank-excerpts li{
+  list-style:none;color:var(--ink-dim);font-size:.98rem;line-height:1.6;
+  padding-left:18px;position:relative;
+}
+.bank-excerpts li::before{
+  content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;
+  background:var(--c,var(--yellow));
+}
+.fade-swap{animation:fadeSwap .4s ease both}
+@keyframes fadeSwap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* ---------- generations ---------- */
-.gen-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
-.gen{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
-.gen h3{font-size:1.05rem;margin-bottom:10px}
-.gen h3 span{color:var(--pink)}
-.gen.older h3 span{color:var(--cyan)}
-.gen p{margin:0;font-size:.92rem;color:var(--ink-dim);line-height:1.7}
+/* ---------- TWO-STREAM SPLIT (clickable) ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.stream{
+  text-align:left;cursor:pointer;font:inherit;color:inherit;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-lg);
+  padding:24px;position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s cubic-bezier(.22,.61,.36,1),background .3s;
+}
+.stream.ok{--c:var(--green)}
+.stream.bad{--c:var(--pink)}
+.stream-detail{max-height:0;overflow:hidden;opacity:0;color:var(--ink);font-size:.95rem;line-height:1.6;transition:max-height .4s ease,opacity .35s ease,margin .35s ease,padding .35s ease,border-color .35s ease;border-top:1px dashed transparent}
+.stream.open .stream-detail{max-height:320px;opacity:1;margin-top:14px;padding-top:14px;border-top-color:var(--line)}
+.hypo.hypo-static{cursor:default}
+.hypo.hypo-static:hover{transform:none;border-color:var(--line)}
+.hypo-text{font-family:var(--font-display);font-weight:500;font-size:1.02rem;color:var(--ink);line-height:1.45;margin:0}
+.stream:hover{transform:translateY(-4px);border-color:var(--c)}
+.stream.active{background:var(--surface-2);border-color:var(--c)}
+.stream-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:.68rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--c);margin-bottom:14px;
+}
+.stream-tag .pip{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.stream h3{font-family:var(--font-display);font-weight:600;font-size:1.16rem;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.stream-body{color:var(--ink-dim);font-size:.97rem;line-height:1.6}
+.stream-cue{margin-top:14px;font-size:.76rem;font-weight:700;color:var(--c);opacity:.55;text-transform:uppercase;letter-spacing:.06em;transition:opacity .2s}
+.stream:hover .stream-cue,.stream.active .stream-cue{opacity:1}
 
-/* ---------- conclusion ---------- */
-.conc{margin-top:34px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(30px,5vw,56px);position:relative;overflow:hidden;text-align:center}
-.conc .big{font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-weight:600;font-size:clamp(1.25rem,2.8vw,1.85rem);line-height:1.5;max-width:30ch;margin:0 auto}
-.conc .big em{font-style:normal;color:var(--yellow)}
-.conc .src{display:block;margin-top:20px;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+/* ---------- GENERATION FILTER ---------- */
+.gen-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.gen-tab{
+  font:inherit;font-family:var(--font-display);font-weight:600;font-size:.92rem;cursor:pointer;
+  padding:10px 20px;border-radius:999px;border:1.5px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--ink-dim);
+  transition:color .25s,border-color .25s,background .25s;
+}
+.gen-tab:hover{color:var(--ink);border-color:var(--cyan)}
+.gen-tab.active{color:var(--ink-dark);background:var(--cyan);border-color:var(--cyan)}
+.gen-reveal{
+  margin-top:20px;background:var(--surface);border:1px solid var(--line);
+  border-left:4px solid var(--cyan);border-radius:var(--r-md);
+  padding:24px clamp(20px,2.6vw,28px);color:var(--ink-dim);
+  font-size:1.04rem;line-height:1.66;
+}
 
-/* ---------- download + references ---------- */
-.dl{margin-top:84px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(28px,4.5vw,46px);display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center}
-.dl-cover{width:108px;aspect-ratio:3/4;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-4deg);transition:transform .5s cubic-bezier(.22,.61,.36,1);box-shadow:var(--shadow)}
-.dl:hover .dl-cover{transform:rotate(0) translateY(-4px)}
-.dl-cover .gipa{font-size:.5rem;font-weight:800;letter-spacing:.14em;color:var(--coral)}
-.dl-cover .t{font-size:.5rem;font-weight:700;line-height:1.45;color:var(--ink)}
-.dl-cover .a{font-size:.46rem;color:var(--ink-dim)}
-.dl-info h2{font-size:1.35rem;margin-bottom:8px}
-.dl-info p{margin:0;font-size:.9rem;color:var(--ink-dim);line-height:1.7}
-.refs{margin-top:26px}
-.refs summary{cursor:pointer;font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-weight:600;font-size:1rem;color:var(--ink-dim);padding:14px 0;border-top:1px solid var(--line);list-style:none;display:flex;align-items:center;gap:10px}
-.refs summary::-webkit-details-marker{display:none}
-.refs summary .car{transition:transform .3s;color:var(--yellow)}
-.refs[open] summary .car{transform:rotate(90deg)}
-.refs ol{margin:6px 0 10px;padding-left:20px;columns:2;column-gap:40px}
-.refs li{font-size:.8rem;color:var(--ink-dim);line-height:1.65;margin-bottom:10px;break-inside:avoid}
+/* ---------- SEGMENT chips grid (reference, static) ---------- */
+.seg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:20px}
+.seg{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px;border-top:3px solid var(--orange);
+}
+.seg .seg-label{font-family:var(--font-display);font-weight:600;font-size:.98rem;color:var(--orange);margin-bottom:10px}
+.seg p{color:var(--ink-dim);font-size:.92rem;line-height:1.56;margin:0}
+
+/* ---------- QUOTES prev/next ---------- */
+.quote-panel{
+  background:linear-gradient(150deg,var(--surface-2),var(--surface));
+  border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:clamp(26px,4vw,46px);position:relative;overflow:hidden;
+}
+.quote-panel::before{
+  content:"\201C";position:absolute;top:-18px;left:18px;
+  font-family:var(--font-syne);font-size:9rem;color:var(--yellow);opacity:.14;line-height:1;
+}
+.quote-text{
+  font-family:'Noto Serif Georgian',var(--font-display);
+  font-size:clamp(1.1rem,2.3vw,1.5rem);line-height:1.5;color:var(--ink);
+  position:relative;z-index:1;margin:0;
+}
+.quote-src{margin-top:18px;font-family:var(--font-display);font-weight:600;color:var(--yellow);font-size:.98rem}
+.quote-nav{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+.qbtn{
+  width:46px;height:46px;border-radius:50%;flex:none;
+  border:1.5px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);
+  cursor:pointer;display:grid;place-items:center;
+  transition:border-color .2s,color .2s,transform .25s;
+}
+.qbtn:hover{border-color:var(--yellow);color:var(--yellow);transform:translateY(-2px)}
+.qbtn svg{width:20px;height:20px}
+.quote-count{font-family:var(--font-display);font-weight:600;color:var(--ink-dim);font-size:.92rem;font-variant-numeric:tabular-nums}
+.quote-dots{display:flex;gap:7px;margin-left:auto}
+.quote-dots button{
+  width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
+  background:var(--line);transition:background .25s,transform .25s;
+}
+.quote-dots button.on{background:var(--yellow);transform:scale(1.25)}
+.swap-q .quote-text,.swap-q .quote-src{animation:fadeSwap .35s ease both}
+
+/* ---------- CONCLUSION callout ---------- */
+.callout{
+  background:linear-gradient(140deg,rgba(126,217,87,.12),rgba(167,139,250,.12));
+  border:1.5px solid var(--green);border-radius:var(--r-xl);
+  padding:clamp(26px,4vw,44px);position:relative;
+}
+.callout .tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:.7rem;font-weight:800;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--green);margin-bottom:16px;
+}
+.callout .tag::before{content:"";width:22px;height:2px;background:var(--green);border-radius:2px}
+.callout p{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.12rem,2.3vw,1.5rem);line-height:1.5;color:var(--ink);margin:0;
+}
+
+/* ---------- references (compact) ---------- */
+.refs{margin-top:20px;display:grid;gap:10px}
+.ref{
+  display:flex;gap:12px;color:var(--ink-dim);font-size:.86rem;line-height:1.5;
+  padding-bottom:10px;border-bottom:1px solid var(--line);
+}
+.ref .rn{flex:none;font-family:var(--font-syne);font-weight:800;color:var(--purple);font-size:.84rem;min-width:1.8em}
 
 /* ---------- responsive ---------- */
-@media(max-width:900px){
-  .meth-grid{grid-template-columns:repeat(2,1fr)}
-  .meth:last-child{grid-column:1/-1}
-  .q-grid{grid-template-columns:1fr}
-  .facts .wrap{grid-template-columns:repeat(3,1fr);row-gap:22px}
-}
-@media(max-width:760px){
-  .hyp-grid,.str-grid,.bank-grid,.gen-grid{grid-template-columns:1fr}
-  .dl{grid-template-columns:1fr;text-align:center;justify-items:center}
-  .refs ol{columns:1}
-  .rs-hero{padding-top:128px}
+@media(max-width:640px){
+  .split{grid-template-columns:1fr}
+  .hero-cta .btn{width:100%;justify-content:center}
 }
 @media(prefers-reduced-motion:reduce){
-  .greet>div,.rs-shape,.rs-title,.rs-chips,.rs-cta{transition:none!important}
+  .fade-swap,.swap-q .quote-text,.swap-q .quote-src{animation:none!important}
 }
 </style>
 <script type="application/ld+json">
@@ -197,10 +406,6 @@ body.formal .rs-title,body.formal .rs-chips,body.formal .rs-cta{filter:grayscale
 </script>
 </head>
 <body>
-<script>
-/* institutional opening state — added by JS so no-JS visitors land on the personal (readable) state */
-if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.body.classList.add('formal');
-</script>
 <a class="skip" href="#main">Skip to content</a>
 <div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
 
@@ -223,267 +428,35 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.body
 </header>
 
 <main id="main">
-
-<!-- ============ HERO: the page itself performs the thesis ============ -->
-<section class="rs-hero">
-  <span class="shape rs-shape m-spin" style="left:7%;top:130px;color:var(--pink)" aria-hidden="true">
-    <svg width="58" height="58" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.2L18 4l-1.3 4.4L21 8l-3.4 2.7L21 14l-4.3-.4L18 18l-4-2.4L12 20l-2-4.4L6 18l1.3-4.4L3 14l3.4-3.3L3 8l4.3.6L6 4l4 2.2z"/></svg>
-  </span>
-  <span class="shape rs-shape m-breathe" style="right:8%;top:180px;color:var(--green);--rot:10deg" aria-hidden="true">
-    <svg width="56" height="56" viewBox="0 0 100 100" fill="currentColor"><path d="M50 4c6 18 22 14 30 8-6 8-10 24 8 30-18 6-14 22-8 30-8-6-24-10-30 8-6-18-22-14-30-8 6-8 10-24-8-30 18-6 14-22 8-30 8 6 24 10 30-8z"/></svg>
-  </span>
-  <span class="shape rs-shape m-breathe" style="left:12%;bottom:90px;color:var(--purple);--rot:-6deg" aria-hidden="true">
-    <svg width="74" height="22" viewBox="0 0 90 24" fill="none"><path d="M3 12c7-9 14-9 21 0s14 9 21 0 14-9 21 0 14 9 21 0" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
-  </span>
-
-  <div class="wrap">
-    <div class="mode" role="group" aria-label="საკომუნიკაციო რეჟიმი">
-      <button type="button" data-mode="formal" aria-pressed="false">ინსტიტუციური</button>
-      <button type="button" data-mode="personal" aria-pressed="true">პერსონალიზებული</button>
+  <noscript>
+    <div style="max-width:760px;margin:0 auto;padding:120px 24px 40px;color:#F3F1FF;font-family:'Noto Sans Georgian',sans-serif;line-height:1.7">
+      <h1 style="font-family:'Noto Sans Georgian',sans-serif">ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე</h1>
+      <p>ანა ჩიხიაშვილის სადიპლომო ნაშრომი — ჟურნალისტიკისა და მედია მენეჯმენტის კავკასიური სკოლა (GIPA), 2026. ხელმძღვანელი: ნინო კალანდია.</p>
+      <p>კვლევის მიზანია შეისწავლოს, როგორ გადადის საბანკო კომუნიკაცია ინსტიტუციური მოდელიდან პერსონალიზებულ PR-ზე და როგორ აისახება ეს ცვლილება მომხმარებლის აღქმასა და ნდობაზე.</p>
+      <p>გამოკითხული მომხმარებლების პასუხები აჩვენებს, რომ ბანკის მხრიდან პერსონალიზაცია ორ სრულიად სხვადასხვა დონეზე: ციფრულ და პროდუქტულ ჭრილში აღიქმება.</p>
+      <p>წინამდებარე ნაშრომში ჩატარებულმა კვლევამ დაადასტურა, რომ ქართულ საბანკო სექტორში ფორმალური და ინსტიტუციური ენიდან მომხმარებელზე მორგებულ პერსონალიზებულ PR-სტრატეგიებზე გადასვლა კანონზომიერი პროცესია.</p>
+      <p><a href="anna-chikhiashvili-diploma-2026.pdf" download style="color:#FFD23F">სრული ნაშრომის ჩამოტვირთვა (PDF)</a></p>
     </div>
+  </noscript>
+  <!-- mobile scroll-spy bar -->
+  <nav class="spybar" aria-label="თავები"><div class="spybar-track" id="spybar"></div></nav>
 
-    <div class="greet">
-      <div class="g-f" aria-hidden="true">
-        <span class="stamp">წერილი № 2026/28</span>
-        <p class="dear">ძვირფასო მომხმარებელო,</p>
-        <p class="clause">გაცნობებთ, რომ წინამდებარე დოკუმენტი ეხება ბრენდკომუნიკაციის საკითხებს. პატივისცემით, თქვენი ბანკი.</p>
+  <div class="app">
+    <!-- LEFT chapter rail -->
+    <aside class="rail" aria-label="თავების ნავიგაცია">
+      <p class="rail-head">ნავიგაცია</p>
+      <ul class="rail-list" id="railList"></ul>
+      <div class="rail-foot">
+        <a class="btn btn-yellow" id="railPdf" download>
+          ჩამოტვირთე ნაშრომი
+          <span class="arr" aria-hidden="true">↓</span>
+        </a>
       </div>
-      <div class="g-p">
-        <p class="hey">გამარჯობა, <span class="you">შენ</span> <span class="spark-y" aria-hidden="true">✳</span></p>
-        <p class="sub">ეს კვლევა იმაზეა, როგორ დაიწყო ბანკმა შენთან ლაპარაკი.</p>
-      </div>
-    </div>
+    </aside>
 
-    <h1 class="rs-title">ინსტიტუციური კომუნიკაციიდან <em>პერსონალიზებულ PR-მდე</em></h1>
-    <p class="rs-subtitle rs-title" style="font-weight:400">საბანკო სექტორში მომხმარებელზე მორგებული ბრენდკომუნიკაციის ტრანსფორმაცია</p>
-
-    <div class="rs-chips">
-      <span class="chip">სადიპლომო ნაშრომი</span>
-      <span class="chip">GIPA · 2026</span>
-      <span class="chip">ციფრული მედია და კომუნიკაცია</span>
-      <span class="chip">ხელმძღვანელი: ნინო კალანდია</span>
-    </div>
-
-    <div class="rs-cta">
-      <a class="btn btn-yellow" href="anna-chikhiashvili-diploma-2026.pdf" download>ჩამოტვირთე ნაშრომი <span style="font-weight:400;font-size:.82em">(PDF · 0.5 MB)</span></a>
-      <a class="btn btn-ghost" href="#findings">მთავარი მიგნებები ↓</a>
-    </div>
+    <!-- CONTENT (rendered from window.RESEARCH) -->
+    <div class="content" id="content"></div>
   </div>
-</section>
-
-<!-- ============ FACTS BAR ============ -->
-<div class="facts">
-  <div class="wrap">
-    <div class="fact m m-float"><b data-n="28">0</b><span>გვერდი</span></div>
-    <div class="fact m m-float" style="--d:.06s"><b data-n="4">0</b><span>ჰიპოთეზა</span></div>
-    <div class="fact m m-float" style="--d:.12s"><b data-n="8">0</b><span>სიღრმისეული ინტერვიუ</span></div>
-    <div class="fact m m-float" style="--d:.18s"><b data-n="2">0</b><span>ბანკის ქეის სთადი</span></div>
-    <div class="fact m m-float" style="--d:.24s"><b data-n="5">0</b><span>კვლევის მეთოდი</span></div>
-  </div>
-</div>
-
-<!-- ============ ABOUT THE RESEARCH ============ -->
-<section class="rs-sec">
-  <div class="wrap">
-    <span class="eyebrow m m-float" style="color:var(--yellow)">რას იკვლევს ნაშრომი</span>
-    <h2 class="sec-g m m-float" style="--d:.05s">ბანკი გესაუბრება. მაგრამ ვის ესაუბრება სინამდვილეში?</h2>
-    <p class="rs-lead m m-float" style="--d:.1s">კვლევის მიზანია შეისწავლოს, როგორ გადადის საბანკო კომუნიკაცია ინსტიტუციური მოდელიდან პერსონალიზებულ PR-ზე და როგორ აისახება ეს ცვლილება მომხმარებლის აღქმასა და ნდობაზე. საკვლევ ობიექტებად შეირჩა ქართული საბანკო სექტორის ორი ლიდერი — საქართველოს ბანკი და თიბისი ბანკი — და მათი 2025 წლის საკომუნიკაციო სტრატეგიები.</p>
-    <p class="rs-lead m m-float" style="--d:.15s">საკვანძო კითხვა მარტივია: როდის გრძნობს მომხმარებელი, რომ ბანკი პირადად მას ესაუბრება — და სად გადის ზღვარი ზრუნვასა და თვალთვალის განცდას შორის.</p>
-  </div>
-</section>
-
-<!-- ============ HYPOTHESES ============ -->
-<section class="rs-sec">
-  <div class="wrap">
-    <span class="eyebrow m m-float" style="color:var(--pink)">ჰიპოთეზები</span>
-    <h2 class="sec-g m m-float" style="--d:.05s">ოთხი ვარაუდი — და რა აჩვენა კვლევამ</h2>
-    <div class="hyp-grid">
-      <article class="hyp h1 m m-float">
-        <span class="tag">H1</span>
-        <p class="txt">პერსონალიზებული PR ზრდის მომხმარებლის ემოციურ კავშირს ბრენდთან.</p>
-        <p class="verdict"><b>დადასტურდა — ციფრულ-ვიზუალურ შრეზე.</b> აპში მორგებული დიზაინი და სახელით მიმართვა სიახლოვეს ქმნის; პროდუქტულ შეთავაზებებზე კი ეფექტი პირიქით ბრუნდება.</p>
-      </article>
-      <article class="hyp h2 m m-float" style="--d:.07s">
-        <span class="tag">H2</span>
-        <p class="txt">ადამიანური და მეგობრული საკომუნიკაციო ტონი ზრდის ნდობას ფინანსური ინსტიტუტების მიმართ.</p>
-        <p class="verdict"><b>დადასტურდა ნაწილობრივ — თაობრივი სხვაობით.</b> Gen Z-ისთვის მუშაობს; მილენიალებსა და 45+ სეგმენტში არაფორმალურობა მიუღებელია.</p>
-      </article>
-      <article class="hyp h3 m m-float" style="--d:.14s">
-        <span class="tag">H3</span>
-        <p class="txt">მომხმარებლები მეტად რეაგირებენ კომუნიკაციაზე, რომელიც ინდივიდუალურ გამოცდილებას ეხმიანება.</p>
-        <p class="verdict"><b>დადასტურდა — კონტექსტის პირობით.</b> აპის შიდა „გამარჯობა, [სახელი]!" ახლოა და ეფექტური; იგივე ხერხი მარკეტინგულ SMS-ში სპამად აღიქმება.</p>
-      </article>
-      <article class="hyp h4 m m-float" style="--d:.21s">
-        <span class="tag">H4</span>
-        <p class="txt">პერსონალიზებული PR ქმნის „პირადი დიალოგის ილუზიას" მასობრივ კომუნიკაციაში.</p>
-        <p class="verdict"><b>დადასტურდა.</b> „მეგობრობის ილუზია" მომენტალურად იმსხვრევა, როგორც კი მომხმარებელი ოფლაინ მომსახურებას ეხება.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ METHODOLOGY ============ -->
-<section class="rs-sec">
-  <div class="wrap">
-    <span class="eyebrow m m-float" style="color:var(--green)">მეთოდოლოგია</span>
-    <h2 class="sec-g m m-float" style="--d:.05s">ხუთი მეთოდი, ერთი კითხვა</h2>
-    <div class="meth-grid">
-      <article class="meth m m-float"><span class="n">01</span><h3>დისკურსის ანალიზი</h3><p>Brand Voice, ემოციური და სასაუბრო ენა, პერსონალიზებული კომუნიკაციის ლინგვისტური სტრატეგიები.</p></article>
-      <article class="meth m m-float" style="--d:.05s"><span class="n">02</span><h3>სოციალური მედია</h3><p>Facebook, Instagram და YouTube — კომენტარები, რეაქციები, ჩართულობა და ემოციური კომუნიკაციის ფორმები.</p></article>
-      <article class="meth m m-float" style="--d:.1s"><span class="n">03</span><h3>ქეის სთადი</h3><p>საქართველოს ბანკისა და თიბისის 2025 წლის საახალწლო კამპანიების შედარებითი ანალიზი.</p></article>
-      <article class="meth m m-float" style="--d:.15s"><span class="n">04</span><h3>8 სიღრმისეული ინტერვიუ</h3><p>მომხმარებლების გამოცდილება, ემოციური აღქმა და ბრენდთან ურთიერთობა — 4 სეგმენტი, თითოში 2 რესპონდენტი.</p></article>
-      <article class="meth m m-float" style="--d:.2s"><span class="n">05</span><h3>ექსპერტული ინტერვიუ</h3><p>კომუნიკაციების ექსპერტი მაკა სეხნიაშვილი — სექტორის ტრანსფორმაციის პროფესიული ხედვა.</p></article>
-    </div>
-    <div class="seg-row m m-float" style="--d:.22s">
-      <span class="seg"><b>18–25</b> · სტუდენტები და ახალგაზრდები</span>
-      <span class="seg"><b>25–34</b> · დასაქმებული მომხმარებლები</span>
-      <span class="seg"><b>30–45</b> · ფინანსურად სტაბილურები</span>
-      <span class="seg"><b>25–45</b> · ციფრულად აქტიური კრიტიკოსები</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ KEY FINDING: TWO STREAMS ============ -->
-<section class="rs-sec" id="findings">
-  <div class="wrap">
-    <span class="eyebrow m m-float" style="color:var(--purple)">მთავარი მიგნება</span>
-    <h2 class="sec-g m m-float" style="--d:.05s">პერსონალიზაცია ორ სრულიად სხვადასხვა დონეზე აღიქმება</h2>
-    <div class="str-grid">
-      <article class="str ok m m-float">
-        <span class="kicker">მუშაობს</span>
-        <h3><span class="mark" aria-hidden="true">✓</span> ციფრულ-ვიზუალური პერსონალიზაცია</h3>
-        <ul>
-          <li>მობაილბანკში დიზაინებისა და ფონების მორგება</li>
-          <li>ანაბრებისთვის ინდივიდუალური სახელების დარქმევა</li>
-          <li>აპის შიდა მისალმება — „გამარჯობა, [სახელი]!"</li>
-          <li>ემოციური storytelling რეალურ ისტორიებზე</li>
-        </ul>
-      </article>
-      <article class="str bad m m-float" style="--d:.08s">
-        <span class="kicker">ეფექტი ბრუნდება</span>
-        <h3><span class="mark" aria-hidden="true">✕</span> პროდუქტული შეთავაზებები</h3>
-        <ul>
-          <li>ერთ კატეგორიაში ექცევა 3 000 და 30 000 ლარის შემოსავალი</li>
-          <li>ირელევანტური პრემიუმ ფასდაკლებები — Porsche, Villeroy &amp; Boch</li>
-          <li>ბანერზე 12%-იანი განაკვეთი, რეალურად — 30–35%</li>
-          <li>ტრადიციული მარკეტინგული SMS სპამად აღიქმება</li>
-        </ul>
-      </article>
-    </div>
-    <div class="paradox m m-float" style="--d:.12s">
-      <span class="ic" aria-hidden="true">!?</span>
-      <div>
-        <h3>„პერსონალიზაციის პარადოქსი"</h3>
-        <p>დიდი მონაცემების ანალიზი პროფესიულ დონეზე რელევანტური PR-ის უმნიშვნელოვანესი ინსტრუმენტია — მაგრამ მომხმარებლის პერსპექტივიდან ტოტალური ფინანსური კონტროლისა და თვალთვალის განცდა არასასიამოვნოა. რაც მეტი იცის ბანკმა, მით უფრო ფაქიზი უნდა იყოს ამ ცოდნის გამოყენება.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CASE STUDY: TWO BANKS ============ -->
-<section class="rs-sec">
-  <div class="wrap">
-    <span class="eyebrow m m-float" style="color:var(--orange)">ქეის სთადი</span>
-    <h2 class="sec-g m m-float" style="--d:.05s">ორი ბანკი, ორი ხმა</h2>
-    <div class="bank-grid">
-      <article class="bank bog m m-float">
-        <span class="who">საქართველოს ბანკი</span>
-        <p class="slogan">„გაბედე ის, რაც შეუძლებლად გეჩვენება"</p>
-        <p class="camp">საახალწლო კამპანია გამომგონებელ <b>გრიგოლ კობახიძის (ჯორჯ კობის)</b> რეალურ ბიოგრაფიაზე — ვინტაჟური ილუსტრაციებით მოყოლილი ისტორია კრიზისიდან წარმატებამდე.</p>
-        <div class="tone-row"><span class="tone">ემოციური</span><span class="tone">მოტივაციური</span><span class="tone">„შენ"-ფორმა</span><span class="tone">storytelling</span></div>
-        <p class="pos">ბანკი მალავს ფინანსურ სერვისებს და ფოკუსირდება ადამიანურ განცდებზე — პოზიციონირდება როგორც <b>მხარდამჭერი პარტნიორი და ოცნების თანამგზავრი</b>.</p>
-      </article>
-      <article class="bank tbc m m-float" style="--d:.08s">
-        <span class="who">თიბისი ბანკი</span>
-        <p class="slogan">„მთავარია გჯეროდეს"</p>
-        <p class="camp">საახალწლო კამპანია <b>„სიყვარული ბრუნდება"</b> (DHL-თან ერთად) — ემიგრაცია, მონატრება და ოჯახური სითბო, თემა, რომელიც მრავალი ქართული ოჯახის ყოველდღიური რეალობაა.</p>
-        <div class="tone-row"><span class="tone">მინიმალისტური</span><span class="tone">ფუნქციური</span><span class="tone">ნეიტრალურ-პროფესიული</span><span class="tone">ტექნოლოგიური</span></div>
-        <p class="pos">ემოცია — სოციალური რეალობის ასახვით და არა მანიპულაციით; პოზიციონირება როგორც <b>თანამედროვე, სანდო ფინანსური ინსტრუმენტი</b>.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ VOICES ============ -->
-<section class="rs-sec">
-  <div class="wrap">
-    <span class="eyebrow m m-float" style="color:var(--cyan)">რესპონდენტების ხმა</span>
-    <h2 class="sec-g m m-float" style="--d:.05s">პირდაპირი ციტატები ინტერვიუებიდან</h2>
-    <div class="q-grid">
-      <figure class="q m m-float">
-        <span class="qm" aria-hidden="true">„</span>
-        <blockquote>მათი კამპანიების მიზანი ეგ არის... რომ ჩვენს მეხსიერებაში იმდენად იყვნენ დალექილები, რომ როცა საჭიროება დაგვიდგება მაგათი პროდუქტის, პირველი ეგენი გაგვახსენდნენ.</blockquote>
-        <figcaption>რესპონდენტი 1 · ემოციურ კამპანიებზე</figcaption>
-      </figure>
-      <figure class="q m m-float" style="--d:.07s">
-        <span class="qm" aria-hidden="true">„</span>
-        <blockquote>ეხლა Porsche-ზე 5%-ს დამიკლებ თუ არ დამიკლებ, ჩემთვის პირადად მაგას არანაირი მნიშვნელობა არა აქვს, იმიტომ რომ Porsche-ს ისედაც ვერ ვყიდულობ.</blockquote>
-        <figcaption>რესპონდენტი 4 · ირელევანტურ შეთავაზებებზე</figcaption>
-      </figure>
-      <figure class="q m m-float" style="--d:.14s">
-        <span class="qm" aria-hidden="true">„</span>
-        <blockquote>მე როგორც მომხმარებელს მინდა, რომ არ მომატყუო, ნუ მეუბნები, რომ 12% უნდა გადავიხადო, როცა რეალურად მიწევს 35%... მირჩევნია თავიდანვე მითხრა და მე თავად გადავწყვეტ მიღირს თუ არა.</blockquote>
-        <figcaption>რესპონდენტი 4 · გამჭვირვალობაზე</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GENERATIONS ============ -->
-<section class="rs-sec">
-  <div class="wrap">
-    <span class="eyebrow m m-float" style="color:var(--pink)">თაობრივი დასკვნა</span>
-    <h2 class="sec-g m m-float" style="--d:.05s">ერთი ხმა ყველასთვის აღარ მუშაობს</h2>
-    <div class="gen-grid">
-      <article class="gen m m-float">
-        <h3><span>Gen Z · 18–25</span></h3>
-        <p>ესაჭიროება ინტერაქციული, მეგობრული, არაფორმალური და ვიზუალურ storytelling-ზე დაფუძნებული მიდგომები — სწორედ ეს იწვევს ბრენდთან იდენტიფიკაციას და გრძელვადიან ლოიალობას.</p>
-      </article>
-      <article class="gen older m m-float" style="--d:.08s">
-        <h3><span>მილენიალები &amp; 45+</span></h3>
-        <p>არაფორმალურობა მიუღებელია — კომუნიკაცია უნდა ეფუძნებოდეს ინსტიტუციურ სტაბილურობას, საოპერაციო გამჭვირვალობასა და პერსონალურ ასისტენტობას („სოლოსა" და „კონცეპტის" ლაუნჯ-მოდელები).</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONCLUSION ============ -->
-<section class="rs-sec">
-  <div class="wrap">
-    <div class="conc m m-reveal">
-      <p class="big">რეალური ერთგულება ყალიბდება არა გრძნობებით მანიპულირებით, არამედ საკომუნიკაციო აცდენის შემცირებით, <em>საინფორმაციო გამჭვირვალობითა</em> და <em>საოპერაციო გულწრფელობით</em>.</p>
-      <span class="src">— ნაშრომის დასკვნა</span>
-    </div>
-
-    <div class="dl m m-float">
-      <a class="dl-cover" href="anna-chikhiashvili-diploma-2026.pdf" download aria-label="ნაშრომის ჩამოტვირთვა PDF ფორმატში">
-        <span class="gipa">GIPA · 2026</span>
-        <span class="t">ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე</span>
-        <span class="a">ანა ჩიხიაშვილი</span>
-      </a>
-      <div class="dl-info">
-        <h2>წაიკითხე სრული ნაშრომი</h2>
-        <p>28 გვერდი — სრული ლიტერატურული მიმოხილვა, მეთოდოლოგია, სოციალური მედიის ანალიზი, ინტერვიუების დეტალური შედეგები და ბიბლიოგრაფია.</p>
-        <details class="refs">
-          <summary><span class="car" aria-hidden="true">→</span> გამოყენებული ლიტერატურა (9 წყარო)</summary>
-          <ol>
-            <li>McKinsey &amp; Company (2021). The value of getting personalization right—or wrong—is multiplying.</li>
-            <li>McKinsey &amp; Company (2023). What is personalization? McKinsey Explainers.</li>
-            <li>Casaca, J. A., &amp; Miguel, L. P. (2024). The Influence of Personalization on Consumer Satisfaction. IGI Global.</li>
-            <li>Petrucci, I. P. (2022). The Impact of Consumer Perceptions of Personalised Advertising on Purchase Intention. Utrecht University.</li>
-            <li>Yeo, T. E. D., Chu, T. H., &amp; Li, Q. (2025). How persuasive is personalized advertising? Journal of Advertising Research, 65(4).</li>
-            <li>Zwayyed, Z. (2025). Building Brands That Feel Human. University of Windsor.</li>
-            <li>Chaturvedi, P. (2025). Personalization in Banking: The Key to Customer Retention. IJMH, 11(8).</li>
-            <li>Mogaji, E. (2018). Emotional Appeals in Advertising Banking Services. Emerald Publishing.</li>
-            <li>Aguirre, E., Mahr, D., Grewal, D., et&nbsp;al. (2015). Unraveling the Personalization Paradox. Journal of Retailing, 91(1).</li>
-          </ol>
-        </details>
-      </div>
-      <a class="btn btn-yellow" href="anna-chikhiashvili-diploma-2026.pdf" download>PDF · 0.5 MB <span class="arr" aria-hidden="true">↓</span></a>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <footer class="site" id="contact">
@@ -515,51 +488,564 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.body
   </div>
 </footer>
 
+<script src="research-data.js"></script>
 <script>
 (function(){
+  "use strict";
+  var R = window.RESEARCH;
+  if(!R){ return; }
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var body = document.body;
-  var btns = document.querySelectorAll('.mode button');
-  var userTouched = false;
 
-  function setMode(formal){
-    body.classList.toggle('formal', formal);
-    btns.forEach(function(b){ b.setAttribute('aria-pressed', String((b.dataset.mode==='formal') === formal)); });
+  /* ---------- tiny DOM helpers ---------- */
+  function el(tag, cls){ var e=document.createElement(tag); if(cls) e.className=cls; return e; }
+  function txt(tag, cls, t){ var e=el(tag,cls); if(t!=null) e.textContent=t; return e; }
+  function arr(x){ return Array.isArray(x) ? x : []; }
+  function str(x){ return (typeof x==='string') ? x : ''; }
+
+  var content = document.getElementById('content');
+  var railList = document.getElementById('railList');
+  var spybar = document.getElementById('spybar');
+
+  /* chapters registry: {id,label} — built as blocks are created */
+  var chapters = [];
+  function block(id, label){
+    var sec = el('section','block');
+    sec.id = id;
+    content.appendChild(sec);
+    chapters.push({ id:id, label:label });
+    return sec;
   }
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){ userTouched = true; setMode(b.dataset.mode==='formal'); });
-  });
-
-  // the transformation moment: the page "wakes up" from institutional to personal
-  if(body.classList.contains('formal')){
-    setMode(true);
-    var wake = function(){ if(!userTouched) setMode(false); cleanup(); };
-    var t = setTimeout(wake, 2600);
-    var onFirstScroll = function(){ if(window.scrollY > 30){ clearTimeout(t); wake(); } };
-    function cleanup(){ window.removeEventListener('scroll', onFirstScroll); }
-    window.addEventListener('scroll', onFirstScroll, {passive:true});
+  function head(sec, eyebrow, title){
+    if(eyebrow) sec.appendChild(txt('span','eyebrow-g', eyebrow));
+    if(title)   sec.appendChild(txt('h2','sec-g', title));
   }
 
-  // count-up facts
-  var nums = document.querySelectorAll('.fact b[data-n]');
-  if(reduced || !('IntersectionObserver' in window)){
-    nums.forEach(function(el){ el.textContent = el.dataset.n; });
-  } else {
+  /* ============================================================
+     PDF download button (rail)
+     ============================================================ */
+  var meta = R.meta || {};
+  var pdf = str(meta.pdf);
+  var railPdf = document.getElementById('railPdf');
+  if(railPdf){
+    if(pdf){ railPdf.setAttribute('href', pdf); railPdf.setAttribute('download',''); }
+    else { railPdf.style.display='none'; }
+  }
+
+  /* ============================================================
+     HERO  (compact)
+     ============================================================ */
+  (function(){
+    var sec = block('hero','შესავალი');
+    var hero = el('div','hero');
+
+    var eb = el('div','hero-eyebrow');
+    eb.appendChild(txt('span',null,'სადიპლომო ნაშრომი'));
+    var bits = [meta.org, meta.year].filter(Boolean).join(' · ');
+    if(bits) eb.appendChild(txt('span','org', bits));
+    hero.appendChild(eb);
+
+    var fullTitle = str(meta.titleKa);
+    var ci = fullTitle.indexOf(':');
+    hero.appendChild(txt('h1', null, ci>0 ? fullTitle.slice(0,ci) : fullTitle));
+
+    if(meta.subtitleKa){
+      hero.appendChild(txt('p','hero-sub', str(meta.subtitleKa)));
+    }
+
+    /* author / supervisor / program chips */
+    var metaRow = el('div','hero-meta');
+    [
+      { c:'yellow', label:'ავტორი',   val:str(meta.author) },
+      { c:'pink',   label:'ხელმძღვ.', val:str(meta.supervisor) },
+      { c:'green',  label:'პროგრამა', val:str(meta.programKa) }
+    ].forEach(function(c){
+      if(!c.val) return;
+      var chip = el('span','hero-chip');
+      chip.style.setProperty('--c','var(--'+c.c+')');
+      chip.appendChild(el('span','dot'));
+      var w = document.createElement('span');
+      w.appendChild(document.createTextNode(c.label + ': '));
+      w.appendChild(txt('b', null, c.val));
+      chip.appendChild(w);
+      metaRow.appendChild(chip);
+    });
+    hero.appendChild(metaRow);
+
+    /* CTA */
+    if(pdf){
+      var cta = el('div','hero-cta');
+      var a = el('a','btn btn-yellow');
+      a.href = pdf; a.setAttribute('download','');
+      a.appendChild(document.createTextNode('ჩამოტვირთე ნაშრომი '));
+      var ar = txt('span','arr','↓'); ar.setAttribute('aria-hidden','true');
+      a.appendChild(ar);
+      cta.appendChild(a);
+      hero.appendChild(cta);
+    }
+    sec.appendChild(hero);
+  })();
+
+  /* ============================================================
+     FACTS — animated count-up stat tiles
+     ============================================================ */
+  (function(){
+    var facts = arr(R.facts);
+    if(!facts.length) return;
+    var sec = block('facts','რიცხვებში');
+    head(sec, 'მონაცემთა სურათი', 'ნაშრომი რიცხვებში');
+
+    var grid = el('div','facts');
+    var palette = ['yellow','pink','green','purple','orange','cyan'];
+    facts.forEach(function(f, i){
+      var tile = el('div','fact');
+      tile.style.setProperty('--c','var(--'+palette[i % palette.length]+')');
+      var b = el('b');
+      var n = (typeof f.n==='number') ? f.n : parseInt(f.n,10) || 0;
+      b.setAttribute('data-n', String(n));
+      b.textContent = reduced ? String(n) : '0';
+      tile.appendChild(b);
+      tile.appendChild(txt('span', null, str(f.labelKa)));
+      grid.appendChild(tile);
+    });
+    sec.appendChild(grid);
+
+    /* count-up on view */
+    var nums = grid.querySelectorAll('b[data-n]');
+    if(reduced || !('IntersectionObserver' in window)){
+      nums.forEach(function(n){ n.textContent = n.getAttribute('data-n'); });
+    } else {
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          io.unobserve(en.target);
+          var node = en.target, target = +node.getAttribute('data-n'), t0=null;
+          (function step(ts){
+            if(!t0) t0=ts;
+            var p = Math.min((ts-t0)/1000, 1);
+            node.textContent = Math.round(target * (1 - Math.pow(1-p,3)));
+            if(p<1) requestAnimationFrame(step);
+          })(performance.now());
+        });
+      }, {threshold:.5});
+      nums.forEach(function(n){ io.observe(n); });
+    }
+  })();
+
+  /* ============================================================
+     HYPOTHESES — clickable grid revealing full textKa
+     ============================================================ */
+  (function(){
+    var hyps = arr(R.hypotheses);
+    if(!hyps.length) return;
+    var sec = block('hypotheses','ჰიპოთეზები');
+    head(sec, 'კვლევის ჩარჩო', 'ჰიპოთეზები');
+    sec.appendChild(txt('p','lead','ნაშრომის ოთხი საკვლევი ჰიპოთეზა.'));
+
+    var grid = el('div','hypo-grid');
+    hyps.forEach(function(h, i){
+      var card = el('article','hypo hypo-static');
+      card.appendChild(txt('span','hypo-id', str(h.id) || ('H'+(i+1))));
+      card.appendChild(txt('p','hypo-text', str(h.textKa)));
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+  })();
+
+  /* ============================================================
+     METHOD — methodology list
+     ============================================================ */
+  (function(){
+    var methods = arr(R.methods);
+    if(!methods.length) return;
+    var sec = block('method','მეთოდი');
+    head(sec, 'როგორ ჩატარდა', 'მეთოდოლოგია');
+    var list = el('div','method-list');
+    methods.forEach(function(m){
+      var row = el('div','method');
+      row.appendChild(txt('div','mn', str(m.n)));
+      var col = el('div');
+      col.appendChild(txt('h3', null, str(m.titleKa)));
+      col.appendChild(txt('p', null, str(m.descKa)));
+      row.appendChild(col);
+      list.appendChild(row);
+    });
+    sec.appendChild(list);
+  })();
+
+  /* ============================================================
+     FINDINGS — two-stream clickable split (from findings excerpts)
+     ============================================================ */
+  (function(){
+    var sections = arr(R.sections);
+    var findings = sections.filter(function(s){ return s.id==='findings'; })[0];
+    var ex = findings ? arr(findings.excerpts) : [];
+    var streams = arr(R.streams);
+    var sec = block('findings','მიგნებები');
+    head(sec, 'ცენტრალური მიგნება', findings ? str(findings.titleKa) : 'კვლევის ძირითადი მიგნებები');
+
+    /* lead = the two-streams framing excerpt (verbatim) */
+    if(ex[1]) sec.appendChild(txt('p','lead', str(ex[1])));
+    else if(ex[0]) sec.appendChild(txt('p','lead', str(ex[0])));
+
+    /* Two streams; each expands to a verbatim concrete example on click. */
+    if(streams.length){
+      var split = el('div','split');
+      streams.forEach(function(s){
+        var kind = (str(s.kind)==='bad') ? 'bad' : 'ok';
+        var b = el('button','stream '+kind);
+        b.type='button';
+        b.setAttribute('aria-expanded','false');
+        var tag = el('span','stream-tag');
+        tag.appendChild(el('span','pip'));
+        tag.appendChild(document.createTextNode(kind==='bad' ? 'პროდუქტული' : 'ციფრული · ვიზუალური'));
+        b.appendChild(tag);
+        b.appendChild(txt('h3', null, str(s.titleKa)));
+        b.appendChild(txt('div','stream-body', str(s.bodyKa)));
+        if(s.detailKa){
+          b.appendChild(txt('div','stream-detail', str(s.detailKa)));
+          var cue = txt('span','stream-cue','დეტალები ↓');
+          b.appendChild(cue);
+          b.addEventListener('click', function(){
+            var open = b.classList.toggle('open');
+            b.setAttribute('aria-expanded', String(open));
+            cue.textContent = open ? 'დახურვა ↑' : 'დეტალები ↓';
+          });
+        }
+        split.appendChild(b);
+      });
+      sec.appendChild(split);
+    }
+
+    /* closing finding (transparency conclusion) as a highlighted note */
+    if(ex[4]){
+      var note = el('div','panel');
+      note.style.marginTop = '18px';
+      var list = el('div','excerpt-list'); list.style.marginTop='0';
+      var item = el('div','excerpt');
+      item.appendChild(txt('span','mark','!'));
+      item.appendChild(txt('span', null, ex[4]));
+      list.appendChild(item);
+      note.appendChild(list);
+      sec.appendChild(note);
+    }
+  })();
+
+  /* ============================================================
+     SOCIAL MEDIA — excerpts panel
+     ============================================================ */
+  (function(){
+    var sections = arr(R.sections);
+    var social = sections.filter(function(s){ return s.id==='social'; })[0];
+    if(!social) return;
+    var ex = arr(social.excerpts);
+    if(!ex.length) return;
+    var sec = block('social','სოც. მედია');
+    head(sec, 'არხების ანალიზი', str(social.titleKa));
+    var panel = el('div','panel');
+    var list = el('div','excerpt-list');
+    ex.forEach(function(e, i){
+      var item = el('div','excerpt');
+      item.appendChild(txt('span','mark', String(i+1)));
+      item.appendChild(txt('span', null, str(e)));
+      list.appendChild(item);
+    });
+    panel.appendChild(list);
+    sec.appendChild(panel);
+  })();
+
+  /* ============================================================
+     CASE — BoG ⇄ TBC toggle swapping the bank detail panel
+     ============================================================ */
+  (function(){
+    var banks = arr(R.banks);
+    if(banks.length < 1) return;
+    var sec = block('case','ქეისი');
+    head(sec, 'შედარებითი ქეის სთადი', 'ბანკი ⇄ ბანკი');
+    sec.appendChild(txt('p','lead','გადართე ბანკებს შორის და შეადარე საკომუნიკაციო ენა, ტონი და სლოგანი.'));
+
+    var accentOf = function(b){ return str(b.accent) || 'yellow'; };
+
+    var toggle = el('div','toggle');
+    var panel = el('div','bank-panel');
+    panel.setAttribute('aria-live','polite');
+    var tabBtns = [];
+
+    function render(idx){
+      var b = banks[idx]; if(!b) return;
+      var ac = 'var(--'+accentOf(b)+')';
+      panel.style.setProperty('--c', ac);
+      toggle.style.setProperty('--c', ac);
+      panel.innerHTML = '';
+      panel.classList.remove('fade-swap'); void panel.offsetWidth; panel.classList.add('fade-swap');
+
+      panel.appendChild(txt('div','bank-name', str(b.name)));
+      if(b.sloganKa) panel.appendChild(txt('div','bank-slogan', str(b.sloganKa)));
+
+      var tones = arr(b.tones);
+      if(tones.length){
+        var tw = el('div','tones');
+        tones.forEach(function(t){ tw.appendChild(txt('span','tone', str(t))); });
+        panel.appendChild(tw);
+      }
+      var exs = arr(b.excerpts);
+      if(exs.length){
+        var ul = el('ul','bank-excerpts');
+        exs.forEach(function(e){ ul.appendChild(txt('li', null, str(e))); });
+        panel.appendChild(ul);
+      }
+      tabBtns.forEach(function(tb, j){
+        var on = (j===idx);
+        tb.classList.toggle('active', on);
+        tb.setAttribute('aria-pressed', String(on));
+        if(on) tb.style.setProperty('--c', ac);
+      });
+    }
+
+    banks.forEach(function(b, i){
+      var btn = txt('button', null, str(b.name));
+      btn.type='button';
+      btn.setAttribute('aria-pressed','false');
+      btn.style.setProperty('--c','var(--'+accentOf(b)+')');
+      btn.addEventListener('click', function(){ render(i); });
+      tabBtns.push(btn);
+      toggle.appendChild(btn);
+    });
+
+    sec.appendChild(toggle);
+    sec.appendChild(panel);
+    render(0);
+  })();
+
+  /* ============================================================
+     SEGMENTS — interviewee segment reference grid
+     ============================================================ */
+  (function(){
+    var segs = arr(R.segments);
+    if(!segs.length) return;
+    var sec = block('segments','სეგმენტები');
+    head(sec, 'ინტერვიუს ნიმუში', 'მომხმარებელთა სეგმენტები');
+    var grid = el('div','seg-grid');
+    segs.forEach(function(s){
+      var card = el('div','seg');
+      card.appendChild(txt('div','seg-label', str(s.labelKa)));
+      card.appendChild(txt('p', null, str(s.bodyKa)));
+      grid.appendChild(card);
+    });
+    sec.appendChild(grid);
+  })();
+
+  /* ============================================================
+     GENERATIONS — filter buttons revealing generations[i].bodyKa
+     ============================================================ */
+  (function(){
+    var gens = arr(R.generations);
+    if(!gens.length) return;
+    var sec = block('generations','თაობები');
+    head(sec, 'სეგმენტური აღქმა', 'რას ელის თითო თაობა');
+
+    var tabs = el('div','gen-tabs');
+    var reveal = el('div','gen-reveal');
+    reveal.setAttribute('aria-live','polite');
+    var tabEls = [];
+
+    function show(idx){
+      var g = gens[idx]; if(!g) return;
+      reveal.textContent = str(g.bodyKa);
+      reveal.classList.remove('fade-swap'); void reveal.offsetWidth; reveal.classList.add('fade-swap');
+      tabEls.forEach(function(t, j){
+        var on = (j===idx);
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-pressed', String(on));
+      });
+    }
+    gens.forEach(function(g, i){
+      var btn = txt('button','gen-tab', str(g.labelKa));
+      btn.type='button';
+      btn.setAttribute('aria-pressed','false');
+      btn.addEventListener('click', function(){ show(i); });
+      tabEls.push(btn);
+      tabs.appendChild(btn);
+    });
+    sec.appendChild(tabs);
+    sec.appendChild(reveal);
+    show(0);
+  })();
+
+  /* ============================================================
+     VOICES — prev/next quote panel from quotes[]
+     ============================================================ */
+  (function(){
+    var quotes = arr(R.quotes);
+    if(!quotes.length) return;
+    var sec = block('voices','ხმები');
+    head(sec, 'რესპონდენტთა ხმები', 'პირდაპირი ციტატები');
+
+    var panel = el('div','quote-panel');
+    var qText = el('p','quote-text');
+    qText.setAttribute('aria-live','polite');
+    var qSrc = el('div','quote-src');
+    panel.appendChild(qText);
+    panel.appendChild(qSrc);
+
+    var nav = el('div','quote-nav');
+    var prev = el('button','qbtn');
+    prev.type='button'; prev.setAttribute('aria-label','წინა ციტატა');
+    prev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+    var next = el('button','qbtn');
+    next.type='button'; next.setAttribute('aria-label','შემდეგი ციტატა');
+    next.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+    var count = txt('span','quote-count','');
+    var dots = el('div','quote-dots');
+    var dotEls = [];
+    quotes.forEach(function(q, i){
+      var d = el('button'); d.type='button';
+      d.setAttribute('aria-label','ციტატა '+(i+1));
+      d.addEventListener('click', function(){ go(i); });
+      dotEls.push(d); dots.appendChild(d);
+    });
+
+    nav.appendChild(prev); nav.appendChild(count); nav.appendChild(next); nav.appendChild(dots);
+    panel.appendChild(nav);
+    sec.appendChild(panel);
+
+    var cur = 0;
+    function go(i){
+      cur = (i + quotes.length) % quotes.length;
+      var q = quotes[cur];
+      qText.textContent = str(q.textKa);
+      qSrc.textContent = '— ' + str(q.sourceKa);
+      panel.classList.remove('swap-q'); void panel.offsetWidth; panel.classList.add('swap-q');
+      count.textContent = (cur+1) + ' / ' + quotes.length;
+      dotEls.forEach(function(d, j){ d.classList.toggle('on', j===cur); });
+    }
+    prev.addEventListener('click', function(){ go(cur-1); });
+    next.addEventListener('click', function(){ go(cur+1); });
+    go(0);
+  })();
+
+  /* ============================================================
+     CONCLUSION — highlighted callout
+     ============================================================ */
+  (function(){
+    var c = str(R.conclusionKa);
+    if(!c) return;
+    var sec = block('conclusion','დასკვნა');
+    head(sec, 'ფინალური დასკვნა', 'დასკვნა');
+    var callout = el('div','callout');
+    callout.appendChild(txt('span','tag','კვლევის შედეგი'));
+    callout.appendChild(txt('p', null, c));
+    sec.appendChild(callout);
+  })();
+
+  /* ============================================================
+     REFERENCES (compact)
+     ============================================================ */
+  (function(){
+    var refs = arr(R.references);
+    if(!refs.length) return;
+    var sec = block('references','წყაროები');
+    head(sec, 'ბიბლიოგრაფია', 'გამოყენებული წყაროები');
+    var box = el('div','refs');
+    refs.forEach(function(r, i){
+      var row = el('div','ref');
+      row.appendChild(txt('span','rn', String(i+1)));
+      row.appendChild(txt('span', null, str(r)));
+      box.appendChild(row);
+    });
+    sec.appendChild(box);
+  })();
+
+  /* ============================================================
+     BUILD NAV (left rail + mobile spybar) + SCROLL-SPY
+     ============================================================ */
+  (function(){
+    if(!chapters.length) return;
+    var railAnchors = [];
+    var spyAnchors = [];
+
+    function closeMobileNav(){
+      var nm = document.getElementById('navmobile');
+      var bg = document.getElementById('burger');
+      if(nm) nm.classList.remove('open');
+      if(bg) bg.setAttribute('aria-expanded','false');
+    }
+
+    chapters.forEach(function(ch, i){
+      var ixLabel = String(i+1).padStart(2,'0');
+
+      var li = el('li');
+      var a = el('a');
+      a.href = '#'+ch.id;
+      a.appendChild(txt('span','ix', ixLabel));
+      a.appendChild(document.createTextNode(ch.label));
+      a.addEventListener('click', closeMobileNav);
+      li.appendChild(a);
+      railList.appendChild(li);
+      railAnchors.push(a);
+
+      var sa = el('a');
+      sa.href = '#'+ch.id;
+      sa.appendChild(txt('span','ix', ixLabel));
+      sa.appendChild(document.createTextNode(ch.label));
+      spybar.appendChild(sa);
+      spyAnchors.push(sa);
+    });
+
+    function setActive(id){
+      railAnchors.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+id); });
+      spyAnchors.forEach(function(a){
+        var on = a.getAttribute('href')==='#'+id;
+        a.classList.toggle('active', on);
+        if(on && a.scrollIntoView){
+          a.scrollIntoView({block:'nearest', inline:'center', behavior: reduced?'auto':'smooth'});
+        }
+      });
+    }
+
+    var secEls = chapters.map(function(ch){ return document.getElementById(ch.id); });
+
+    function pickActive(){
+      /* the section whose top is closest above the 140px line */
+      var best=null, bestTop=-Infinity;
+      secEls.forEach(function(s){
+        var top = s.getBoundingClientRect().top;
+        if(top <= 140 && top > bestTop){ bestTop=top; best=s.id; }
+      });
+      if(!best && secEls[0]) best = secEls[0].id;
+      return best;
+    }
+
+    var ticking=false;
+    function onScroll(){
+      if(ticking) return; ticking=true;
+      requestAnimationFrame(function(){
+        var id = pickActive();
+        if(id) setActive(id);
+        ticking=false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll, {passive:true});
+
+    setActive(chapters[0].id);
+    onScroll();
+  })();
+
+  /* ============================================================
+     reveal-on-scroll for blocks (uses .m vocabulary from CSS)
+     ============================================================ */
+  (function(){
+    if(reduced || !('IntersectionObserver' in window)) return;
+    var blocks = content.querySelectorAll('.block');
+    blocks.forEach(function(b){ b.classList.add('m','m-float'); });
     var io = new IntersectionObserver(function(es){
       es.forEach(function(en){
-        if(!en.isIntersecting) return;
-        io.unobserve(en.target);
-        var el = en.target, target = +el.dataset.n, t0 = null;
-        (function step(ts){
-          if(!t0) t0 = ts;
-          var p = Math.min((ts - t0) / 900, 1);
-          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-          if(p < 1) requestAnimationFrame(step);
-        })(performance.now());
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    }, {threshold:.6});
-    nums.forEach(function(el){ io.observe(el); });
-  }
+    }, {threshold:.06, rootMargin:'0px 0px -6% 0px'});
+    blocks.forEach(function(b){ io.observe(b); });
+  })();
+
 })();
 </script>
 <script src="aniko-portfolio.js"></script>
