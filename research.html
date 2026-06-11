@@ -24,6 +24,8 @@
    All thesis copy is rendered from window.RESEARCH (see render script).
    =========================================================== */
 
+/* highlight accent — eyebrows & method numbers (design feedback) */
+:root{--hl:#fcba0d}
 /* Georgian font fallback off the Latin brand fonts */
 body{font-family:'Montserrat','Noto Sans Georgian',system-ui,-apple-system,sans-serif}
 h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
@@ -50,7 +52,7 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
 .rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
 .rail-head{
   font-family:var(--font);font-size:.66rem;font-weight:800;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--green);margin:0 0 14px;padding-left:14px;
+  text-transform:uppercase;color:var(--hl);margin:0 0 14px;padding-left:14px;
 }
 .rail-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
 .rail-list a{
@@ -109,7 +111,7 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
 
 .eyebrow-g{
   font-family:var(--font);font-size:.7rem;font-weight:800;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--green);display:block;margin-bottom:12px;
+  text-transform:uppercase;color:var(--hl);display:block;margin-bottom:12px;
 }
 .block > .sec-g{margin-bottom:6px}
 .lead{color:var(--ink-dim)}
@@ -127,7 +129,7 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
 }
 .hero-eyebrow{
   font-family:var(--font);font-size:.7rem;font-weight:800;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;
+  text-transform:uppercase;color:var(--hl);margin-bottom:14px;display:flex;
   flex-wrap:wrap;gap:8px 14px;align-items:center;
 }
 .hero-eyebrow .org{color:var(--ink-dim)}
@@ -185,20 +187,22 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
 }
 
 /* ---------- HYPOTHESES interactive grid ---------- */
-.hypo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
+.hypo-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}
 .hypo{
-  text-align:left;cursor:pointer;font:inherit;color:inherit;
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;
+  text-align:left;font:inherit;color:inherit;
   background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-md);
-  padding:20px;position:relative;overflow:hidden;
+  padding:18px 22px;position:relative;overflow:hidden;
   transition:border-color .25s,background .25s,transform .3s cubic-bezier(.22,.61,.36,1);
 }
-.hypo:hover{border-color:var(--purple);transform:translateY(-3px)}
-.hypo.open{border-color:var(--purple);background:var(--surface-2)}
+.hypo::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,var(--purple))}
+.hypo:hover{border-color:var(--c,var(--purple));transform:translateY(-3px)}
+.hypo.open{border-color:var(--c,var(--purple));background:var(--surface-2)}
 .hypo-id{
   display:inline-flex;align-items:center;justify-content:center;
   font-family:var(--font-syne);font-weight:800;font-size:.9rem;
-  color:var(--ink-dark);background:var(--purple);
-  width:42px;height:30px;border-radius:8px;margin-bottom:14px;
+  color:var(--ink-dark);background:var(--c,var(--purple));
+  width:42px;height:30px;border-radius:8px;margin-bottom:0;
 }
 .hypo-teaser{font-family:var(--font-display);font-weight:600;font-size:1.04rem;color:var(--ink);line-height:1.3;display:block}
 .hypo-body{
@@ -220,9 +224,9 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
   background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
   padding:20px 22px;transition:border-color .3s,transform .3s;
 }
-.method:hover{border-color:var(--green);transform:translateX(4px)}
+.method:hover{border-color:var(--hl);transform:translateX(4px)}
 .method .mn{
-  font-family:var(--font-syne);font-weight:800;font-size:1.5rem;color:var(--green);
+  font-family:var(--font-syne);font-weight:800;font-size:1.5rem;color:var(--hl);
   line-height:1;padding-top:2px;
 }
 .method h3{font-family:var(--font-display);font-weight:600;font-size:1.12rem;color:var(--ink);margin-bottom:6px}
@@ -316,9 +320,9 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
 .seg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:20px}
 .seg{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
-  padding:20px;border-top:3px solid var(--orange);
+  padding:20px;border-top:3px solid var(--c,var(--orange));
 }
-.seg .seg-label{font-family:var(--font-display);font-weight:600;font-size:.98rem;color:var(--orange);margin-bottom:10px}
+.seg .seg-label{font-family:var(--font-display);font-weight:600;font-size:.98rem;color:var(--c,var(--orange));margin-bottom:10px}
 .seg p{color:var(--ink-dim);font-size:.92rem;line-height:1.56;margin:0}
 
 /* ---------- QUOTES prev/next ---------- */
@@ -357,16 +361,16 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
 
 /* ---------- CONCLUSION callout ---------- */
 .callout{
-  background:linear-gradient(140deg,rgba(126,217,87,.12),rgba(167,139,250,.12));
-  border:1.5px solid var(--green);border-radius:var(--r-xl);
+  background:linear-gradient(140deg,rgba(255,111,174,.13),rgba(167,139,250,.12));
+  border:1.5px solid var(--pink);border-radius:var(--r-xl);
   padding:clamp(26px,4vw,44px);position:relative;
 }
 .callout .tag{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font);font-size:.7rem;font-weight:800;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--green);margin-bottom:16px;
+  text-transform:uppercase;color:var(--pink);margin-bottom:16px;
 }
-.callout .tag::before{content:"";width:22px;height:2px;background:var(--green);border-radius:2px}
+.callout .tag::before{content:"";width:22px;height:2px;background:var(--pink);border-radius:2px}
 .callout p{
   font-family:var(--font-display);font-weight:500;
   font-size:clamp(1.12rem,2.3vw,1.5rem);line-height:1.5;color:var(--ink);margin:0;
@@ -642,8 +646,10 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
     sec.appendChild(txt('p','lead','ნაშრომის ოთხი საკვლევი ჰიპოთეზა.'));
 
     var grid = el('div','hypo-grid');
+    var palette = ['purple','pink','cyan','green'];
     hyps.forEach(function(h, i){
       var card = el('article','hypo hypo-static');
+      card.style.setProperty('--c','var(--'+palette[i % palette.length]+')');
       card.appendChild(txt('span','hypo-id', str(h.id) || ('H'+(i+1))));
       card.appendChild(txt('p','hypo-text', str(h.textKa)));
       grid.appendChild(card);
@@ -741,16 +747,16 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
     if(!ex.length) return;
     var sec = block('social','სოც. მედია');
     head(sec, 'არხების ანალიზი', str(social.titleKa));
-    var panel = el('div','panel');
-    var list = el('div','excerpt-list');
+    var list = el('div','method-list');
     ex.forEach(function(e, i){
-      var item = el('div','excerpt');
-      item.appendChild(txt('span','mark', String(i+1)));
-      item.appendChild(txt('span', null, str(e)));
-      list.appendChild(item);
+      var row = el('div','method');
+      row.appendChild(txt('div','mn', String(i+1).padStart(2,'0')));
+      var col = el('div');
+      col.appendChild(txt('p', null, str(e)));
+      row.appendChild(col);
+      list.appendChild(row);
     });
-    panel.appendChild(list);
-    sec.appendChild(panel);
+    sec.appendChild(list);
   })();
 
   /* ============================================================
@@ -825,8 +831,10 @@ h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
     var sec = block('segments','სეგმენტები');
     head(sec, 'ინტერვიუს ნიმუში', 'მომხმარებელთა სეგმენტები');
     var grid = el('div','seg-grid');
-    segs.forEach(function(s){
+    var palette = ['purple','pink','cyan','green'];
+    segs.forEach(function(s, i){
       var card = el('div','seg');
+      card.style.setProperty('--c','var(--'+palette[i % palette.length]+')');
       card.appendChild(txt('div','seg-label', str(s.labelKa)));
       card.appendChild(txt('p', null, str(s.bodyKa)));
       grid.appendChild(card);
