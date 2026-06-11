@@ -5,7 +5,7 @@
    Mirrors the live aniko-site (davit-debug.github.io/aniko-site).
    =========================================================== */
 :root{
-  --bg:#260f37; --bg-2:#190a26; --surface:#3a1c52; --surface-2:#48246a;
+  --bg:#1b1030; --bg-2:#120a22; --surface:#3a1c52; --surface-2:#48246a;
   --line:rgba(255,255,255,.10);
   --ink:#F3F1FF; --ink-dim:#b9b1e6; --ink-dark:#171042;
   --blue:#4A5BF0; --pink:#FF6FAE; --yellow:#FFD23F; --orange:#FF7A3C;
