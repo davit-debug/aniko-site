@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Research — საბანკო ბრენდკომუნიკაციის ტრანსფორმაცია | Anna Chikhiashvili</title>
+<meta name="description" content="ანა ჩიხიაშვილის სადიპლომო ნაშრომი (GIPA, 2026): ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე — საქართველოს ბანკისა და თიბისის ბრენდკომუნიკაციის შედარებითი კვლევა." />
+<meta name="theme-color" content="#1b1030" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" type="image/png" href="aniko-refs/favicon.png" />
+<meta property="og:title" content="ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე — კვლევა" />
+<meta property="og:description" content="როგორ დაიწყო ბანკმა შენთან ლაპარაკი — ანა ჩიხიაშვილის სადიპლომო ნაშრომი, GIPA 2026." />
+<meta property="og:image" content="https://davit-debug.github.io/aniko-site/aniko-refs/image6.png" />
+<link rel="canonical" href="https://davit-debug.github.io/aniko-site/research.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;700;800&family=Syne:wght@700;800&family=Noto+Sans+Georgian:wght@400;500;700;800&family=Noto+Serif+Georgian:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="aniko-portfolio.css" />
+<style>
+/* Georgian text falls back from the Latin brand fonts to Noto Georgian */
+body{font-family:'Montserrat','Noto Sans Georgian',system-ui,-apple-system,sans-serif}
+h1,h2,h3,h4{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
+.sec-g{font-family:'Syne','Noto Sans Georgian',system-ui,sans-serif;font-weight:800;font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.08}
+.btn{font-family:'Fredoka','Noto Sans Georgian',system-ui,sans-serif}
+
+/* ---------- hero: institutional → personalized transformation ---------- */
+.rs-hero{min-height:88vh;display:flex;align-items:center;padding:150px 0 64px;overflow:hidden}
+.rs-hero .wrap{position:relative;z-index:1;max-width:900px;text-align:center}
+.rs-shape{transition:opacity 1s ease .15s, transform 1s ease .15s}
+body.formal .rs-shape{opacity:0;transform:scale(.6)}
+
+.mode{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:5px;margin-bottom:38px}
+.mode button{font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-size:.86rem;font-weight:500;color:var(--ink-dim);background:none;border:0;border-radius:999px;padding:9px 18px;cursor:pointer;transition:background .35s,color .35s}
+.mode button[aria-pressed="true"]{background:var(--yellow);color:#171042}
+body.formal .mode button[data-mode="formal"]{background:#8b8b96;color:#15151c}
+body.formal .mode button[data-mode="personal"]{background:none;color:var(--ink-dim)}
+
+.greet{display:grid;margin-bottom:26px}
+.greet>div{grid-area:1/1;transition:opacity .7s ease,transform .7s ease}
+.g-f{opacity:0;transform:translateY(-10px);pointer-events:none}
+body.formal .g-f{opacity:1;transform:none}
+body.formal .g-p{opacity:0;transform:translateY(10px)}
+.g-f .stamp{display:inline-block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#9d9daa;border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:3px;margin-bottom:16px}
+.g-f .dear{font-family:'Noto Serif Georgian',serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,2.9rem);color:#c9c9d4;line-height:1.25}
+.g-f .clause{font-family:'Noto Serif Georgian',serif;font-size:1rem;color:#8e8e9c;margin:12px 0 0}
+.g-p .hey{font-weight:700;font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.12}
+.g-p .hey .you{color:var(--yellow)}
+.g-p .sub{color:var(--ink-dim);font-size:1.08rem;margin:12px 0 0}
+.spark-y{color:var(--yellow)}
+
+.rs-title{font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:600;line-height:1.3;margin:8px 0 6px;transition:filter .9s ease,opacity .9s ease}
+.rs-title em{font-style:normal;color:var(--pink)}
+.rs-subtitle{color:var(--ink-dim);font-size:clamp(1rem,2vw,1.16rem);max-width:56ch;margin:0 auto}
+.rs-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:26px 0 30px;transition:filter .9s ease,opacity .9s ease}
+.chip{font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--ink-dim)}
+.rs-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;transition:filter .9s ease,opacity .9s ease}
+body.formal .rs-title,body.formal .rs-chips,body.formal .rs-cta{filter:grayscale(1);opacity:.32}
+
+/* ---------- facts counter bar ---------- */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.facts .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding-top:30px;padding-bottom:30px;text-align:center}
+.fact b{display:block;font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-weight:700;font-size:clamp(1.7rem,3.6vw,2.6rem);color:var(--yellow)}
+.fact:nth-child(2) b{color:var(--pink)}.fact:nth-child(3) b{color:var(--green)}.fact:nth-child(4) b{color:var(--purple)}.fact:nth-child(5) b{color:var(--orange)}
+.fact span{font-size:.78rem;color:var(--ink-dim);font-weight:600}
+
+/* ---------- shared section rhythm ---------- */
+.rs-sec{padding:84px 0 0}
+.rs-sec .eyebrow{display:block;margin-bottom:12px}
+.rs-lead{color:var(--ink-dim);font-size:1.06rem;line-height:1.85;max-width:72ch;margin:18px 0 0}
+
+/* ---------- hypotheses ---------- */
+.hyp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.hyp{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px}
+.hyp .tag{align-self:flex-start;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.95rem;color:#171042;border-radius:10px;padding:4px 12px}
+.hyp.h1 .tag{background:var(--yellow)}.hyp.h2 .tag{background:var(--pink)}.hyp.h3 .tag{background:var(--green)}.hyp.h4 .tag{background:var(--purple)}
+.hyp p.txt{margin:0;font-size:1.04rem;font-weight:600;line-height:1.6}
+.hyp .verdict{margin-top:auto;border-top:1px dashed var(--line);padding-top:14px;font-size:.9rem;color:var(--ink-dim);line-height:1.6}
+.hyp .verdict b{color:var(--ink);font-weight:700}
+
+/* ---------- methodology ---------- */
+.meth-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+.meth{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 18px}
+.meth .n{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--yellow);display:block;margin-bottom:10px}
+.meth h3{font-size:1rem;margin-bottom:8px}
+.meth p{margin:0;font-size:.82rem;color:var(--ink-dim);line-height:1.6}
+.seg-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.seg{font-size:.8rem;font-weight:600;color:var(--ink-dim);background:rgba(255,255,255,.04);border:1px dashed var(--line);border-radius:999px;padding:8px 16px}
+.seg b{color:var(--green);font-weight:800}
+
+/* ---------- two streams ---------- */
+.str-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.str{border-radius:var(--r-lg);padding:30px 28px;border:1px solid var(--line)}
+.str.ok{background:linear-gradient(160deg,rgba(126,217,87,.12),var(--surface) 55%)}
+.str.bad{background:linear-gradient(160deg,rgba(255,90,77,.13),var(--surface) 55%)}
+.str h3{font-size:1.2rem;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.str .mark{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:1rem;font-weight:800;flex:none}
+.str.ok .mark{background:var(--green);color:#10240a}
+.str.bad .mark{background:var(--coral);color:#fff}
+.str .kicker{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.str.ok .kicker{color:var(--green)}.str.bad .kicker{color:var(--coral)}
+.str ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.str li{font-size:.94rem;color:var(--ink-dim);line-height:1.6;padding-left:22px;position:relative}
+.str li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%}
+.str.ok li::before{background:var(--green)}.str.bad li::before{background:var(--coral)}
+.paradox{margin-top:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px 28px;display:flex;gap:20px;align-items:flex-start}
+.paradox .ic{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:var(--purple);flex:none;line-height:1}
+.paradox h3{font-size:1.05rem;margin-bottom:6px}
+.paradox p{margin:0;font-size:.94rem;color:var(--ink-dim);line-height:1.7}
+
+/* ---------- case study: two banks ---------- */
+.bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.bank{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;border-top:6px solid}
+.bank.bog{border-top-color:var(--orange)}
+.bank.tbc{border-top-color:var(--cyan)}
+.bank .who{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.bank.bog .who{color:var(--orange)}.bank.tbc .who{color:var(--cyan)}
+.bank .slogan{font-weight:700;font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.3;margin:10px 0 4px}
+.bank .camp{font-size:.86rem;color:var(--ink-dim);margin:0 0 18px}
+.bank .camp b{color:var(--ink)}
+.tone-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tone{font-size:.72rem;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink-dim)}
+.bank.bog .tone{background:rgba(255,122,60,.1)}
+.bank.tbc .tone{background:rgba(63,212,227,.08)}
+.bank .pos{margin:0;font-size:.92rem;color:var(--ink-dim);line-height:1.7;border-top:1px dashed var(--line);padding-top:16px}
+.bank .pos b{color:var(--ink)}
+
+/* ---------- quotes ---------- */
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.q .qm{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;line-height:.6;color:var(--yellow)}
+.q:nth-child(2) .qm{color:var(--pink)}.q:nth-child(3) .qm{color:var(--green)}
+.q blockquote{margin:0;font-size:.93rem;color:var(--ink);line-height:1.75;font-style:italic}
+.q figcaption{margin-top:auto;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim)}
+
+/* ---------- generations ---------- */
+.gen-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.gen{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
+.gen h3{font-size:1.05rem;margin-bottom:10px}
+.gen h3 span{color:var(--pink)}
+.gen.older h3 span{color:var(--cyan)}
+.gen p{margin:0;font-size:.92rem;color:var(--ink-dim);line-height:1.7}
+
+/* ---------- conclusion ---------- */
+.conc{margin-top:34px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(30px,5vw,56px);position:relative;overflow:hidden;text-align:center}
+.conc .big{font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-weight:600;font-size:clamp(1.25rem,2.8vw,1.85rem);line-height:1.5;max-width:30ch;margin:0 auto}
+.conc .big em{font-style:normal;color:var(--yellow)}
+.conc .src{display:block;margin-top:20px;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+
+/* ---------- download + references ---------- */
+.dl{margin-top:84px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(28px,4.5vw,46px);display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center}
+.dl-cover{width:108px;aspect-ratio:3/4;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-4deg);transition:transform .5s cubic-bezier(.22,.61,.36,1);box-shadow:var(--shadow)}
+.dl:hover .dl-cover{transform:rotate(0) translateY(-4px)}
+.dl-cover .gipa{font-size:.5rem;font-weight:800;letter-spacing:.14em;color:var(--coral)}
+.dl-cover .t{font-size:.5rem;font-weight:700;line-height:1.45;color:var(--ink)}
+.dl-cover .a{font-size:.46rem;color:var(--ink-dim)}
+.dl-info h2{font-size:1.35rem;margin-bottom:8px}
+.dl-info p{margin:0;font-size:.9rem;color:var(--ink-dim);line-height:1.7}
+.refs{margin-top:26px}
+.refs summary{cursor:pointer;font-family:'Fredoka','Noto Sans Georgian',sans-serif;font-weight:600;font-size:1rem;color:var(--ink-dim);padding:14px 0;border-top:1px solid var(--line);list-style:none;display:flex;align-items:center;gap:10px}
+.refs summary::-webkit-details-marker{display:none}
+.refs summary .car{transition:transform .3s;color:var(--yellow)}
+.refs[open] summary .car{transform:rotate(90deg)}
+.refs ol{margin:6px 0 10px;padding-left:20px;columns:2;column-gap:40px}
+.refs li{font-size:.8rem;color:var(--ink-dim);line-height:1.65;margin-bottom:10px;break-inside:avoid}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .meth-grid{grid-template-columns:repeat(2,1fr)}
+  .meth:last-child{grid-column:1/-1}
+  .q-grid{grid-template-columns:1fr}
+  .facts .wrap{grid-template-columns:repeat(3,1fr);row-gap:22px}
+}
+@media(max-width:760px){
+  .hyp-grid,.str-grid,.bank-grid,.gen-grid{grid-template-columns:1fr}
+  .dl{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .refs ol{columns:1}
+  .rs-hero{padding-top:128px}
+}
+@media(prefers-reduced-motion:reduce){
+  .greet>div,.rs-shape,.rs-title,.rs-chips,.rs-cta{transition:none!important}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Thesis",
+  "name": "ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე: საბანკო სექტორში მომხმარებელზე მორგებული ბრენდკომუნიკაციის ტრანსფორმაცია",
+  "author": {"@type": "Person", "name": "Anna Chikhiashvili", "alternateName": "ანა ჩიხიაშვილი"},
+  "contributor": {"@type": "Person", "name": "ნინო კალანდია"},
+  "sourceOrganization": {"@type": "CollegeOrUniversity", "name": "Georgian Institute of Public Affairs (GIPA)"},
+  "inLanguage": "ka",
+  "datePublished": "2026",
+  "about": ["personalized PR", "brand communication", "banking sector", "Bank of Georgia", "TBC Bank"],
+  "url": "https://davit-debug.github.io/aniko-site/research.html",
+  "encoding": {"@type": "MediaObject", "contentUrl": "https://davit-debug.github.io/aniko-site/anna-chikhiashvili-diploma-2026.pdf", "encodingFormat": "application/pdf"}
+}
+</script>
+</head>
+<body>
+<script>
+/* institutional opening state — added by JS so no-JS visitors land on the personal (readable) state */
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.body.classList.add('formal');
+</script>
+<a class="skip" href="#main">Skip to content</a>
+<div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-bar">
+    <nav class="nav-side left" id="navleft" aria-label="Social">
+      <a class="nav-ic" href="https://www.linkedin.com/in/anna-chikhiashvili-153876253/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.3 8.5h3.3V21H3.3V8.5zm5.2 0h3.16v1.7h.05c.44-.83 1.5-1.7 3.1-1.7 3.3 0 3.9 2.17 3.9 5V21h-3.3v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H8.5V8.5z"/></svg></a>
+    </nav>
+    <a href="index.html" class="brand"><span class="sr">ANNA</span><span class="b-ltrs" aria-hidden="true"><span class="ltr">A</span><span class="b-rest"><span class="ltr" style="transition-delay:.045s">N</span><span class="ltr" style="transition-delay:.09s">N</span><span class="ltr" style="transition-delay:.135s">A</span></span></span><img class="logo-mark" src="aniko-refs/logo-mark.png" alt="" width="192" height="192" /></a>
+    <nav class="nav-side right" id="navright" aria-label="Primary">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="research.html" class="active" aria-current="page">Research</a>
+      <a class="nav-ic" href="content-calendar.html" aria-label="Content Calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 2.5v4M16 2.5v4" stroke-linecap="round"/><circle cx="8" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="16.6" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+  <nav class="nav-mobile" id="navmobile" aria-label="Menu">
+    <a href="portfolio.html">Portfolio</a><a href="research.html" aria-current="page">Research</a><a href="content-calendar.html">Content Calendar</a><a href="https://www.linkedin.com/in/anna-chikhiashvili-153876253/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO: the page itself performs the thesis ============ -->
+<section class="rs-hero">
+  <span class="shape rs-shape m-spin" style="left:7%;top:130px;color:var(--pink)" aria-hidden="true">
+    <svg width="58" height="58" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.2L18 4l-1.3 4.4L21 8l-3.4 2.7L21 14l-4.3-.4L18 18l-4-2.4L12 20l-2-4.4L6 18l1.3-4.4L3 14l3.4-3.3L3 8l4.3.6L6 4l4 2.2z"/></svg>
+  </span>
+  <span class="shape rs-shape m-breathe" style="right:8%;top:180px;color:var(--green);--rot:10deg" aria-hidden="true">
+    <svg width="56" height="56" viewBox="0 0 100 100" fill="currentColor"><path d="M50 4c6 18 22 14 30 8-6 8-10 24 8 30-18 6-14 22-8 30-8-6-24-10-30 8-6-18-22-14-30-8 6-8 10-24-8-30 18-6 14-22 8-30 8 6 24 10 30-8z"/></svg>
+  </span>
+  <span class="shape rs-shape m-breathe" style="left:12%;bottom:90px;color:var(--purple);--rot:-6deg" aria-hidden="true">
+    <svg width="74" height="22" viewBox="0 0 90 24" fill="none"><path d="M3 12c7-9 14-9 21 0s14 9 21 0 14-9 21 0 14 9 21 0" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+  </span>
+
+  <div class="wrap">
+    <div class="mode" role="group" aria-label="საკომუნიკაციო რეჟიმი">
+      <button type="button" data-mode="formal" aria-pressed="false">ინსტიტუციური</button>
+      <button type="button" data-mode="personal" aria-pressed="true">პერსონალიზებული</button>
+    </div>
+
+    <div class="greet">
+      <div class="g-f" aria-hidden="true">
+        <span class="stamp">წერილი № 2026/28</span>
+        <p class="dear">ძვირფასო მომხმარებელო,</p>
+        <p class="clause">გაცნობებთ, რომ წინამდებარე დოკუმენტი ეხება ბრენდკომუნიკაციის საკითხებს. პატივისცემით, თქვენი ბანკი.</p>
+      </div>
+      <div class="g-p">
+        <p class="hey">გამარჯობა, <span class="you">შენ</span> <span class="spark-y" aria-hidden="true">✳</span></p>
+        <p class="sub">ეს კვლევა იმაზეა, როგორ დაიწყო ბანკმა შენთან ლაპარაკი.</p>
+      </div>
+    </div>
+
+    <h1 class="rs-title">ინსტიტუციური კომუნიკაციიდან <em>პერსონალიზებულ PR-მდე</em></h1>
+    <p class="rs-subtitle rs-title" style="font-weight:400">საბანკო სექტორში მომხმარებელზე მორგებული ბრენდკომუნიკაციის ტრანსფორმაცია</p>
+
+    <div class="rs-chips">
+      <span class="chip">სადიპლომო ნაშრომი</span>
+      <span class="chip">GIPA · 2026</span>
+      <span class="chip">ციფრული მედია და კომუნიკაცია</span>
+      <span class="chip">ხელმძღვანელი: ნინო კალანდია</span>
+    </div>
+
+    <div class="rs-cta">
+      <a class="btn btn-yellow" href="anna-chikhiashvili-diploma-2026.pdf" download>ჩამოტვირთე ნაშრომი <span style="font-weight:400;font-size:.82em">(PDF · 0.5 MB)</span></a>
+      <a class="btn btn-ghost" href="#findings">მთავარი მიგნებები ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACTS BAR ============ -->
+<div class="facts">
+  <div class="wrap">
+    <div class="fact m m-float"><b data-n="28">0</b><span>გვერდი</span></div>
+    <div class="fact m m-float" style="--d:.06s"><b data-n="4">0</b><span>ჰიპოთეზა</span></div>
+    <div class="fact m m-float" style="--d:.12s"><b data-n="8">0</b><span>სიღრმისეული ინტერვიუ</span></div>
+    <div class="fact m m-float" style="--d:.18s"><b data-n="2">0</b><span>ბანკის ქეის სთადი</span></div>
+    <div class="fact m m-float" style="--d:.24s"><b data-n="5">0</b><span>კვლევის მეთოდი</span></div>
+  </div>
+</div>
+
+<!-- ============ ABOUT THE RESEARCH ============ -->
+<section class="rs-sec">
+  <div class="wrap">
+    <span class="eyebrow m m-float" style="color:var(--yellow)">რას იკვლევს ნაშრომი</span>
+    <h2 class="sec-g m m-float" style="--d:.05s">ბანკი გესაუბრება. მაგრამ ვის ესაუბრება სინამდვილეში?</h2>
+    <p class="rs-lead m m-float" style="--d:.1s">კვლევის მიზანია შეისწავლოს, როგორ გადადის საბანკო კომუნიკაცია ინსტიტუციური მოდელიდან პერსონალიზებულ PR-ზე და როგორ აისახება ეს ცვლილება მომხმარებლის აღქმასა და ნდობაზე. საკვლევ ობიექტებად შეირჩა ქართული საბანკო სექტორის ორი ლიდერი — საქართველოს ბანკი და თიბისი ბანკი — და მათი 2025 წლის საკომუნიკაციო სტრატეგიები.</p>
+    <p class="rs-lead m m-float" style="--d:.15s">საკვანძო კითხვა მარტივია: როდის გრძნობს მომხმარებელი, რომ ბანკი პირადად მას ესაუბრება — და სად გადის ზღვარი ზრუნვასა და თვალთვალის განცდას შორის.</p>
+  </div>
+</section>
+
+<!-- ============ HYPOTHESES ============ -->
+<section class="rs-sec">
+  <div class="wrap">
+    <span class="eyebrow m m-float" style="color:var(--pink)">ჰიპოთეზები</span>
+    <h2 class="sec-g m m-float" style="--d:.05s">ოთხი ვარაუდი — და რა აჩვენა კვლევამ</h2>
+    <div class="hyp-grid">
+      <article class="hyp h1 m m-float">
+        <span class="tag">H1</span>
+        <p class="txt">პერსონალიზებული PR ზრდის მომხმარებლის ემოციურ კავშირს ბრენდთან.</p>
+        <p class="verdict"><b>დადასტურდა — ციფრულ-ვიზუალურ შრეზე.</b> აპში მორგებული დიზაინი და სახელით მიმართვა სიახლოვეს ქმნის; პროდუქტულ შეთავაზებებზე კი ეფექტი პირიქით ბრუნდება.</p>
+      </article>
+      <article class="hyp h2 m m-float" style="--d:.07s">
+        <span class="tag">H2</span>
+        <p class="txt">ადამიანური და მეგობრული საკომუნიკაციო ტონი ზრდის ნდობას ფინანსური ინსტიტუტების მიმართ.</p>
+        <p class="verdict"><b>დადასტურდა ნაწილობრივ — თაობრივი სხვაობით.</b> Gen Z-ისთვის მუშაობს; მილენიალებსა და 45+ სეგმენტში არაფორმალურობა მიუღებელია.</p>
+      </article>
+      <article class="hyp h3 m m-float" style="--d:.14s">
+        <span class="tag">H3</span>
+        <p class="txt">მომხმარებლები მეტად რეაგირებენ კომუნიკაციაზე, რომელიც ინდივიდუალურ გამოცდილებას ეხმიანება.</p>
+        <p class="verdict"><b>დადასტურდა — კონტექსტის პირობით.</b> აპის შიდა „გამარჯობა, [სახელი]!" ახლოა და ეფექტური; იგივე ხერხი მარკეტინგულ SMS-ში სპამად აღიქმება.</p>
+      </article>
+      <article class="hyp h4 m m-float" style="--d:.21s">
+        <span class="tag">H4</span>
+        <p class="txt">პერსონალიზებული PR ქმნის „პირადი დიალოგის ილუზიას" მასობრივ კომუნიკაციაში.</p>
+        <p class="verdict"><b>დადასტურდა.</b> „მეგობრობის ილუზია" მომენტალურად იმსხვრევა, როგორც კი მომხმარებელი ოფლაინ მომსახურებას ეხება.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHODOLOGY ============ -->
+<section class="rs-sec">
+  <div class="wrap">
+    <span class="eyebrow m m-float" style="color:var(--green)">მეთოდოლოგია</span>
+    <h2 class="sec-g m m-float" style="--d:.05s">ხუთი მეთოდი, ერთი კითხვა</h2>
+    <div class="meth-grid">
+      <article class="meth m m-float"><span class="n">01</span><h3>დისკურსის ანალიზი</h3><p>Brand Voice, ემოციური და სასაუბრო ენა, პერსონალიზებული კომუნიკაციის ლინგვისტური სტრატეგიები.</p></article>
+      <article class="meth m m-float" style="--d:.05s"><span class="n">02</span><h3>სოციალური მედია</h3><p>Facebook, Instagram და YouTube — კომენტარები, რეაქციები, ჩართულობა და ემოციური კომუნიკაციის ფორმები.</p></article>
+      <article class="meth m m-float" style="--d:.1s"><span class="n">03</span><h3>ქეის სთადი</h3><p>საქართველოს ბანკისა და თიბისის 2025 წლის საახალწლო კამპანიების შედარებითი ანალიზი.</p></article>
+      <article class="meth m m-float" style="--d:.15s"><span class="n">04</span><h3>8 სიღრმისეული ინტერვიუ</h3><p>მომხმარებლების გამოცდილება, ემოციური აღქმა და ბრენდთან ურთიერთობა — 4 სეგმენტი, თითოში 2 რესპონდენტი.</p></article>
+      <article class="meth m m-float" style="--d:.2s"><span class="n">05</span><h3>ექსპერტული ინტერვიუ</h3><p>კომუნიკაციების ექსპერტი მაკა სეხნიაშვილი — სექტორის ტრანსფორმაციის პროფესიული ხედვა.</p></article>
+    </div>
+    <div class="seg-row m m-float" style="--d:.22s">
+      <span class="seg"><b>18–25</b> · სტუდენტები და ახალგაზრდები</span>
+      <span class="seg"><b>25–34</b> · დასაქმებული მომხმარებლები</span>
+      <span class="seg"><b>30–45</b> · ფინანსურად სტაბილურები</span>
+      <span class="seg"><b>25–45</b> · ციფრულად აქტიური კრიტიკოსები</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEY FINDING: TWO STREAMS ============ -->
+<section class="rs-sec" id="findings">
+  <div class="wrap">
+    <span class="eyebrow m m-float" style="color:var(--purple)">მთავარი მიგნება</span>
+    <h2 class="sec-g m m-float" style="--d:.05s">პერსონალიზაცია ორ სრულიად სხვადასხვა დონეზე აღიქმება</h2>
+    <div class="str-grid">
+      <article class="str ok m m-float">
+        <span class="kicker">მუშაობს</span>
+        <h3><span class="mark" aria-hidden="true">✓</span> ციფრულ-ვიზუალური პერსონალიზაცია</h3>
+        <ul>
+          <li>მობაილბანკში დიზაინებისა და ფონების მორგება</li>
+          <li>ანაბრებისთვის ინდივიდუალური სახელების დარქმევა</li>
+          <li>აპის შიდა მისალმება — „გამარჯობა, [სახელი]!"</li>
+          <li>ემოციური storytelling რეალურ ისტორიებზე</li>
+        </ul>
+      </article>
+      <article class="str bad m m-float" style="--d:.08s">
+        <span class="kicker">ეფექტი ბრუნდება</span>
+        <h3><span class="mark" aria-hidden="true">✕</span> პროდუქტული შეთავაზებები</h3>
+        <ul>
+          <li>ერთ კატეგორიაში ექცევა 3 000 და 30 000 ლარის შემოსავალი</li>
+          <li>ირელევანტური პრემიუმ ფასდაკლებები — Porsche, Villeroy &amp; Boch</li>
+          <li>ბანერზე 12%-იანი განაკვეთი, რეალურად — 30–35%</li>
+          <li>ტრადიციული მარკეტინგული SMS სპამად აღიქმება</li>
+        </ul>
+      </article>
+    </div>
+    <div class="paradox m m-float" style="--d:.12s">
+      <span class="ic" aria-hidden="true">!?</span>
+      <div>
+        <h3>„პერსონალიზაციის პარადოქსი"</h3>
+        <p>დიდი მონაცემების ანალიზი პროფესიულ დონეზე რელევანტური PR-ის უმნიშვნელოვანესი ინსტრუმენტია — მაგრამ მომხმარებლის პერსპექტივიდან ტოტალური ფინანსური კონტროლისა და თვალთვალის განცდა არასასიამოვნოა. რაც მეტი იცის ბანკმა, მით უფრო ფაქიზი უნდა იყოს ამ ცოდნის გამოყენება.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY: TWO BANKS ============ -->
+<section class="rs-sec">
+  <div class="wrap">
+    <span class="eyebrow m m-float" style="color:var(--orange)">ქეის სთადი</span>
+    <h2 class="sec-g m m-float" style="--d:.05s">ორი ბანკი, ორი ხმა</h2>
+    <div class="bank-grid">
+      <article class="bank bog m m-float">
+        <span class="who">საქართველოს ბანკი</span>
+        <p class="slogan">„გაბედე ის, რაც შეუძლებლად გეჩვენება"</p>
+        <p class="camp">საახალწლო კამპანია გამომგონებელ <b>გრიგოლ კობახიძის (ჯორჯ კობის)</b> რეალურ ბიოგრაფიაზე — ვინტაჟური ილუსტრაციებით მოყოლილი ისტორია კრიზისიდან წარმატებამდე.</p>
+        <div class="tone-row"><span class="tone">ემოციური</span><span class="tone">მოტივაციური</span><span class="tone">„შენ"-ფორმა</span><span class="tone">storytelling</span></div>
+        <p class="pos">ბანკი მალავს ფინანსურ სერვისებს და ფოკუსირდება ადამიანურ განცდებზე — პოზიციონირდება როგორც <b>მხარდამჭერი პარტნიორი და ოცნების თანამგზავრი</b>.</p>
+      </article>
+      <article class="bank tbc m m-float" style="--d:.08s">
+        <span class="who">თიბისი ბანკი</span>
+        <p class="slogan">„მთავარია გჯეროდეს"</p>
+        <p class="camp">საახალწლო კამპანია <b>„სიყვარული ბრუნდება"</b> (DHL-თან ერთად) — ემიგრაცია, მონატრება და ოჯახური სითბო, თემა, რომელიც მრავალი ქართული ოჯახის ყოველდღიური რეალობაა.</p>
+        <div class="tone-row"><span class="tone">მინიმალისტური</span><span class="tone">ფუნქციური</span><span class="tone">ნეიტრალურ-პროფესიული</span><span class="tone">ტექნოლოგიური</span></div>
+        <p class="pos">ემოცია — სოციალური რეალობის ასახვით და არა მანიპულაციით; პოზიციონირება როგორც <b>თანამედროვე, სანდო ფინანსური ინსტრუმენტი</b>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICES ============ -->
+<section class="rs-sec">
+  <div class="wrap">
+    <span class="eyebrow m m-float" style="color:var(--cyan)">რესპონდენტების ხმა</span>
+    <h2 class="sec-g m m-float" style="--d:.05s">პირდაპირი ციტატები ინტერვიუებიდან</h2>
+    <div class="q-grid">
+      <figure class="q m m-float">
+        <span class="qm" aria-hidden="true">„</span>
+        <blockquote>მათი კამპანიების მიზანი ეგ არის... რომ ჩვენს მეხსიერებაში იმდენად იყვნენ დალექილები, რომ როცა საჭიროება დაგვიდგება მაგათი პროდუქტის, პირველი ეგენი გაგვახსენდნენ.</blockquote>
+        <figcaption>რესპონდენტი 1 · ემოციურ კამპანიებზე</figcaption>
+      </figure>
+      <figure class="q m m-float" style="--d:.07s">
+        <span class="qm" aria-hidden="true">„</span>
+        <blockquote>ეხლა Porsche-ზე 5%-ს დამიკლებ თუ არ დამიკლებ, ჩემთვის პირადად მაგას არანაირი მნიშვნელობა არა აქვს, იმიტომ რომ Porsche-ს ისედაც ვერ ვყიდულობ.</blockquote>
+        <figcaption>რესპონდენტი 4 · ირელევანტურ შეთავაზებებზე</figcaption>
+      </figure>
+      <figure class="q m m-float" style="--d:.14s">
+        <span class="qm" aria-hidden="true">„</span>
+        <blockquote>მე როგორც მომხმარებელს მინდა, რომ არ მომატყუო, ნუ მეუბნები, რომ 12% უნდა გადავიხადო, როცა რეალურად მიწევს 35%... მირჩევნია თავიდანვე მითხრა და მე თავად გადავწყვეტ მიღირს თუ არა.</blockquote>
+        <figcaption>რესპონდენტი 4 · გამჭვირვალობაზე</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GENERATIONS ============ -->
+<section class="rs-sec">
+  <div class="wrap">
+    <span class="eyebrow m m-float" style="color:var(--pink)">თაობრივი დასკვნა</span>
+    <h2 class="sec-g m m-float" style="--d:.05s">ერთი ხმა ყველასთვის აღარ მუშაობს</h2>
+    <div class="gen-grid">
+      <article class="gen m m-float">
+        <h3><span>Gen Z · 18–25</span></h3>
+        <p>ესაჭიროება ინტერაქციული, მეგობრული, არაფორმალური და ვიზუალურ storytelling-ზე დაფუძნებული მიდგომები — სწორედ ეს იწვევს ბრენდთან იდენტიფიკაციას და გრძელვადიან ლოიალობას.</p>
+      </article>
+      <article class="gen older m m-float" style="--d:.08s">
+        <h3><span>მილენიალები &amp; 45+</span></h3>
+        <p>არაფორმალურობა მიუღებელია — კომუნიკაცია უნდა ეფუძნებოდეს ინსტიტუციურ სტაბილურობას, საოპერაციო გამჭვირვალობასა და პერსონალურ ასისტენტობას („სოლოსა" და „კონცეპტის" ლაუნჯ-მოდელები).</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCLUSION ============ -->
+<section class="rs-sec">
+  <div class="wrap">
+    <div class="conc m m-reveal">
+      <p class="big">რეალური ერთგულება ყალიბდება არა გრძნობებით მანიპულირებით, არამედ საკომუნიკაციო აცდენის შემცირებით, <em>საინფორმაციო გამჭვირვალობითა</em> და <em>საოპერაციო გულწრფელობით</em>.</p>
+      <span class="src">— ნაშრომის დასკვნა</span>
+    </div>
+
+    <div class="dl m m-float">
+      <a class="dl-cover" href="anna-chikhiashvili-diploma-2026.pdf" download aria-label="ნაშრომის ჩამოტვირთვა PDF ფორმატში">
+        <span class="gipa">GIPA · 2026</span>
+        <span class="t">ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე</span>
+        <span class="a">ანა ჩიხიაშვილი</span>
+      </a>
+      <div class="dl-info">
+        <h2>წაიკითხე სრული ნაშრომი</h2>
+        <p>28 გვერდი — სრული ლიტერატურული მიმოხილვა, მეთოდოლოგია, სოციალური მედიის ანალიზი, ინტერვიუების დეტალური შედეგები და ბიბლიოგრაფია.</p>
+        <details class="refs">
+          <summary><span class="car" aria-hidden="true">→</span> გამოყენებული ლიტერატურა (9 წყარო)</summary>
+          <ol>
+            <li>McKinsey &amp; Company (2021). The value of getting personalization right—or wrong—is multiplying.</li>
+            <li>McKinsey &amp; Company (2023). What is personalization? McKinsey Explainers.</li>
+            <li>Casaca, J. A., &amp; Miguel, L. P. (2024). The Influence of Personalization on Consumer Satisfaction. IGI Global.</li>
+            <li>Petrucci, I. P. (2022). The Impact of Consumer Perceptions of Personalised Advertising on Purchase Intention. Utrecht University.</li>
+            <li>Yeo, T. E. D., Chu, T. H., &amp; Li, Q. (2025). How persuasive is personalized advertising? Journal of Advertising Research, 65(4).</li>
+            <li>Zwayyed, Z. (2025). Building Brands That Feel Human. University of Windsor.</li>
+            <li>Chaturvedi, P. (2025). Personalization in Banking: The Key to Customer Retention. IJMH, 11(8).</li>
+            <li>Mogaji, E. (2018). Emotional Appeals in Advertising Banking Services. Emerald Publishing.</li>
+            <li>Aguirre, E., Mahr, D., Grewal, D., et&nbsp;al. (2015). Unraveling the Personalization Paradox. Journal of Retailing, 91(1).</li>
+          </ol>
+        </details>
+      </div>
+      <a class="btn btn-yellow" href="anna-chikhiashvili-diploma-2026.pdf" download>PDF · 0.5 MB <span class="arr" aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="foot-word m m-reveal"><span class="w">Anna</span><span class="foot-flower m-spin" aria-hidden="true">
+      <svg viewBox="0 0 100 100"><g transform="translate(50 50)">
+        <g fill="var(--yellow)"><g id="pf"><ellipse rx="9" ry="42"/></g><use href="#pf" transform="rotate(45)"/><use href="#pf" transform="rotate(90)"/><use href="#pf" transform="rotate(135)"/></g>
+        <g fill="var(--pink)" transform="scale(.78)"><use href="#pf"/><use href="#pf" transform="rotate(45)"/><use href="#pf" transform="rotate(90)"/><use href="#pf" transform="rotate(135)"/></g>
+        <g fill="var(--purple)" transform="scale(.5)"><use href="#pf"/><use href="#pf" transform="rotate(45)"/><use href="#pf" transform="rotate(90)"/><use href="#pf" transform="rotate(135)"/></g>
+      </g></svg>
+    </span></div>
+    <p class="foot-tag m m-float" style="--d:.08s">Like what you see? Let's make the next one together —</p>
+    <div class="foot-grid">
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="field"><label for="fn">First name *</label><input id="fn" name="fn" autocomplete="given-name" required></div>
+        <div class="field"><label for="ln">Last name</label><input id="ln" name="ln" autocomplete="family-name"></div>
+        <div class="field full"><label for="em">Email *</label><input id="em" type="email" name="em" autocomplete="email" required></div>
+        <div class="field full"><label for="msg">Message</label><textarea id="msg" name="msg" rows="3"></textarea></div>
+        <button class="btn btn-yellow" type="submit">Send message <span class="arr" aria-hidden="true">→</span></button>
+      </form>
+      <div class="foot-info">
+        <div><div class="l">Email</div><a href="mailto:anachikhiashvili22@gmail.com">anachikhiashvili22@gmail.com</a></div>
+        <div><div class="l">Phone</div><a href="tel:+995598336815">+995 598 336 815</a></div>
+        <div><div class="l">Location</div><span>Tbilisi, Georgia</span></div>
+        <div><div class="l">LinkedIn</div><a href="https://www.linkedin.com/in/anna-chikhiashvili-153876253/" target="_blank" rel="noopener">linkedin.com/in/anna-chikhiashvili-153876253</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Anna Chikhiashvili</span><span>Marketing · Content · Design — Tbilisi</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+  var btns = document.querySelectorAll('.mode button');
+  var userTouched = false;
+
+  function setMode(formal){
+    body.classList.toggle('formal', formal);
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String((b.dataset.mode==='formal') === formal)); });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ userTouched = true; setMode(b.dataset.mode==='formal'); });
+  });
+
+  // the transformation moment: the page "wakes up" from institutional to personal
+  if(body.classList.contains('formal')){
+    setMode(true);
+    var wake = function(){ if(!userTouched) setMode(false); cleanup(); };
+    var t = setTimeout(wake, 2600);
+    var onFirstScroll = function(){ if(window.scrollY > 30){ clearTimeout(t); wake(); } };
+    function cleanup(){ window.removeEventListener('scroll', onFirstScroll); }
+    window.addEventListener('scroll', onFirstScroll, {passive:true});
+  }
+
+  // count-up facts
+  var nums = document.querySelectorAll('.fact b[data-n]');
+  if(reduced || !('IntersectionObserver' in window)){
+    nums.forEach(function(el){ el.textContent = el.dataset.n; });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting) return;
+        io.unobserve(en.target);
+        var el = en.target, target = +el.dataset.n, t0 = null;
+        (function step(ts){
+          if(!t0) t0 = ts;
+          var p = Math.min((ts - t0) / 900, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if(p < 1) requestAnimationFrame(step);
+        })(performance.now());
+      });
+    }, {threshold:.6});
+    nums.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+<script src="aniko-portfolio.js"></script>
+</body>
+</html>
