@@ -157,15 +157,13 @@ header.nav.scrolled .b-rest{max-width:0;opacity:0}
 .about{padding:96px 0;background:var(--bg)}
 .about-map{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(24px,3.5vw,56px);align-items:center;max-width:1080px;margin:0 auto;position:relative;z-index:1}
 .about-col{display:flex;flex-direction:column;gap:clamp(38px,6vh,68px)}
-.trait{max-width:300px}
-.about-col.left .trait{margin-left:auto;text-align:right}
-.about-col.right .trait{text-align:left}
+.trait{max-width:320px;margin:0 auto;text-align:center}
 .trait h3{font-family:var(--font-display);font-size:1.16rem;font-weight:700;margin:0 0 8px;line-height:1.2}
 .trait p{color:var(--ink-dim);font-size:.92rem;line-height:1.6;margin:0}
 .about-center{position:relative;text-align:center;align-self:center}
 .about-ttl{position:relative;z-index:1;font-family:var(--font-syne);font-weight:800;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.02}
 .about-ttl .ast-c{color:var(--pink)}
-.about-arrows{position:absolute;left:50%;top:50%;width:380px;height:330px;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+.about-arrows{position:absolute;left:50%;top:50%;width:clamp(340px,42vw,540px);aspect-ratio:420/360;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
 .about-arrows svg{width:100%;height:100%}
 @media(max-width:860px){
   .about-map{grid-template-columns:1fr;gap:26px;max-width:540px}
@@ -304,7 +302,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
     </nav>
     <a href="#" class="brand"><span class="sr">ANNA</span><span class="b-ltrs" aria-hidden="true"><span class="ltr">A</span><span class="b-rest"><span class="ltr" style="transition-delay:.045s">N</span><span class="ltr" style="transition-delay:.09s">N</span><span class="ltr" style="transition-delay:.135s">A</span></span></span><img class="logo-mark" src="aniko-refs/logo-mark.png" alt="" width="192" height="192" /></a>
     <nav class="nav-side right" id="navright" aria-label="Primary">
-      <a href="portfolio.html">Portfolio</a>
+      <a href="#">Portfolio</a>
       <a href="#">Research</a>
       <a class="nav-ic" href="content-calendar.html" aria-label="Content Calendar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 2.5v4M16 2.5v4" stroke-linecap="round"/><circle cx="8" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="16.6" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>
@@ -315,7 +313,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
     </button>
   </div>
   <nav class="nav-mobile" id="navmobile" aria-label="Menu">
-    <a href="portfolio.html">Portfolio</a>
+    <a href="#">Portfolio</a>
     <a href="#">Research</a>
     <a href="content-calendar.html">Content Calendar</a>
     <a href="https://www.linkedin.com/in/anna-chikhiashvili-153876253/" target="_blank" rel="noopener">LinkedIn</a>
@@ -359,29 +357,29 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   <div class="wrap">
     <div class="about-map">
       <div class="about-col left">
-        <div class="trait m m-float"><h3 style="color:var(--yellow)">Solution-Oriented &amp; Grounded</h3><p>I don't just look for pretty aesthetics. I look for what actually works. I balance creative ideas with hard strategy and deep KPI analysis (ROI, reach) to drive real business growth.</p></div>
-        <div class="trait m m-float" style="--d:.08s"><h3 style="color:var(--pink)">Always Evolving &amp; Curious</h3><p>I never stop learning. From my digital media degree to intensive certifications in copywriting, graphic design, and project management, I'm constantly upgrading my skills.</p></div>
-        <div class="trait m m-float" style="--d:.16s"><h3 style="color:var(--yellow)">Natural Connector &amp; People Person</h3><p>Marketing is all about human connection. Whether leading teams, negotiating with vendors, or listening to a client's vision, I always lead with empathy and clear communication.</p></div>
+        <div class="trait m m-float"><h3 style="color:#fffbae">Solution-Oriented &amp; Grounded</h3><p>I don't just look for pretty aesthetics. I look for what actually works. I balance creative ideas with hard strategy and deep KPI analysis (ROI, reach) to drive real business growth.</p></div>
+        <div class="trait m m-float" style="--d:.08s"><h3 style="color:#e1b5ff">Always Evolving &amp; Curious</h3><p>I never stop learning. From my digital media degree to intensive certifications in copywriting, graphic design, and project management, I'm constantly upgrading my skills.</p></div>
+        <div class="trait m m-float" style="--d:.16s"><h3 style="color:#ffdc74">Natural Connector &amp; People Person</h3><p>Marketing is all about human connection. Whether leading teams, negotiating with vendors, or listening to a client's vision, I always lead with empathy and clear communication.</p></div>
       </div>
 
       <div class="about-center m m-float">
         <span class="about-arrows" aria-hidden="true">
-          <svg viewBox="0 0 360 320" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".6">
-            <path d="M150 150C110 120 70 96 40 70"/><path d="M52 64 40 70l3 13"/>
-            <path d="M210 150c40-30 80-54 110-80"/><path d="M308 64l12 6-3 13"/>
-            <path d="M140 160C100 162 60 162 30 162"/><path d="M44 154 30 162l14 8"/>
-            <path d="M220 160c40 2 80 2 110 0"/><path d="M316 152l14 8-14 8"/>
-            <path d="M150 172C112 200 74 224 46 252"/><path d="M58 246 46 252l2 13"/>
-            <path d="M210 172c38 28 76 52 104 80"/><path d="M302 246l12 6-2 13"/>
+          <svg viewBox="0 0 420 360" fill="none" stroke="rgba(243,241,255,.52)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- top-left --><path d="M150 138 58 54"/><path d="M54 76 58 54 80 60"/>
+            <!-- top-right --><path d="M270 138 362 54"/><path d="M340 60 362 54 366 76"/>
+            <!-- bottom-left --><path d="M150 222 58 306"/><path d="M80 300 58 306 54 284"/>
+            <!-- bottom-right --><path d="M270 222 362 306"/><path d="M366 284 362 306 340 300"/>
+            <!-- left --><path d="M138 180 28 180"/><path d="M48 169 28 180 48 191"/>
+            <!-- right --><path d="M282 180 392 180"/><path d="M372 169 392 180 372 191"/>
           </svg>
         </span>
         <h2 class="about-ttl">Ab<span class="ast-c">✳</span>ut<br>Me</h2>
       </div>
 
       <div class="about-col right">
-        <div class="trait m m-float" style="--d:.06s"><h3 style="color:var(--blue)">Curious &amp; Globally Minded</h3><p>I love stepping out of my comfort zone. Studying in Georgia and then moving to Belgium for an exchange program taught me how to quickly adapt and think globally.</p></div>
-        <div class="trait m m-float" style="--d:.14s"><h3 style="color:var(--coral)">Calm Under Pressure &amp; Reliable</h3><p>Managing big budgets and campaigns for brands like McDonald's and Campa requires absolute ownership. I'm the person who stays calm and keeps everything perfectly on track.</p></div>
-        <div class="trait m m-float" style="--d:.22s"><h3 style="color:var(--purple)">Highly Organized &amp; Structured</h3><p>I have a natural love for order and systems. Managing complex projects with tools like ClickUp and Trello taught me how to keep every file and timeline aligned so nothing falls through the cracks.</p></div>
+        <div class="trait m m-float" style="--d:.06s"><h3 style="color:#7ce7ff">Curious &amp; Globally Minded</h3><p>I love stepping out of my comfort zone. Studying in Georgia and then moving to Belgium for an exchange program taught me how to quickly adapt and think globally.</p></div>
+        <div class="trait m m-float" style="--d:.14s"><h3 style="color:#f25f9b">Calm Under Pressure &amp; Reliable</h3><p>Managing big budgets and campaigns for brands like McDonald's and Campa requires absolute ownership. I'm the person who stays calm and keeps everything perfectly on track.</p></div>
+        <div class="trait m m-float" style="--d:.22s"><h3 style="color:#e7b1ff">Highly Organized &amp; Structured</h3><p>I have a natural love for order and systems. Managing complex projects with tools like ClickUp and Trello taught me how to keep every file and timeline aligned so nothing falls through the cracks.</p></div>
       </div>
     </div>
   </div>
