@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="aniko-portfolio.css" />
 <style>
 /* ===========================================================
-   ANIKO — Portfolio · "Cover Story" (V5)
+   ANIKO — Portfolio · Editorial (V5)
    A signature magazine editorial. A cover-story HERO that
    features the first project as the issue cover, a scrolling
    discipline marquee, clickable discipline FILTER chips, then
@@ -144,26 +144,6 @@
 .cv-track .c3{-webkit-text-stroke-color:rgba(63,212,227,.55)}
 @keyframes cvScroll{to{transform:translateX(-50%)}}
 
-/* ---------- filter bar ---------- */
-.cv-filter{
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-  padding:30px 0 6px;
-}
-.cv-filter .lbl{
-  font-family:var(--font);font-weight:800;font-size:.7rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--ink-dim);margin-right:4px;
-}
-.cv-chip{
-  font-family:var(--font-display);font-weight:600;font-size:.92rem;color:var(--ink-dim);
-  border:1.5px solid var(--line);border-radius:999px;padding:9px 18px;line-height:1;cursor:pointer;
-  background:rgba(255,255,255,.03);transition:color .2s,border-color .2s,background .2s,transform .25s;
-}
-.cv-chip:hover{transform:translateY(-2px);color:var(--ink);border-color:var(--ink-dim)}
-.cv-chip[aria-pressed="true"]{
-  color:var(--ink-dark);background:var(--yellow);border-color:var(--yellow);font-weight:700;
-}
-.cv-count{font-family:var(--font-display);font-weight:600;font-size:.7em;opacity:.78;margin-left:.4em}
-
 /* ---------- editorial spreads ---------- */
 .cv-spreads{padding:6px 0 30px}
 .cv-spread{
@@ -286,7 +266,6 @@
   .cv-shots.two{grid-template-columns:1fr 1fr;gap:10px}
   .cv-shots.two .cv-shot,.cv-shots.two .cv-shot:nth-child(2){aspect-ratio:1/1}
   .cv-num{font-size:clamp(4.4rem,26vw,6.4rem)}
-  .cv-filter{gap:10px}
 }
 @media(prefers-reduced-motion:reduce){
   .cv-track{animation:none}
@@ -368,9 +347,9 @@
 <script src="aniko-portfolio-data.js"></script>
 <script>
 /* ===========================================================
-   Cover Story render — magazine editorial.
+   Editorial render — magazine layout.
    [0] becomes the issue cover; [1..7] become alternating
-   editorial spreads with a discipline filter + flower dividers.
+   editorial spreads.
    Reads window.ANIKO_PF.all() (2 photo, 3 video, 3 graphic).
    =========================================================== */
 (function(){
