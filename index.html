@@ -89,15 +89,15 @@ header.nav.scrolled .nav-in{background:rgba(7,5,52,.92);box-shadow:0 16px 44px r
 .hero{background:var(--hero-bg);padding:120px 0 70px;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:center;min-height:540px}
 .hero-art{position:relative;align-self:end;justify-self:center;width:fit-content}
-.hero-art img{height:520px;width:auto;margin:0 auto;
-  -webkit-mask-image:linear-gradient(#000 90%,transparent);mask-image:linear-gradient(#000 90%,transparent)}
+.hero-art img{height:560px;width:auto;margin:0 auto;filter:drop-shadow(0 20px 34px rgba(0,0,0,.4))}
 /* Vesii-style: the illustration comes alive ONLY on hover */
 .hero-art:hover img{animation:sway 1.9s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-2.2deg) translateY(0)}50%{transform:rotate(2.2deg) translateY(-14px)}}
 /* rotating circular badge (Yuki Nakamura style) */
-.orbit{position:absolute;right:-14px;bottom:36px;width:124px;height:124px;z-index:3}
+.orbit{position:absolute;right:-44px;bottom:30px;width:110px;height:110px;z-index:3;
+  background:rgba(7,5,52,.82);border:1px solid var(--line);border-radius:50%;backdrop-filter:blur(4px)}
 .orbit svg{width:100%;height:100%;animation:spinSlow 16s linear infinite}
-.orbit .c-ast{position:absolute;inset:0;display:grid;place-items:center;color:var(--yellow);font-size:1.6rem}
+.orbit .c-ast{position:absolute;inset:0;display:grid;place-items:center;color:var(--yellow);font-size:1.5rem}
 .hero-copy{position:relative}
 .hello{font-family:var(--font-display);font-weight:700;font-size:clamp(2.4rem,6vw,4rem);line-height:1}
 .hello span:nth-child(1){color:var(--pink)} .hello span:nth-child(2){color:var(--yellow)}
@@ -230,7 +230,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   .contact-form{grid-template-columns:1fr}
   .hero{padding-top:104px}
   .hero-art img{height:300px}
-  .orbit{width:92px;height:92px;right:0;bottom:10px}
+  .orbit{width:84px;height:84px;right:-10px;bottom:6px}
   .svc-itembtn{gap:12px;padding:20px}
   .svc-num{width:48px;height:48px}
   .svc-title{font-size:1.18rem}
@@ -272,7 +272,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-art m m-reveal">
-      <img src="aniko-refs/anna-avatar.jpg" alt="Illustration of Anna Chikhiashvili" width="520" height="941" fetchpriority="high" />
+      <img src="aniko-refs/anna-sticker.png" alt="Illustration of Anna Chikhiashvili" width="864" height="1080" fetchpriority="high" />
       <div class="orbit" aria-hidden="true">
         <svg viewBox="0 0 100 100">
           <defs><path id="orbitPath" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
