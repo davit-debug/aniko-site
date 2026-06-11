@@ -97,7 +97,9 @@ footer.site{background:var(--bg-2);padding:78px 0 34px;position:relative;overflo
 .field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
 .field label{font-size:.72rem;font-weight:700;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.12em}
 .field input,.field textarea{background:transparent;border:0;border-bottom:1.5px solid var(--line);color:var(--ink);font-family:var(--font);font-size:1rem;padding:10px 2px}
-.field input:focus,.field textarea:focus{border-color:var(--yellow);outline:none}
+.field input:focus,.field textarea:focus{outline:none}
+.field input:focus-visible,.field textarea:focus-visible{outline:none}
+.field input:hover,.field textarea:hover{border-color:var(--ink-dim)}
 .contact-form .btn{grid-column:1/-1;justify-content:center;padding:15px}
 .foot-info{display:flex;flex-direction:column;gap:18px}
 .foot-info .l{font-size:.7rem;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.14em;font-weight:700}
