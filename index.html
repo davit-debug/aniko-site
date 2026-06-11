@@ -82,6 +82,21 @@ header.nav.scrolled .nav-bar{background:rgba(38,15,55,.78);box-shadow:0 16px 44p
 .brand{grid-column:2;justify-self:center;display:flex;align-items:center;gap:.22em;font-family:var(--font-display);font-weight:700;font-size:1.5rem;letter-spacing:.01em;color:var(--ink);white-space:nowrap}
 .brand .logo-mark{height:1.3em;width:auto;display:block;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
 .brand:hover .logo-mark{transform:rotate(60deg)}
+/* Aurora-style brand hover: letters wave up (330ms, reverses on mouse-out) */
+.b-ltrs{display:inline-flex}
+.b-ltrs span{display:inline-block;transition:transform .33s cubic-bezier(.34,1.56,.64,1)}
+.b-ltrs span:nth-child(2){transition-delay:.045s}
+.b-ltrs span:nth-child(3){transition-delay:.09s}
+.b-ltrs span:nth-child(4){transition-delay:.135s}
+.b-ltrs span:nth-child(5){transition-delay:.18s}
+.brand:hover .b-ltrs span{transform:translateY(-6px)}
+/* Aurora-style custom cursor: dot follows the mouse, scales 2x over links/buttons */
+.cursor-dot{position:fixed;left:0;top:0;width:13px;height:13px;border-radius:50%;background:var(--yellow);
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%) scale(1);opacity:0;
+  transition:opacity .25s ease;will-change:transform}
+.cursor-dot.on{opacity:.9}
+.cursor-dot.grow{background:var(--pink)}
+@media(pointer:coarse){.cursor-dot{display:none}}
 .burger{display:none;justify-self:end;grid-column:3;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
 .burger svg{width:26px;height:26px}
 
@@ -255,7 +270,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
       <a href="#">Portfolio</a>
       <a href="#">Research</a>
     </nav>
-    <a href="#" class="brand">aniko<img class="logo-mark" src="aniko-refs/logo-mark.png" alt="" width="192" height="192" /></a>
+    <a href="#" class="brand"><span class="sr">aniko</span><span class="b-ltrs" aria-hidden="true"><span>a</span><span>n</span><span>i</span><span>k</span><span>o</span></span><img class="logo-mark" src="aniko-refs/logo-mark.png" alt="" width="192" height="192" /></a>
     <nav class="nav-side right" id="navright" aria-label="Secondary">
       <a href="content-calendar.html">Content Calendar</a>
       <a href="#contact">Contact</a>
@@ -515,6 +530,28 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   document.querySelectorAll('header.nav a[href="#"]').forEach(function(a){
     a.addEventListener('click',function(e){ e.preventDefault(); });
   });
+
+  // ---- Aurora-style custom cursor (desktop fine-pointer only) ----
+  if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var dot=document.createElement('div');
+    dot.className='cursor-dot'; dot.setAttribute('aria-hidden','true');
+    document.body.appendChild(dot);
+    var cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy, shown=false, scale=1;
+    document.addEventListener('mousemove',function(e){
+      tx=e.clientX; ty=e.clientY;
+      if(!shown){ cx=tx; cy=ty; dot.classList.add('on'); shown=true; }
+    },{passive:true});
+    document.addEventListener('mouseleave',function(){ dot.classList.remove('on'); shown=false; });
+    document.addEventListener('mouseover',function(e){
+      var hit=e.target.closest('a,button,[role=button],input,textarea,label');
+      scale=hit?2:1; dot.classList.toggle('grow',!!hit);
+    });
+    (function loop(){
+      cx+=(tx-cx)*.22; cy+=(ty-cy)*.22;
+      dot.style.transform='translate('+(cx-6.5)+'px,'+(cy-6.5)+'px) scale('+scale+')';
+      requestAnimationFrame(loop);
+    })();
+  }
 
   // ---- reveal on scroll (motion entrance + underline/ellipse draw) ----
   var io=new IntersectionObserver(function(es){
