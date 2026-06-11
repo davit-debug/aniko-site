@@ -298,6 +298,26 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   .m{opacity:1!important}
   .u-draw svg path,.ellipse svg path,.svc-num svg *{stroke-dashoffset:0!important}
 }
+
+/* ---------- research teaser ---------- */
+.research{padding:110px 0 30px}
+.research-grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(30px,5vw,64px);align-items:center}
+.r-cover{width:clamp(170px,22vw,230px);aspect-ratio:3/4;border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);padding:22px 20px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-5deg);transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+.r-cover:hover{transform:rotate(0) translateY(-6px)}
+.r-cover .gipa{font-size:.6rem;font-weight:800;letter-spacing:.16em;color:var(--coral)}
+.r-cover .t{font-size:.8rem;font-weight:700;line-height:1.5;color:var(--ink)}
+.r-cover .a{font-size:.66rem;color:var(--ink-dim)}
+.r-stats{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 30px}
+.r-stats span{font-size:.86rem;color:var(--ink-dim);font-weight:600}
+.r-stats b{font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--yellow);margin-right:7px}
+.r-stats span:nth-child(2) b{color:var(--pink)}
+.r-stats span:nth-child(3) b{color:var(--green)}
+.r-cta{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:760px){
+  .research{padding-top:80px}
+  .research-grid{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .r-stats{justify-content:center}.r-cta{justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -314,7 +334,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
     <a href="#" class="brand"><span class="sr">ANNA</span><span class="b-ltrs" aria-hidden="true"><span class="ltr">A</span><span class="b-rest"><span class="ltr" style="transition-delay:.045s">N</span><span class="ltr" style="transition-delay:.09s">N</span><span class="ltr" style="transition-delay:.135s">A</span></span></span><img class="logo-mark" src="aniko-refs/logo-mark.png" alt="" width="192" height="192" /></a>
     <nav class="nav-side right" id="navright" aria-label="Primary">
       <a href="portfolio.html">Portfolio</a>
-      <a href="#about">Research</a>
+      <a href="research.html">Research</a>
       <a class="nav-ic" href="content-calendar.html" aria-label="Content Calendar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 2.5v4M16 2.5v4" stroke-linecap="round"/><circle cx="8" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="13" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="16.6" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>
       </a>
@@ -325,7 +345,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   </div>
   <nav class="nav-mobile" id="navmobile" aria-label="Menu">
     <a href="portfolio.html">Portfolio</a>
-    <a href="#about">Research</a>
+    <a href="research.html">Research</a>
     <a href="content-calendar.html">Content Calendar</a>
     <a href="https://www.linkedin.com/in/anna-chikhiashvili-153876253/" target="_blank" rel="noopener">LinkedIn</a>
   </nav>
@@ -442,6 +462,30 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
       <a class="m m-float" style="--d:.12s" href="https://icity.ge/" target="_blank" rel="noopener" data-img="aniko-refs/brands/icity.jpg"><b>iCity</b><em>Electronics</em></a>
       <a class="m m-float" style="--d:.18s" href="https://xg.ge/" target="_blank" rel="noopener" data-img="aniko-refs/brands/xiaomi.jpg"><b>Xiaomi Georgia</b><em>Electronics</em></a>
       <a class="m m-float" style="--d:.24s" href="https://www.tnet.ge/" target="_blank" rel="noopener" data-img="aniko-refs/brands/tnet.jpg"><b>TNET</b><em>Digital Platforms</em></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section class="research" id="research">
+  <span class="shape m-breathe" style="right:7%;top:50px;color:var(--yellow);--rot:6deg" aria-hidden="true">
+    <svg width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.2L18 4l-1.3 4.4L21 8l-3.4 2.7L21 14l-4.3-.4L18 18l-4-2.4L12 20l-2-4.4L6 18l1.3-4.4L3 14l3.4-3.3L3 8l4.3.6L6 4l4 2.2z"/></svg>
+  </span>
+  <div class="wrap research-grid">
+    <a class="r-cover m m-float" href="research.html" aria-label="Read the diploma research">
+      <span class="gipa">GIPA · 2026</span>
+      <span class="t">ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე</span>
+      <span class="a">ანა ჩიხიაშვილი</span>
+    </a>
+    <div class="r-copy">
+      <p class="eyebrow m m-float" style="color:var(--purple)">Research · Diploma thesis</p>
+      <h2 class="sec m m-float" style="--d:.05s">From <span style="color:var(--ink-dim)">“Dear customer”</span> to <span style="color:var(--yellow)">“Hey, you ✳”</span></h2>
+      <p class="lead m m-float" style="--d:.1s">How Georgian banks are moving from institutional language to personalized PR — a comparative study of Bank of Georgia &amp; TBC, built on discourse analysis, social media research and in-depth interviews.</p>
+      <div class="r-stats m m-float" style="--d:.14s"><span><b>8</b>interviews</span><span><b>2</b>bank case studies</span><span><b>4</b>hypotheses</span></div>
+      <div class="r-cta m m-float" style="--d:.18s">
+        <a class="btn btn-yellow" href="research.html">Read the research <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="anna-chikhiashvili-diploma-2026.pdf" download>PDF · 0.5 MB</a>
+      </div>
     </div>
   </div>
 </section>
