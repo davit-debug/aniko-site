@@ -48,6 +48,25 @@
 .pr-nav .nm{font-family:var(--font-display);font-weight:600;font-size:1.15rem;color:var(--ink)}
 .pr-nav a.next{align-items:flex-end;text-align:right;margin-left:auto}
 
+/* fixed prev/next WORK arrows on both sides */
+.pr-side{position:fixed;top:50%;transform:translateY(-50%);z-index:90;display:flex;align-items:center;text-decoration:none}
+.pr-side.prev{left:16px}
+.pr-side.next{right:16px;flex-direction:row-reverse}
+.pr-side .ic{width:56px;height:56px;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1.5px solid var(--line);color:var(--ink);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.35);transition:background .25s,border-color .25s,color .25s,transform .3s}
+.pr-side .ic svg{width:24px;height:24px}
+.pr-side .lbl{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;font-family:var(--font-display);font-weight:600;font-size:.92rem;color:var(--ink);transition:max-width .4s cubic-bezier(.22,.61,.36,1),opacity .3s,padding .4s}
+.pr-side:hover .ic{background:var(--yellow);border-color:var(--yellow);color:var(--ink-dark);transform:scale(1.06)}
+.pr-side.prev:hover .lbl{max-width:30vw;opacity:1;padding:0 8px 0 12px}
+.pr-side.next:hover .lbl{max-width:30vw;opacity:1;padding:0 12px 0 8px}
+.pr-side:focus-visible{outline:none}
+.pr-side:focus-visible .ic{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:860px){
+  .pr-side .ic{width:46px;height:46px}
+  .pr-side.prev{left:8px}.pr-side.next{right:8px}
+  .pr-side .lbl{display:none}
+}
+@media(max-width:600px){.pr-side{top:auto;bottom:18px;transform:none}.pr-side .ic{width:44px;height:44px}}
+
 .pr-more{margin-top:80px}
 .pr-more h2{font-family:var(--font-syne);font-weight:800;font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:22px}
 .pr-more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -228,6 +247,32 @@
   document.getElementById('lbClose').addEventListener('click', closeLb);
   lb.addEventListener('click', function(e){ if(e.target===lb) closeLb(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+
+  // fixed side arrows — jump between ALL works (wraps around)
+  var ALL = D.all();
+  var ai = ALL.findIndex(function(p){return p.slug===proj.slug;});
+  if(ALL.length>1 && ai>-1){
+    var pPrev = ALL[(ai-1+ALL.length)%ALL.length];
+    var pNext = ALL[(ai+1)%ALL.length];
+    function sideArrow(p, dir){
+      var a=document.createElement('a');
+      a.className='pr-side '+dir;
+      a.href='project.html?id='+encodeURIComponent(p.slug)+refQ;
+      a.setAttribute('aria-label',(dir==='prev'?'Previous':'Next')+' project: '+p.title);
+      var d=(dir==='prev')?'M15 6l-6 6 6 6':'M9 6l6 6-6 6';
+      a.innerHTML='<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+d+'"/></svg></span><span class="lbl">'+p.title+'</span>';
+      return a;
+    }
+    document.body.appendChild(sideArrow(pPrev,'prev'));
+    document.body.appendChild(sideArrow(pNext,'next'));
+    document.addEventListener('keydown', function(e){
+      if(lb && lb.classList.contains('open')) return;
+      var t=e.target, tg=t&&t.tagName;
+      if(tg==='INPUT'||tg==='TEXTAREA'||(t&&t.isContentEditable)) return;
+      if(e.key==='ArrowLeft'){ e.preventDefault(); location.href='project.html?id='+encodeURIComponent(pPrev.slug)+refQ; }
+      else if(e.key==='ArrowRight'){ e.preventDefault(); location.href='project.html?id='+encodeURIComponent(pNext.slug)+refQ; }
+    });
+  }
 
   // re-observe freshly injected motion nodes
   if('IntersectionObserver' in window){
