@@ -1,0 +1,133 @@
+/* ===========================================================
+   ANIKO — shared portfolio chrome (tokens · nav · footer · motion)
+   The single source of "one style" for every portfolio variant
+   and project.html. Variant-specific layout CSS lives in each file.
+   Mirrors the live aniko-site (davit-debug.github.io/aniko-site).
+   =========================================================== */
+:root{
+  --bg:#260f37; --bg-2:#190a26; --surface:#3a1c52; --surface-2:#48246a;
+  --line:rgba(255,255,255,.10);
+  --ink:#F3F1FF; --ink-dim:#b9b1e6; --ink-dark:#171042;
+  --blue:#4A5BF0; --pink:#FF6FAE; --yellow:#FFD23F; --orange:#FF7A3C;
+  --green:#7ED957; --purple:#A78BFA; --coral:#FF5A4D; --cyan:#3fd4e3;
+  --r-md:18px; --r-lg:26px; --r-xl:36px; --maxw:1180px;
+  --font-display:'Fredoka',system-ui,sans-serif;
+  --font-syne:'Syne','Fredoka',system-ui,sans-serif;
+  --font:'Montserrat',system-ui,-apple-system,sans-serif;
+  --shadow:0 26px 60px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+section{position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:600;line-height:1.04;letter-spacing:-.01em}
+h2.sec{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;font-family:var(--font-syne)}
+.eyebrow{font-family:var(--font);font-size:.74rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+.lead{color:var(--ink-dim);font-size:1.05rem;max-width:52ch}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;background:var(--yellow);color:#000;padding:10px 16px;border-radius:8px;font-weight:700;z-index:200}
+.skip:focus{left:16px;top:16px}
+section[id],footer[id]{scroll-margin-top:96px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--font-display);font-weight:600;font-size:1rem;padding:13px 24px;border-radius:999px;border:0;cursor:pointer;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .3s,background .3s}
+.btn:hover{transform:translateY(-3px)}
+.btn .arr{transition:transform .35s ease}.btn:hover .arr{transform:translateX(4px)}
+.btn-yellow{background:var(--yellow);color:#171042;box-shadow:0 12px 30px rgba(255,210,63,.30)}
+.btn-pink{background:var(--pink);color:#171042;box-shadow:0 12px 30px rgba(255,111,174,.30)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.6px solid var(--line)}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+
+/* header pill nav (1:1 with live aniko-site) */
+header.nav{position:fixed;top:18px;left:0;right:0;z-index:100;padding:0 clamp(14px,2.8vw,40px);transition:top .5s cubic-bezier(.22,.61,.36,1)}
+.nav-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:62px;padding:0 30px;max-width:1400px;margin:0 auto;background:rgba(255,255,255,.07);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(255,255,255,.13);border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,.28);transition:max-width .55s cubic-bezier(.5,0,.1,1),background .45s,box-shadow .45s,height .45s cubic-bezier(.22,.61,.36,1),column-gap .45s}
+header.nav.scrolled{top:14px}
+header.nav.scrolled .nav-bar{max-width:760px;height:54px;column-gap:8px;background:rgba(12,6,20,.96);border-color:rgba(255,255,255,.07);box-shadow:0 18px 46px rgba(0,0,0,.55)}
+header.nav.scrolled .nav-side{gap:22px}
+.nav-side{display:flex;align-items:center;gap:30px}
+.nav-side.left{justify-content:flex-start}.nav-side.right{justify-content:flex-end}
+.nav-side a{font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--ink-dim);letter-spacing:.01em;padding:10px 2px;transition:color .15s}
+.nav-side a:hover{color:var(--ink)}.nav-side a.active{color:var(--yellow)}
+.nav-ic{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);color:var(--ink);padding:0;transition:border-color .2s,background .2s,transform .3s}
+.nav-ic svg{width:19px;height:19px}
+.nav-ic:hover{border-color:var(--yellow);background:rgba(255,255,255,.06);transform:translateY(-1px)}
+.brand{grid-column:2;justify-self:center;display:flex;align-items:center;gap:.22em;font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--ink);white-space:nowrap}
+.brand .logo-mark{height:1.3em;width:auto;display:block;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.brand:hover .logo-mark{transform:rotate(60deg)}
+.b-ltrs{display:inline-flex;align-items:baseline}
+.b-ltrs .ltr{display:inline-block;transition:transform .33s cubic-bezier(.34,1.56,.64,1)}
+.brand:hover .ltr{transform:translateY(-6px)}
+.b-rest{display:inline-flex;overflow:hidden;max-width:4em;opacity:1;transition:max-width .45s cubic-bezier(.5,0,.1,1),opacity .3s ease}
+header.nav.scrolled .b-rest{max-width:0;opacity:0}
+.cursor-dot{position:fixed;left:0;top:0;width:13px;height:13px;border-radius:50%;background:var(--yellow);pointer-events:none;z-index:9999;transform:translate(-50%,-50%) scale(1);opacity:0;transition:opacity .25s ease;will-change:transform}
+.cursor-dot.on{opacity:.9}.cursor-dot.grow{background:var(--pink)}
+@media(pointer:coarse){.cursor-dot{display:none}}
+.burger{display:none;justify-self:end;grid-column:3;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
+.burger svg{width:26px;height:26px}
+.nav-mobile{display:none}
+.scrollbar{position:fixed;top:0;left:0;right:0;height:3px;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--yellow),var(--pink),var(--blue),var(--green));z-index:101;will-change:transform}
+
+/* decorative shapes */
+.shape{position:absolute;pointer-events:none;z-index:0;opacity:.85}
+
+/* hand-drawn accents */
+.ellipse{position:relative;display:inline-block}
+.ellipse svg{position:absolute;left:-12%;top:-16%;width:124%;height:138%;overflow:visible;pointer-events:none}
+.ellipse svg path{stroke-dasharray:900;stroke-dashoffset:900}
+.ellipse.in svg path{animation:draw 1.4s ease .25s forwards}.ellipse.in svg path:nth-of-type(2){animation-delay:.55s}
+.u-draw{position:relative;display:inline-block}
+.u-draw svg{position:absolute;left:-3%;right:0;bottom:-.3em;width:106%;height:.42em;overflow:visible}
+.u-draw svg path{stroke-dasharray:600;stroke-dashoffset:600}
+.u-draw.in svg path{animation:draw 1.1s ease .2s forwards}
+
+/* footer (aniko system) */
+footer.site{background:var(--bg-2);padding:78px 0 34px;position:relative;overflow:hidden;margin-top:50px}
+.foot-word{display:flex;align-items:center;gap:clamp(14px,3vw,38px);flex-wrap:wrap}
+.foot-word .w{font-family:var(--font-syne);font-size:clamp(4rem,15vw,11rem);font-weight:800;line-height:.85;color:var(--ink)}
+.foot-flower{display:inline-block;width:clamp(60px,10vw,130px);height:clamp(60px,10vw,130px);flex:none}
+.foot-flower svg{width:100%;height:100%}
+.foot-tag{color:var(--ink-dim);font-family:var(--font-display);font-size:clamp(1.2rem,3vw,1.8rem);margin:14px 0 44px}
+.foot-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;position:relative;z-index:1}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
+.field label{font-size:.72rem;font-weight:700;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.12em}
+.field input,.field textarea{background:transparent;border:0;border-bottom:1.5px solid var(--line);color:var(--ink);font-family:var(--font);font-size:1rem;padding:10px 2px}
+.field input:focus,.field textarea:focus{border-color:var(--yellow);outline:none}
+.contact-form .btn{grid-column:1/-1;justify-content:center;padding:15px}
+.foot-info{display:flex;flex-direction:column;gap:18px}
+.foot-info .l{font-size:.7rem;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.14em;font-weight:700}
+.foot-info a,.foot-info span{font-weight:500;font-size:1.02rem}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:54px;padding-top:24px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:.82rem}
+
+/* motion (Wix "Thrive" vocabulary) */
+.m{opacity:0}
+.m-float.in{animation:floatIn .9s cubic-bezier(.22,.61,.36,1) var(--d,0s) both}
+.m-reveal.in{animation:revealIn 1s cubic-bezier(.22,.61,.36,1) var(--d,0s) both}
+.m-wink.in{animation:winkIn .85s cubic-bezier(.22,.61,.36,1) var(--d,0s) both}
+@keyframes floatIn{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:none}}
+@keyframes revealIn{0%{opacity:0}1%{opacity:1;clip-path:polygon(0 100%,100% 100%,100% 100%,0 100%)}100%{opacity:1;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}
+@keyframes winkIn{0%{opacity:0}1%{opacity:1;clip-path:polygon(0 50%,100% 50%,100% 50%,0 50%)}100%{opacity:1;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes breathe{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-12px) rotate(var(--rot,0deg))}}
+.m-spin{animation:spinSlow 18s linear infinite}.m-breathe{animation:breathe 6s ease-in-out infinite}
+
+/* responsive chrome */
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:760px){
+  .nav-side{display:none}.burger{display:inline-flex}
+  .nav-mobile.open{display:flex;flex-direction:column;position:absolute;top:74px;left:clamp(14px,2.8vw,40px);right:clamp(14px,2.8vw,40px);background:rgba(38,15,55,.97);border:1px solid var(--line);border-radius:22px;padding:18px 26px;gap:16px;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+  .nav-mobile a{font-family:var(--font-display);font-size:1.12rem;font-weight:500;color:var(--ink)}
+}
+@media(max-width:600px){.wrap{padding:0 20px}.contact-form{grid-template-columns:1fr}.u-draw svg{left:0;width:100%}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .m{opacity:1!important}
+  .ellipse svg path,.u-draw svg path{stroke-dashoffset:0!important}
+}
