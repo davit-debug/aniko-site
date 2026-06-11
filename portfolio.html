@@ -50,10 +50,10 @@
 /* "The W❀rk" — flower in place of the O + hand-drawn underline */
 .cv-mast{display:block}
 .cv-word{position:relative;display:inline-block;color:var(--ink)}
-.cv-o{display:inline-flex;align-items:center;justify-content:center;width:.8em;height:.8em;vertical-align:-.11em;margin:0 .015em}
+.cv-o{display:inline-flex;align-items:center;justify-content:center;width:.8em;height:.8em;vertical-align:-.11em;margin:0 .015em;color:var(--yellow)}
 .cv-o svg{width:100%;height:100%;display:block;overflow:visible}
 .cv-ul{position:absolute;left:-2%;right:0;bottom:-.12em;width:104%;height:.34em;overflow:visible;pointer-events:none}
-.cv-ul path{fill:none;stroke:var(--accent);stroke-width:7;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1000;stroke-dashoffset:1000;animation:cvDraw 1s ease .45s forwards}
+.cv-ul path{fill:none;stroke:var(--pink);stroke-width:7;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1000;stroke-dashoffset:1000;animation:cvDraw 1s ease .45s forwards}
 @keyframes cvDraw{to{stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.cv-ul path{stroke-dashoffset:0;animation:none}}
 
@@ -75,7 +75,7 @@
 
 /* the cover spread: big image + cover headline */
 .cv-cover{
-  margin-top:30px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);
+  margin-top:clamp(52px,7vw,100px);display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);
   gap:clamp(28px,4.6vw,64px);align-items:center;
 }
 .cv-frame{
@@ -322,10 +322,7 @@
       <div class="cv-masthead m m-reveal">
         <h1 class="cv-mast">
           <span class="sr">The Work</span>
-          <span aria-hidden="true">The <span class="cv-word">W<span class="cv-o"><svg viewBox="0 0 100 100"><g transform="translate(50 50)">
-            <g fill="var(--accent)"><g id="cvo"><ellipse rx="9" ry="40"/></g><use href="#cvo" transform="rotate(45)"/><use href="#cvo" transform="rotate(90)"/><use href="#cvo" transform="rotate(135)"/></g>
-            <g fill="var(--purple)" transform="scale(.5)"><use href="#cvo"/><use href="#cvo" transform="rotate(45)"/><use href="#cvo" transform="rotate(90)"/><use href="#cvo" transform="rotate(135)"/></g>
-          </g></svg></span>rk<svg class="cv-ul" viewBox="0 0 220 24" preserveAspectRatio="none"><path d="M6 16 C 50 8 110 8 150 11 C 180 13 205 14 214 9"/></svg></span></span>
+          <span aria-hidden="true">The <span class="cv-word">W<span class="cv-o"><svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><g transform="translate(50 50)"><circle r="13"/><ellipse cy="-26" rx="9.5" ry="23"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(40)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(80)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(120)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(160)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(200)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(240)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(280)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(320)"/></g></svg></span>rk<svg class="cv-ul" viewBox="0 0 220 24" preserveAspectRatio="none"><path d="M6 16 C 50 8 110 8 150 11 C 180 13 205 14 214 9"/></svg></span></span>
         </h1>
       </div>
       <!-- cover spread builds into here -->
@@ -423,11 +420,6 @@
     var story = el("div","cv-story");
     var fnum = el("span","cv-num cv-num-cover"); fnum.setAttribute("aria-hidden","true"); fnum.textContent = "01";
     story.appendChild(fnum);
-    var kick = el("p","cv-kicker");
-    var star = el("span","star"); star.setAttribute("aria-hidden","true"); star.textContent="✦";
-    kick.appendChild(star);
-    kick.appendChild(document.createTextNode("Featured · " + FEATURE.group + " · " + FEATURE.year));
-    story.appendChild(kick);
 
     var hl = el("h2","cv-headline"); hl.textContent = FEATURE.title; story.appendChild(hl);
 
@@ -440,7 +432,7 @@
     open.className = "btn"; open.href = fHref;
     open.style.background = fAccent; open.style.color = "var(--ink-dark)";
     open.setAttribute("aria-label","Open project: " + FEATURE.title);
-    open.innerHTML = 'Open the story <span class="arr" aria-hidden="true">&rarr;</span>';
+    open.innerHTML = 'View <span class="arr" aria-hidden="true">&rarr;</span>';
     openWrap.appendChild(open);
     story.appendChild(openWrap);
 
@@ -527,9 +519,6 @@
 
     var body = el("div","cv-body");
 
-    var eye = el("span","cv-eyebrow");
-    eye.textContent = item.group + " · " + item.year;
-    body.appendChild(eye);
 
     var ttl = el("h2","cv-title");
     var uline = el("span","uline"); uline.textContent = item.title;
