@@ -103,13 +103,7 @@ header.nav.scrolled .nav-side{gap:22px}
 .b-rest{display:inline-flex;overflow:hidden;max-width:4em;opacity:1;
   transition:max-width .45s cubic-bezier(.5,0,.1,1),opacity .3s ease}
 header.nav.scrolled .b-rest{max-width:0;opacity:0}
-/* Aurora-style custom cursor: dot follows the mouse, scales 2x over links/buttons */
-.cursor-dot{position:fixed;left:0;top:0;width:13px;height:13px;border-radius:50%;background:var(--yellow);
-  pointer-events:none;z-index:9999;transform:translate(-50%,-50%) scale(1);opacity:0;
-  transition:opacity .25s ease;will-change:transform}
-.cursor-dot.on{opacity:.9}
-.cursor-dot.grow{background:var(--pink)}
-@media(pointer:coarse){.cursor-dot{display:none}}
+/* custom cursor removed — using the native pointer */
 .burger{display:none;justify-self:end;grid-column:3;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
 .burger svg{width:26px;height:26px}
 
@@ -136,7 +130,7 @@ header.nav.scrolled .b-rest{max-width:0;opacity:0}
 .hero-script .hscript-u::after{content:"";position:absolute;left:-3%;right:-3%;bottom:-.3em;height:.36em;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7C25 2 75 2 98 6' stroke='%23FF6FAE' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M4 10C28 6 72 6 96 9' stroke='%23FF6FAE' stroke-width='2.4' fill='none' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E") no-repeat center/100% 100%}
 .hero-script .ast-i{color:var(--pink);font-style:normal;font-size:.9em;font-weight:700}
-.hero-script .ast-i svg{width:.9em;height:.9em;display:inline-block;vertical-align:-.18em}
+.hero-script .ast-i svg{width:.88em;height:.88em;display:inline-block;vertical-align:-.17em;margin:0 .09em}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
 .hero .arrow{position:absolute;left:6px;top:96px;color:var(--orange);pointer-events:none}
 
@@ -161,7 +155,7 @@ header.nav.scrolled .b-rest{max-width:0;opacity:0}
 .about-map{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(44px,12vw,184px);align-items:center;margin:0 auto;position:relative;z-index:1}
 .about-col{display:flex;flex-direction:column;gap:clamp(44px,7.75vw,124px)}
 .trait{max-width:390px;margin:0 auto;text-align:center}
-.trait h3{font-family:var(--font-display);font-size:clamp(1.05rem,1.5vw,1.45rem);font-weight:700;margin:0 0 14px;line-height:1.25}
+.trait h3{font-family:var(--font-display);font-size:clamp(1rem,1.35vw,1.3rem);font-weight:700;margin:0 0 14px;line-height:1.25}
 .trait p{color:var(--ink-dim);font-size:clamp(.88rem,1.05vw,1.05rem);line-height:1.55;margin:0}
 .about-center{position:relative;text-align:center;align-self:center}
 .about-ttl{position:relative;z-index:1;font-family:var(--font-syne);font-weight:800;font-size:clamp(2.2rem,3.75vw,3.4rem);line-height:1.28}
@@ -216,11 +210,11 @@ header.nav.scrolled .b-rest{max-width:0;opacity:0}
 .brand-row a em{font-family:var(--font);font-style:normal;font-weight:700;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);opacity:.6;transition:opacity .25s}
 .brand-row a:hover b{opacity:1;color:var(--yellow)}
 .brand-row a:hover em{opacity:.9}
-/* cursor-following tilted preview card (portfolio-rail hover style) */
+/* cursor-following preview card (portfolio-rail hover style) — straight, no tilt */
 .brand-preview{position:fixed;left:0;top:0;z-index:95;width:230px;aspect-ratio:3/3.8;pointer-events:none;
   background:#fff;padding:12px 12px 30px;border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.45);
-  opacity:0;transform:rotate(7deg) scale(.85);transition:opacity .28s ease,transform .28s cubic-bezier(.34,1.56,.64,1);will-change:transform}
-.brand-preview.show{opacity:1;transform:rotate(7deg) scale(1)}
+  opacity:0;transform:scale(.85);transition:opacity .28s ease,transform .28s cubic-bezier(.34,1.56,.64,1);will-change:transform}
+.brand-preview.show{opacity:1;transform:scale(1)}
 .brand-preview img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
 @media(pointer:coarse){.brand-preview{display:none}}
 
@@ -480,7 +474,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
     <div class="foot-grid">
       <form class="contact-form" id="contact-form" novalidate>
         <div class="field"><label for="fn">First name *</label><input id="fn" name="fn" autocomplete="given-name" required></div>
-        <div class="field"><label for="ln">Last name</label><input id="ln" name="ln" autocomplete="family-name"></div>
+        <div class="field"><label for="co">Company</label><input id="co" name="co" autocomplete="organization"></div>
         <div class="field full"><label for="em">Email *</label><input id="em" type="email" name="em" autocomplete="email" required></div>
         <div class="field full"><label for="msg">Message</label><textarea id="msg" name="msg" rows="3"></textarea></div>
         <button class="btn btn-yellow" type="submit">Send message <span class="arr" aria-hidden="true">→</span></button>
