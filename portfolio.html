@@ -57,6 +57,10 @@
 @keyframes cvDraw{to{stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.cv-ul path{stroke-dashoffset:0;animation:none}}
 
+/* footer "Anna" block sized exactly like the homepage */
+.foot-flower{width:clamp(64px,11vw,140px);height:clamp(64px,11vw,140px)}
+.foot-tag{font-size:clamp(1.3rem,3vw,1.9rem);margin:14px 0 44px}
+
 .cv-issue{
   display:flex;align-items:center;gap:12px;flex-wrap:wrap;
   font-family:var(--font);font-weight:800;font-size:.74rem;letter-spacing:.2em;
@@ -318,8 +322,6 @@
           </g></svg></span>rk<svg class="cv-ul" viewBox="0 0 220 24" preserveAspectRatio="none"><path d="M6 16 C 50 8 110 8 150 11 C 180 13 205 14 214 9"/></svg></span></span>
         </h1>
       </div>
-      <p class="cv-issue m m-float" style="--d:.06s" id="cvIssue"></p>
-
       <!-- cover spread builds into here -->
       <div class="cv-cover m m-float" style="--d:.12s" id="cvCover"></div>
     </div>
@@ -347,7 +349,7 @@
         <g fill="var(--purple)" transform="scale(.5)"><use href="#pf"/><use href="#pf" transform="rotate(45)"/><use href="#pf" transform="rotate(90)"/><use href="#pf" transform="rotate(135)"/></g>
       </g></svg>
     </span></div>
-    <p class="foot-tag m m-float" style="--d:.08s">Like what you see? Let&apos;s make the next one together —</p>
+    <p class="foot-tag m m-float" style="--d:.08s">Let&apos;s build something worth following —</p>
     <div class="foot-grid">
       <form class="contact-form" id="contact-form" novalidate>
         <div class="field"><label for="fn">First name *</label><input id="fn" name="fn" autocomplete="given-name" required></div>
@@ -395,19 +397,6 @@
   var FEATURE = ITEMS[0];
   var REST    = ITEMS.slice(1);
 
-  /* ---------------- issue line ---------------- */
-  var years = ITEMS.map(function(i){ return parseInt(i.year,10); }).filter(Boolean);
-  var ymin = Math.min.apply(null, years), ymax = Math.max.apply(null, years);
-  var span = (ymin===ymax) ? String(ymin) : (String(ymin) + "—" + String(ymax));
-  var issue = document.getElementById("cvIssue");
-  if(issue){
-    issue.appendChild(document.createTextNode("Vol. 01"));
-    var d1=el("span","dot"); issue.appendChild(d1);
-    issue.appendChild(document.createTextNode("Photography → Design"));
-    var d2=el("span","dot"); issue.appendChild(d2);
-    var b=document.createElement("b"); b.textContent="Tbilisi " + span; issue.appendChild(b);
-  }
-
   /* ---------------- accent on hero (feature color) ---------------- */
   var hero = document.getElementById("cvHero");
   if(hero){ hero.style.setProperty("--accent", "var(--" + FEATURE.color + ")"); }
@@ -428,8 +417,6 @@
     var fim = document.createElement("img");
     fim.src = FEATURE.img; fim.alt = fAlt; fim.loading = "eager"; fim.decoding = "async";
     fa.appendChild(fim);
-    var fcap = el("span","cv-cap"); fcap.textContent = "Cover Story · " + FEATURE.group;
-    fa.appendChild(fcap);
     if(hasVid(FEATURE)){ fa.appendChild(playBadge("cv-play")); }
     media.appendChild(fa);
 
@@ -526,9 +513,6 @@
       im.alt = altBase + (stills.length > 1 ? " (still " + (k+1) + " of " + stills.length + ")" : "");
       im.loading = "lazy"; im.decoding = "async";
       a.appendChild(im);
-      if(k === 0){
-        var cap = el("span","cv-cap-sm"); cap.textContent = item.group; a.appendChild(cap);
-      }
       if(hasVid(item) && k === 0){ a.appendChild(playBadge("cv-play-sm")); }
       shots.appendChild(a);
     });
