@@ -578,27 +578,6 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
     })();
   }
 
-  // ---- Aurora-style custom cursor (desktop fine-pointer only) ----
-  if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    var dot=document.createElement('div');
-    dot.className='cursor-dot'; dot.setAttribute('aria-hidden','true');
-    document.body.appendChild(dot);
-    var cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy, shown=false, scale=1;
-    document.addEventListener('mousemove',function(e){
-      tx=e.clientX; ty=e.clientY;
-      if(!shown){ cx=tx; cy=ty; dot.classList.add('on'); shown=true; }
-    },{passive:true});
-    document.addEventListener('mouseleave',function(){ dot.classList.remove('on'); shown=false; });
-    document.addEventListener('mouseover',function(e){
-      var hit=e.target.closest('a,button,[role=button],input,textarea,label');
-      scale=hit?2:1; dot.classList.toggle('grow',!!hit);
-    });
-    (function loop(){
-      cx+=(tx-cx)*.22; cy+=(ty-cy)*.22;
-      dot.style.transform='translate('+(cx-6.5)+'px,'+(cy-6.5)+'px) scale('+scale+')';
-      requestAnimationFrame(loop);
-    })();
-  }
 
   // ---- reveal on scroll (motion entrance + underline/ellipse draw) ----
   var io=new IntersectionObserver(function(es){

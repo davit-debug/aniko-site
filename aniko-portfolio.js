@@ -68,7 +68,7 @@
         ev.preventDefault();
         if(!this.reportValidity()) return;
         var g = function(n){ var el=this.querySelector('[name='+n+']'); return el ? (el.value||'').trim() : ''; }.bind(this);
-        var body = encodeURIComponent('Name: '+g('fn')+' '+g('ln')+'\nEmail: '+g('em')+'\n\n'+g('msg'));
+        var body = encodeURIComponent('Name: '+g('fn')+'\nCompany: '+g('co')+'\nEmail: '+g('em')+'\n\n'+g('msg'));
         window.location.href = 'mailto:anachikhiashvili22@gmail.com?subject='+encodeURIComponent('Portfolio inquiry from '+g('fn'))+'&body='+body;
       });
     }
