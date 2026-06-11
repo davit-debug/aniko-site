@@ -104,6 +104,8 @@
 .cv-frame:hover .cv-play svg{fill:var(--ink-dark)}
 
 .cv-story{position:relative;min-width:0}
+.cv-num-cover{top:-.5em;left:-.04em;right:auto}
+.cv-story > .cv-kicker,.cv-story > .cv-headline,.cv-story > .cv-dek,.cv-story > .cv-open{position:relative;z-index:1}
 .cv-kicker{
   display:flex;align-items:center;gap:9px;
   font-family:var(--font);font-weight:800;font-size:.74rem;letter-spacing:.2em;
@@ -422,6 +424,8 @@
 
     // story
     var story = el("div","cv-story");
+    var fnum = el("span","cv-num cv-num-cover"); fnum.setAttribute("aria-hidden","true"); fnum.textContent = "01";
+    story.appendChild(fnum);
     var kick = el("p","cv-kicker");
     var star = el("span","star"); star.setAttribute("aria-hidden","true"); star.textContent="✦";
     kick.appendChild(star);
@@ -573,7 +577,6 @@
   var spreadsMount = document.getElementById("cvSpreads");
   if(spreadsMount){
     REST.forEach(function(item, i){
-      if(i > 0){ spreadsMount.appendChild(buildDivider("var(--" + item.color + ")")); }
       spreadsMount.appendChild(buildSpread(item, i));
     });
   }
