@@ -67,23 +67,22 @@ section[id],footer[id]{scroll-margin-top:96px}
 .btn-ghost{background:transparent;color:var(--ink);border:1.6px solid var(--line)}
 .btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
 
-/* ---------- header — floating pill (Aurora's House style) ---------- */
-header.nav{position:fixed;top:14px;left:0;right:0;z-index:100}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;
-  background:rgba(10,7,46,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border:1px solid var(--line);border-radius:999px;padding:0 10px 0 26px;
-  box-shadow:0 10px 36px rgba(0,0,0,.25);
-  transition:background .35s,box-shadow .35s,transform .35s}
-header.nav.scrolled .nav-in{background:rgba(7,5,52,.92);box-shadow:0 16px 44px rgba(0,0,0,.5)}
-.logo{font-family:var(--font-display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;display:flex;align-items:center;gap:.2em;color:var(--ink)}
-.logo .logo-mark{height:1.4em;width:auto;display:block;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
-.logo:hover .logo-mark{transform:rotate(60deg)}
-.nav-links{display:flex;align-items:center;gap:26px}
-.nav-links a{font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--ink-dim);transition:color .15s;padding:10px 2px}
-.nav-links a:hover{color:var(--ink)}
-.nav-links a.nav-cta{color:#171042;padding:13px 24px} /* beat .nav-links a's dim color on the yellow CTA */
-.nav-cta{display:inline-flex}
-.burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
+/* ---------- header — full-width frosted pill, centered brand (Aurora's House 1:1) ---------- */
+header.nav{position:fixed;top:18px;left:0;right:0;z-index:100;padding:0 clamp(14px,2.8vw,40px)}
+.nav-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:62px;padding:0 30px;
+  background:rgba(255,255,255,.07);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.13);border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,.28);
+  transition:background .35s,box-shadow .35s}
+header.nav.scrolled .nav-bar{background:rgba(13,10,58,.72);box-shadow:0 16px 44px rgba(0,0,0,.5)}
+.nav-side{display:flex;align-items:center;gap:30px}
+.nav-side.left{justify-content:flex-start}
+.nav-side.right{justify-content:flex-end}
+.nav-side a{font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--ink-dim);letter-spacing:.01em;padding:10px 2px;transition:color .15s}
+.nav-side a:hover,.nav-side a.active{color:var(--ink)}
+.brand{grid-column:2;justify-self:center;display:flex;align-items:center;gap:.22em;font-family:var(--font-display);font-weight:700;font-size:1.5rem;letter-spacing:.01em;color:var(--ink);white-space:nowrap}
+.brand .logo-mark{height:1.3em;width:auto;display:block;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.brand:hover .logo-mark{transform:rotate(60deg)}
+.burger{display:none;justify-self:end;grid-column:3;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
 .burger svg{width:26px;height:26px}
 
 /* ---------- hero ---------- */
@@ -218,13 +217,16 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   .hero .squiggle svg{width:190px;height:230px}
   .foot-grid{grid-template-columns:1fr;gap:36px}
 }
-/* nav collapses earlier than the rest — links + CTA collide with the logo between 600-760px */
+/* nav collapses to a centered brand + burger; links move into a dropdown */
+.nav-mobile{display:none}
 @media(max-width:760px){
-  .nav-links{display:none}
-  .nav-links.open{display:flex;position:absolute;top:74px;left:8px;right:8px;flex-direction:column;
-    background:rgba(7,5,52,.97);border:1px solid var(--line);border-radius:22px;padding:20px 28px;gap:18px;
-    box-shadow:0 18px 50px rgba(0,0,0,.5)}
+  .nav-side{display:none}
   .burger{display:inline-flex}
+  .nav-mobile.open{display:flex;flex-direction:column;position:absolute;top:74px;
+    left:clamp(14px,2.8vw,40px);right:clamp(14px,2.8vw,40px);
+    background:rgba(7,5,52,.97);border:1px solid var(--line);border-radius:22px;padding:18px 26px;gap:16px;
+    box-shadow:0 18px 50px rgba(0,0,0,.5)}
+  .nav-mobile a{font-family:var(--font-display);font-size:1.12rem;font-weight:500;color:var(--ink)}
 }
 @media(max-width:600px){
   .wrap{padding:0 20px}
@@ -251,19 +253,26 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
 
 <!-- ============ HEADER ============ -->
 <header class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a href="#" class="logo">aniko<img class="logo-mark" src="aniko-refs/logo-mark.png" alt="" width="192" height="192" /></a>
-    <nav class="nav-links" id="navlinks" aria-label="Primary">
+  <div class="nav-bar">
+    <nav class="nav-side left" id="navleft" aria-label="Primary">
       <a href="#">Portfolio</a>
       <a href="#">Research</a>
+    </nav>
+    <a href="#" class="brand">aniko<img class="logo-mark" src="aniko-refs/logo-mark.png" alt="" width="192" height="192" /></a>
+    <nav class="nav-side right" id="navright" aria-label="Secondary">
       <a href="content-calendar.html">Content Calendar</a>
       <a href="#contact">Contact</a>
-      <a class="nav-cta btn btn-yellow" href="#contact">Let's talk</a>
     </nav>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
     </button>
   </div>
+  <nav class="nav-mobile" id="navmobile" aria-label="Menu">
+    <a href="#">Portfolio</a>
+    <a href="#">Research</a>
+    <a href="content-calendar.html">Content Calendar</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <main id="main">
@@ -499,17 +508,18 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
 
   // ---- mobile nav ----
-  var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
-  burger.setAttribute('aria-controls','navlinks');
-  function closeMenu(){ links.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  var burger=document.getElementById('burger'), menu=document.getElementById('navmobile');
+  burger.setAttribute('aria-controls','navmobile');
+  function closeMenu(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
   burger.addEventListener('click',function(){
-    var open=links.classList.toggle('open'); burger.setAttribute('aria-expanded',open);
+    var open=menu.classList.toggle('open'); burger.setAttribute('aria-expanded',open);
   });
-  links.addEventListener('click',function(e){ if(e.target.closest('a')) closeMenu(); });
+  menu.addEventListener('click',function(e){ if(e.target.closest('a')) closeMenu(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
 
-  links.querySelectorAll('a[href="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){ e.preventDefault(); });
+  // ---- placeholder "#" links shouldn't jump to top ----
+  document.querySelectorAll('header.nav a[href="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); });
   });
 
   // ---- reveal on scroll (motion entrance + underline/ellipse draw) ----
