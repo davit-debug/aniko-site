@@ -208,11 +208,11 @@ header.nav.scrolled .b-rest{max-width:0;opacity:0}
 .brands .eyebrow{display:block;text-align:center;color:var(--ink-dim);font-size:.82rem}
 .brands h3{text-align:center;font-family:var(--font-syne);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;margin:10px 0 0}
 .brand-row{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:34px}
-.brand-row span{position:relative;font-family:var(--font-display);font-weight:600;font-size:1.5rem;color:var(--ink-dim);opacity:.8;transition:opacity .25s,color .25s;cursor:pointer}
-.brand-row span::before{content:"";position:absolute;left:-20px;top:50%;width:11px;height:11px;border-radius:50%;
+.brand-row a{position:relative;font-family:var(--font-display);font-weight:600;font-size:1.5rem;color:var(--ink-dim);opacity:.8;transition:opacity .25s,color .25s;cursor:pointer}
+.brand-row a::before{content:"";position:absolute;left:-20px;top:50%;width:11px;height:11px;border-radius:50%;
   background:var(--pink);transform:translateY(-50%) scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
-.brand-row span:hover{opacity:1;color:var(--yellow)}
-.brand-row span:hover::before{transform:translateY(-50%) scale(1)}
+.brand-row a:hover{opacity:1;color:var(--yellow)}
+.brand-row a:hover::before{transform:translateY(-50%) scale(1)}
 /* cursor-following tilted preview card (portfolio-rail hover style) */
 .brand-preview{position:fixed;left:0;top:0;z-index:95;width:230px;aspect-ratio:3/3.8;pointer-events:none;
   background:#fff;padding:12px 12px 30px;border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.45);
@@ -289,7 +289,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
   .svc-num{width:48px;height:48px}
   .svc-title{font-size:1.18rem}
   .brand-row{gap:26px}
-  .brand-row span{font-size:1.2rem}
+  .brand-row a{font-size:1.2rem}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -453,11 +453,11 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
     <span class="eyebrow m m-float">Brands that trust me</span>
     <h3 class="m m-float" style="--d:.05s">Collaborating with Leading Companies</h3>
     <div class="brand-row" id="brand-row">
-      <span class="m m-float" data-img="portfolio-images/ka-07.jpg">McDonald's</span>
-      <span class="m m-float" style="--d:.06s" data-img="portfolio-images/ka-11.jpg">Bank of Georgia</span>
-      <span class="m m-float" style="--d:.12s" data-img="portfolio-images/ka-09.jpg">SOCAR</span>
-      <span class="m m-float" style="--d:.18s" data-img="portfolio-images/ka-13.jpg">TNET</span>
-      <span class="m m-float" style="--d:.24s" data-img="portfolio-images/en-13.jpg">Campa</span>
+      <a class="m m-float" href="https://www.campa.ge/en" target="_blank" rel="noopener" data-img="aniko-refs/brands/campa.jpg">Campa</a>
+      <a class="m m-float" style="--d:.06s" href="https://www.socar.ge/en" target="_blank" rel="noopener" data-img="aniko-refs/brands/socar.jpg">Socar</a>
+      <a class="m m-float" style="--d:.12s" href="https://icity.ge/" target="_blank" rel="noopener" data-img="aniko-refs/brands/icity.jpg">iCity</a>
+      <a class="m m-float" style="--d:.18s" href="https://xg.ge/" target="_blank" rel="noopener" data-img="aniko-refs/brands/xiaomi.jpg">Xiaomi Georgia</a>
+      <a class="m m-float" style="--d:.24s" href="https://www.tnet.ge/" target="_blank" rel="noopener" data-img="aniko-refs/brands/tnet.jpg">TNET</a>
     </div>
   </div>
 </section>
@@ -569,7 +569,7 @@ footer{background:var(--bg-2);padding:80px 0 36px;position:relative;overflow:hid
     var bpImg=document.createElement('img'); bpImg.alt=''; bp.appendChild(bpImg);
     document.body.appendChild(bp);
     var bx=0,by=0,btx=0,bty=0,bActive=false;
-    document.querySelectorAll('#brand-row span[data-img]').forEach(function(s){
+    document.querySelectorAll('#brand-row a[data-img]').forEach(function(s){
       s.addEventListener('mouseenter',function(){
         bpImg.src=s.getAttribute('data-img');
         bActive=true; bp.classList.add('show');
