@@ -4,6 +4,10 @@
    and project.html. Variant-specific layout CSS lives in each file.
    Mirrors the live aniko-site (davit-debug.github.io/aniko-site).
    =========================================================== */
+@font-face{font-family:'Agrandir';src:url('aniko-refs/fonts/agrandir-tight.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Agrandir';src:url('aniko-refs/fonts/agrandir-thin.woff2') format('woff2');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Agrandir Wide';src:url('aniko-refs/fonts/agrandir-wide-black.woff2') format('woff2');font-weight:900;font-style:italic;font-display:swap}
+@font-face{font-family:'Agrandir Wide';src:url('aniko-refs/fonts/agrandir-wide-light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 :root{
   --bg:#1b1030; --bg-2:#120a22; --surface:#3a1c52; --surface-2:#48246a;
   --line:rgba(255,255,255,.10);
@@ -13,6 +17,7 @@
   --r-md:18px; --r-lg:26px; --r-xl:36px; --maxw:1180px;
   --font-display:'Fredoka',system-ui,sans-serif;
   --font-syne:'Syne','Fredoka',system-ui,sans-serif;
+  --font-wide:'Agrandir Wide','Syne',system-ui,sans-serif; /* "What I do" title font */
   --font:'Montserrat',system-ui,-apple-system,sans-serif;
   --shadow:0 26px 60px rgba(0,0,0,.5);
 }
@@ -51,7 +56,7 @@ header.nav.scrolled .nav-bar{max-width:760px;height:54px;column-gap:8px;backgrou
 header.nav.scrolled .nav-side{gap:22px}
 .nav-side{display:flex;align-items:center;gap:30px}
 .nav-side.left{justify-content:flex-start}.nav-side.right{justify-content:flex-end}
-.nav-side a{font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--ink-dim);letter-spacing:.01em;padding:10px 2px;transition:color .15s}
+.nav-side a{font-family:'Agrandir',var(--font-display),system-ui;font-size:1rem;font-weight:400;color:var(--ink-dim);letter-spacing:.02em;padding:10px 2px;transition:color .15s}
 .nav-side a:hover{color:var(--ink)}.nav-side a.active{color:var(--yellow)}
 .nav-ic{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);color:var(--ink);padding:0;transition:border-color .2s,background .2s,transform .3s}
 .nav-ic svg{width:19px;height:19px}
@@ -106,6 +111,14 @@ footer.site{background:var(--bg-2);padding:78px 0 34px;position:relative;overflo
 .foot-info a,.foot-info span{font-weight:500;font-size:1.02rem}
 .foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:54px;padding-top:24px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:.82rem}
 
+/* footer script tagline (global — used across pages; no "Anna" wordmark) */
+.hero-script{font-family:var(--font-display);font-style:italic;font-weight:600;font-size:clamp(1.25rem,2.4vw,1.62rem);color:var(--ink);margin:20px 0 6px}
+.hero-script .ast-i{color:var(--pink);font-style:normal;font-size:.9em;font-weight:700}
+.hero-script .ast-i svg{width:.88em;height:.88em;display:inline-block;vertical-align:-.17em;margin:0 .09em}
+.foot-script{font-size:clamp(1.7rem,4.2vw,2.8rem);margin:0 0 46px;color:var(--ink)}
+.hscript-u{position:relative;white-space:nowrap}
+.hscript-u::after{content:"";position:absolute;left:-3%;right:-3%;bottom:-.3em;height:.36em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7C25 2 75 2 98 6' stroke='%23FFD23F' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M4 10C28 6 72 6 96 9' stroke='%23FFD23F' stroke-width='2.4' fill='none' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E") no-repeat center/100% 100%}
+
 /* motion (Wix "Thrive" vocabulary) */
 .m{opacity:0}
 .m-float.in{animation:floatIn .9s cubic-bezier(.22,.61,.36,1) var(--d,0s) both}
@@ -133,11 +146,3 @@ footer.site{background:var(--bg-2);padding:78px 0 34px;position:relative;overflo
   .m{opacity:1!important}
   .ellipse svg path,.u-draw svg path{stroke-dashoffset:0!important}
 }
-
-/* footer script tagline (global — used across pages; no "Anna" wordmark) */
-.hero-script{font-family:var(--font-display);font-style:italic;font-weight:600;font-size:clamp(1.25rem,2.4vw,1.62rem);color:var(--ink);margin:20px 0 6px}
-.hero-script .ast-i{color:var(--pink);font-style:normal;font-size:.9em;font-weight:700}
-.hero-script .ast-i svg{width:.88em;height:.88em;display:inline-block;vertical-align:-.17em;margin:0 .09em}
-.foot-script{font-size:clamp(1.7rem,4.2vw,2.8rem);margin:0 0 46px;color:var(--ink)}
-.hscript-u{position:relative;white-space:nowrap}
-.hscript-u::after{content:"";position:absolute;left:-3%;right:-3%;bottom:-.3em;height:.36em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7C25 2 75 2 98 6' stroke='%23FFD23F' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M4 10C28 6 72 6 96 9' stroke='%23FFD23F' stroke-width='2.4' fill='none' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E") no-repeat center/100% 100%}

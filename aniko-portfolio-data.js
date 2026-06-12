@@ -34,9 +34,10 @@ window.ANIKO_PF = {
 /* Flat lookup helpers (used by portfolio.html + project.html) */
 window.ANIKO_PF.all = function(){
   var d = window.ANIKO_PF, out = [];
+  /* order: graphic/brand work first (incl. the feature), then photography, then videography */
+  d.graphic.forEach(function(p){     out.push(Object.assign({kind:"graphic",group:"Graphic Design"},p)); });
   d.photography.forEach(function(p){ out.push(Object.assign({kind:"photo",  group:"Photography"},   p)); });
   d.videography.forEach(function(p){ out.push(Object.assign({kind:"video",  group:"Videography",   img:p.poster}, p)); });
-  d.graphic.forEach(function(p){     out.push(Object.assign({kind:"graphic",group:"Graphic Design"},p)); });
   /* featured project (feature:true) leads — the portfolio cover; rest keep order (stable sort) */
   out.sort(function(a,b){ return (b.feature?1:0) - (a.feature?1:0); });
   return out;
