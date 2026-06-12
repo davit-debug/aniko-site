@@ -56,12 +56,12 @@ header.nav.scrolled .nav-bar{max-width:760px;height:54px;column-gap:8px;backgrou
 header.nav.scrolled .nav-side{gap:22px}
 .nav-side{display:flex;align-items:center;gap:30px}
 .nav-side.left{justify-content:flex-start}.nav-side.right{justify-content:flex-end}
-.nav-side a{font-family:'Agrandir',var(--font-display),system-ui;font-size:1rem;font-weight:400;color:var(--ink-dim);letter-spacing:.02em;padding:10px 2px;transition:color .15s}
+.nav-side a{font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--ink-dim);letter-spacing:.01em;padding:10px 2px;transition:color .15s}
 .nav-side a:hover{color:var(--ink)}.nav-side a.active{color:var(--yellow)}
 .nav-ic{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);color:var(--ink);padding:0;transition:border-color .2s,background .2s,transform .3s}
 .nav-ic svg{width:19px;height:19px}
 .nav-ic:hover{border-color:var(--yellow);background:rgba(255,255,255,.06);transform:translateY(-1px)}
-.brand{grid-column:2;justify-self:center;display:flex;align-items:center;gap:.22em;font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--ink);white-space:nowrap}
+.brand{grid-column:2;justify-self:center;display:flex;align-items:center;gap:.22em;font-family:var(--font-display);font-weight:700;font-size:1.5rem;letter-spacing:.01em;color:var(--ink);white-space:nowrap}
 .brand .logo-mark{height:1.3em;width:auto;display:block;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
 .brand:hover .logo-mark{transform:rotate(60deg)}
 .b-ltrs{display:inline-flex;align-items:baseline}
