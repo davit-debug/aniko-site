@@ -39,6 +39,21 @@
 .pr-gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .pr-gallery button:hover img{transform:scale(1.07)}
 
+/* campaign reels — Instagram collaboration cards */
+.pr-reels{margin:64px 0 0;padding-top:40px;border-top:1px dashed var(--line)}
+.pr-reels-h{font-family:var(--font-wide);font-weight:900;font-style:italic;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.05;color:var(--ink);margin:0}
+.pr-reels-sub{color:var(--ink-dim);font-size:1rem;line-height:1.7;margin:12px 0 26px;max-width:62ch}
+.pr-reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:14px}
+.pr-reel{display:flex;flex-direction:column;gap:15px;padding:18px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);transition:transform .3s,border-color .25s,background .25s}
+.pr-reel:hover{transform:translateY(-4px);border-color:var(--coral);background:rgba(255,90,77,.06)}
+.pr-reel .ig{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#feda75,#d62976 48%,#962fbf 80%,#4f5bd5);flex:none}
+.pr-reel .ig svg{width:18px;height:18px}
+.pr-reel .h{font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:var(--ink);word-break:break-word;line-height:1.3}
+.pr-reel .h .at{color:var(--coral)}
+.pr-reel .w{margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--font);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);transition:gap .25s,color .25s}
+.pr-reel:hover .w{color:var(--coral);gap:11px}
+@media(max-width:600px){.pr-reels-grid{grid-template-columns:repeat(auto-fill,minmax(148px,1fr))}}
+
 .pr-nav{display:flex;justify-content:space-between;gap:14px;margin:60px 0 0;padding-top:26px;border-top:1px dashed var(--line)}
 .pr-nav a{display:flex;flex-direction:column;gap:4px;max-width:46%;color:var(--ink-dim);transition:color .2s}
 .pr-nav a:hover{color:var(--ink)}
@@ -198,6 +213,25 @@
         '<div class="pr-cta m m-float" style="--d:.2s"><a class="btn btn-yellow" href="index.html#contact">Work with me <span class="arr" aria-hidden="true">→</span></a></div>'+
       '</div>'+
     '</div>';
+
+  // campaign reels — Instagram collaborations (e.g. Campa)
+  if(proj.reels && proj.reels.length){
+    var igGlyph='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg>';
+    var reelsHtml='<section class="pr-reels m m-reveal" aria-label="Campaign content">'+
+      '<h2 class="pr-reels-h">Campaign Content</h2>'+
+      '<p class="pr-reels-sub">Influencer collaborations I directed and managed for the campaign — real creators, real moments. Tap any card to watch the reel on Instagram.</p>'+
+      '<div class="pr-reels-grid">'+
+      proj.reels.map(function(r){
+        return '<a class="pr-reel" href="'+r.u+'" target="_blank" rel="noopener" aria-label="Watch reel by @'+r.h+' on Instagram">'+
+          '<span class="ig" aria-hidden="true">'+igGlyph+'</span>'+
+          '<span class="h"><span class="at">@</span>'+r.h+'</span>'+
+          '<span class="w">Watch reel <span aria-hidden="true">↗</span></span>'+
+        '</a>';
+      }).join('')+
+      '</div>'+
+    '</section>';
+    root.insertAdjacentHTML('beforeend', reelsHtml);
+  }
 
   // prev / next within same category
   var listMap = {photo:D.photography, video:D.videography, graphic:D.graphic};
