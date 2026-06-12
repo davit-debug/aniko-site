@@ -32,9 +32,7 @@
 .pr-info{position:sticky;top:110px}
 .pr-eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
 .pr-title{font-family:var(--font-syne);font-weight:800;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.02}
-.pr-meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
-.pr-chip{font-family:var(--font);font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--ink-dim)}
-.pr-desc{color:var(--ink-dim);font-size:1.08rem;line-height:1.8}
+.pr-desc{color:var(--ink-dim);font-size:1.08rem;line-height:1.8;margin-top:22px}
 .pr-cta{margin-top:26px}
 .pr-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
 .pr-gallery button{padding:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;cursor:pointer;background:var(--surface);aspect-ratio:1}
@@ -190,15 +188,12 @@
     gallery = '<div class="pr-gallery">'+proj.gallery.map(function(g){return '<button data-full="'+g+'" aria-label="View image"><img src="'+g+'" alt="" loading="lazy"></button>';}).join('')+'</div>';
   }
 
-  var metaChips = '<span class="pr-chip">'+proj.tag+'</span><span class="pr-chip">'+proj.year+'</span>'+(proj.kind==='video'&&proj.duration?'<span class="pr-chip">'+proj.duration+'</span>':'');
-
   root.innerHTML =
     '<div class="pr-grid">'+
       '<div class="pr-media m m-reveal">'+media+gallery+'</div>'+
       '<div class="pr-info">'+
         '<div class="pr-eyebrow m m-float" style="color:'+c+'">'+proj.group+'</div>'+
         '<h1 class="pr-title m m-float" style="--d:.06s">'+proj.title+'</h1>'+
-        '<div class="pr-meta m m-float" style="--d:.1s">'+metaChips+'</div>'+
         '<p class="pr-desc m m-float" style="--d:.14s">'+proj.desc+'</p>'+
         '<div class="pr-cta m m-float" style="--d:.2s"><a class="btn btn-yellow" href="index.html#contact">Work with me <span class="arr" aria-hidden="true">→</span></a></div>'+
       '</div>'+
