@@ -1,71 +1,71 @@
-/* research-data.js — VERBATIM content model.
-   Every *Ka string and every excerpts[] item is copied 1:1 from
-   research-validation/source.txt (the thesis). Trims marked with "…".
-   Only field names and a few structural labels are original. */
+/* research-data.js — English content model.
+   The thesis dashboard copy, translated to English. Field keys keep the
+   *Ka suffix only so the existing render in research.html needs no change;
+   every value here is the English version of the diploma thesis. */
 
 window.RESEARCH = {
 
   meta: {
-    titleKa: "ინსტიტუციური კომუნიკაციიდან პერსონალიზებულ PR-მდე: საბანკო სექტორში მომხმარებელზე მორგებული ბრენდკომუნიკაციის ტრანსფორმაცია",
-    subtitleKa: "საბანკო სექტორში მომხმარებელზე მორგებული ბრენდკომუნიკაციის ტრანსფორმაცია",
-    author: "ანა ჩიხიაშვილი",
-    supervisor: "ნინო კალანდია",
+    titleKa: "From Institutional Communication to Personalized PR: The Transformation of Customer-Centric Brand Communication in the Banking Sector",
+    subtitleKa: "The transformation of customer-centric brand communication in the banking sector",
+    author: "Anna Chikhiashvili",
+    supervisor: "Nino Kalandia",
     org: "GIPA",
-    schoolKa: "ჟურნალისტიკისა და მედია მენეჯმენტის კავკასიური სკოლა",
-    programKa: "ციფრული მედიისა და კომუნიკაციის საბაკალავრო პროგრამა",
+    schoolKa: "Caucasus School of Journalism and Media Management",
+    programKa: "Bachelor's Programme in Digital Media and Communication",
     year: "2026",
     pages: 28,
     pdf: "anna-chikhiashvili-diploma-2026.pdf"
   },
 
   hero: {
-    formalLabelKa: "ტრადიციულად, ფინანსური ინსტიტუტები მაღალი ფორმალურობით, ბიუროკრატიული ენითა და მომხმარებელთან მკაფიო დისტანციით ხასიათდება.",
+    formalLabelKa: "Traditionally, financial institutions are characterized by high formality, bureaucratic language, and a clear distance from the customer.",
     personalExamplesKa: [
-      "შენ ამას შეძლებ",
-      "არ გაჩერდე",
-      "წარმატება უფრო ახლოსაა, ვიდრე გგონია",
-      "აჩვენე სხვებს რასაც მარტო შენ ხედავ",
-      "შენ არ ხარ მარტო და შეგიძლია გაუმკლავდე ამ გამოწვევებს"
+      "You can do this",
+      "Don't stop",
+      "Success is closer than you think",
+      "Show others what only you can see",
+      "You are not alone, and you can overcome these challenges"
     ]
   },
 
   facts: [
-    { n: 28, labelKa: "გვერდი" },
-    { n: 4,  labelKa: "ჰიპოთეზა" },
-    { n: 8,  labelKa: "ინტერვიუ" },
-    { n: 2,  labelKa: "ბანკი" },
-    { n: 5,  labelKa: "მეთოდი" }
+    { n: 28, labelKa: "Pages" },
+    { n: 4,  labelKa: "Hypotheses" },
+    { n: 8,  labelKa: "Interviews" },
+    { n: 2,  labelKa: "Banks" },
+    { n: 5,  labelKa: "Methods" }
   ],
 
   sections: [
     {
       id: "intro",
-      titleKa: "შესავალი",
+      titleKa: "Introduction",
       excerpts: [
-        "თუ ადრე დომინირებდა ფორმალური და ინსტიტუციური ენა, დღეს ბრენდები ცდილობენ კომუნიკაცია უფრო ადამიანური და ემოციური გახადონ, სადაც ყურადღების ცენტრში დგას მომხმარებლის ინდივიდუალური გამოცდილება.",
-        "კვლევის მიზანია შეისწავლოს, როგორ გადადის საბანკო კომუნიკაცია ინსტიტუციური მოდელიდან პერსონალიზებულ PR-ზე და როგორ აისახება ეს ცვლილება მომხმარებლის აღქმასა და ნდობაზე.",
-        "ამ პროცესში მნიშვნელოვან როლს ასრულებს პერსონალიზებული PR, რომელიც გულისხმობს კომუნიკაციის ინდივიდზე მორგებას და ისეთი შთაბეჭდილების შექმნას, თითქოს ბრენდი კონკრეტულ მომხმარებელს პირადად მიმართავს."
+        "Where formal, institutional language once dominated, brands today are trying to make their communication more human and emotional, placing the individual customer's experience at the center of attention.",
+        "The aim of this research is to study how banking communication shifts from an institutional model to personalized PR, and how this change is reflected in customer perception and trust.",
+        "Personalized PR plays a significant role in this process: it means tailoring communication to the individual and creating the impression that the brand is addressing a specific customer personally."
       ]
     },
     {
       id: "findings",
-      titleKa: "კვლევის ძირითადი მიგნებები",
+      titleKa: "Key Research Findings",
       excerpts: [
-        "კვლევამ გამოავლინა მკაფიო ასაკობრივი და სოციალური ნაპრალი ბანკების გაადამიანურების აღქმის პროცესში.",
-        "გამოკითხული მომხმარებლების პასუხები აჩვენებს, რომ ბანკის მხრიდან პერსონალიზაცია ორ სრულიად სხვადასხვა დონეზე: ციფრულ და პროდუქტულ ჭრილში აღიქმება.",
-        "პირველ მიმართულებას ციფრული და ვიზუალური პერსონალიზაცია წარმოადგენს, რაც მომხმარებლებში წარმატებით ქმნის საკუთარი უნიკალური, პირადი სივრცის განცდას.",
-        "მეორე მხრივ, როდესაც საქმე უშუალოდ პროდუქტულ შეთავაზებებს ეხება, კვლევამ აჩვენა ე.წ. მასობრივი პერსონალიზაციის სერიოზული კრიზისი.",
-        "კვლევის უმთავრესი დასკვნა კი იმაში მდგომარეობს, რომ ნებისმიერი პერსონალიზებული PR-კომუნიკაცია აზრს კარგავს, თუ ის საოპერაციო გულწრფელობასა და გამჭვირვალობას არ ეფუძნება."
+        "The research revealed a clear age-based and social divide in how the humanization of banks is perceived.",
+        "The surveyed customers' responses show that personalization by a bank is perceived on two completely different levels: a digital dimension and a product dimension.",
+        "The first dimension is digital and visual personalization, which successfully creates in customers a sense of their own unique, personal space.",
+        "On the other hand, when it comes directly to product offers, the research revealed a serious crisis of so-called mass personalization.",
+        "The central conclusion of the research is that any personalized PR communication loses its meaning if it is not grounded in operational honesty and transparency."
       ]
     },
     {
       id: "social",
-      titleKa: "სოციალური მედიის ანალიზის შედეგები",
+      titleKa: "Social Media Analysis Results",
       excerpts: [
-        "სოციალური მედიის ანალიზის შედეგად გამოვლინდა, რომ საქართველოს ბანკი აქტიურად იყენებს Facebook-ს, Instagram-სა და YouTube-ს არა მხოლოდ ინფორმაციის გასავრცელებლად, არამედ მომხმარებელთან ემოციური და უშუალო ურთიერთობის შესაქმნელად.",
-        "სოციალური მედიის ანალიზის პროცესში ასევე გამოიკვეთა, რომ ყველაზე მაღალი ემოციური ჩართულობა დაკავშირებულია იმ კონტენტთან, რომელიც სცდება უშუალოდ საბანკო მომსახურების რეკლამირებას და ეხება საზოგადოებრივ, პირად ან ღირებულებით თემებს.",
-        "ხოლო მომხმარებელთა ყველაზე დაბალი ჩართულობა შეინიშნება იმ პოსტებზე, რომლებიც სრულად ინფორმაციულ ან პროდუქტზე ორიენტირებულ ხასიათს ატარებს.",
-        "სოციალური მედიის ანალიზის შედეგად გამოვლინდა, რომ თიბისი ბანკის ციფრული კომუნიკაცია უფრო მინიმალისტურ, სტრუქტურირებულ და ფუნქციურ მოდელს ეფუძნება."
+        "The social media analysis revealed that Bank of Georgia actively uses Facebook, Instagram and YouTube not only to spread information, but to build an emotional and direct relationship with the customer.",
+        "The social media analysis also showed that the highest emotional engagement is tied to content that goes beyond directly advertising banking services and touches on social, personal or values-based themes.",
+        "The lowest customer engagement, by contrast, is seen on posts that are purely informational or product-oriented in nature.",
+        "The social media analysis revealed that TBC Bank's digital communication is built on a more minimalist, structured and functional model."
       ]
     }
   ],
@@ -73,94 +73,94 @@ window.RESEARCH = {
   streams: [
     {
       kind: "ok", accent: "green",
-      titleKa: "პირადი სივრცის განცდა",
-      bodyKa: "პირველ მიმართულებას ციფრული და ვიზუალური პერსონალიზაცია წარმოადგენს, რაც მომხმარებლებში წარმატებით ქმნის საკუთარი უნიკალური, პირადი სივრცის განცდას.",
-      detailKa: "აქ განსაკუთრებით ეფექტური აღმოჩნდა მობაილბანკში დიზაინებისა და ფონების მორგება, ასევე ანაბრებისთვის ინდივიდუალური სახელების დარქმევა."
+      titleKa: "A sense of personal space",
+      bodyKa: "The first dimension is digital and visual personalization, which successfully creates in customers a sense of their own unique, personal space.",
+      detailKa: "Here, customizing designs and backgrounds in the mobile bank, as well as giving individual names to deposits, proved especially effective."
     },
     {
       kind: "bad", accent: "pink",
-      titleKa: "მასობრივი პერსონალიზაციის სერიოზული კრიზისი",
-      bodyKa: "მეორე მხრივ, როდესაც საქმე უშუალოდ პროდუქტულ შეთავაზებებს ეხება, კვლევამ აჩვენა ე.წ. მასობრივი პერსონალიზაციის სერიოზული კრიზისი.",
-      detailKa: "ამ პოზიციას მკაცრად აკრიტიკებს რესპონდენტი 4, რომელიც აღნიშნავს, რომ ბანკი ერთ კატეგორიაში აქცევს 3 000 და 30 000 ლარის შემოსავლის მქონე პირებს და აბსოლუტურად არარელევანტურ შეთავაზებებს უგზავნის"
+      titleKa: "A serious crisis of mass personalization",
+      bodyKa: "On the other hand, when it comes directly to product offers, the research revealed a serious crisis of so-called mass personalization.",
+      detailKa: "Respondent 4 sharply criticizes this, noting that the bank lumps people earning 3,000 and 30,000 GEL into one category and sends them completely irrelevant offers."
     }
   ],
 
   hypotheses: [
-    { id: "H1", textKa: "პერსონალიზებული PR ზრდის მომხმარებლის ემოციურ კავშირს ბრენდთან." },
-    { id: "H2", textKa: "ადამიანური და მეგობრული საკომუნიკაციო ტონი ზრდის ნდობას ფინანსური ინსტიტუტების მიმართ." },
-    { id: "H3", textKa: "მომხმარებლები მეტად რეაგირებენ კომუნიკაციაზე, რომელიც ინდივიდუალურ გამოცდილებას ეხმიანება." },
-    { id: "H4", textKa: "პერსონალიზებული PR ქმნის „პირადი დიალოგის ილუზიას“ მასობრივ კომუნიკაციაში." }
+    { id: "H1", textKa: "Personalized PR increases the customer's emotional connection with the brand." },
+    { id: "H2", textKa: "A human, friendly communication tone increases trust toward financial institutions." },
+    { id: "H3", textKa: "Customers respond more to communication that speaks to their individual experience." },
+    { id: "H4", textKa: "Personalized PR creates an “illusion of personal dialogue” within mass communication." }
   ],
 
   methods: [
     {
       n: "01",
-      titleKa: "დისკურსის ანალიზი",
-      descKa: "კვლევის ფარგლებში გამოყენებული იქნა დისკურსის ანალიზი საბანკო ბრენდების საკომუნიკაციო ენის, ტონისა და ნარატივის შესასწავლად."
+      titleKa: "Discourse analysis",
+      descKa: "Discourse analysis was used within the research to study the communicative language, tone and narrative of the banking brands."
     },
     {
       n: "02",
-      titleKa: "სოციალური მედიის ანალიზი",
-      descKa: "კვლევის ფარგლებში გაანალიზდება საქართველოს ბანკისა და თიბისი ბანკის სოციალური მედიის კომუნიკაცია Facebook-ის, Instagram-ისა და YouTube-ის პლატფორმებზე."
+      titleKa: "Social media analysis",
+      descKa: "Within the research, the social media communication of Bank of Georgia and TBC Bank was analyzed across the Facebook, Instagram and YouTube platforms."
     },
     {
       n: "03",
-      titleKa: "ქეის სთადი - საქართველოს ბანკი და თიბისი ბანკი",
-      descKa: "კვლევა დაეფუძნება საქართველოს ბანკისა და თიბისი ბანკის შედარებით ქეის სთადის. შესწავლილი იქნება ბრენდული ტრანსფორმაცია, კომუნიკაციის სტილი, მომხმარებელზე ორიენტირებული სტრატეგიები და პერსონალიზებული PR-ის პრაქტიკა."
+      titleKa: "Case study — Bank of Georgia and TBC Bank",
+      descKa: "The research is based on a comparative case study of Bank of Georgia and TBC Bank, examining brand transformation, communication style, customer-oriented strategies and the practice of personalized PR."
     },
     {
       n: "04",
-      titleKa: "სიღრმისეული ინტერვიუები მომხმარებლებთან",
-      descKa: "კვლევის ფარგლებში ჩატარდება სიღრმისეული ინტერვიუები ბანკების მომხმარებლებთან. ინტერვიუები ფოკუსირებული იქნება მომხმარებლის გამოცდილებაზე, ემოციურ აღქმაზე, პერსონალიზაციის განცდასა და ბრენდთან ურთიერთობაზე."
+      titleKa: "In-depth interviews with customers",
+      descKa: "In-depth interviews were conducted with bank customers, focused on customer experience, emotional perception, the sense of personalization and the relationship with the brand."
     },
     {
       n: "05",
-      titleKa: "ექსპერტული ინტერვიუები",
-      descKa: "კვლევის ფარგლებში ჩატარდა ექსპერტული ინტერვიუ PR კომუნიკაციების ექსპერტთან. ინტერვიუ შეეხო პერსონალიზებული კომუნიკაციის სტრატეგიას, მომხმარებელზე ორიენტირებული PR-ის მიზნებს, მონაცემებისა და AI-ის როლს და საბანკო კომუნიკაციის ტრანსფორმაციას."
+      titleKa: "Expert interviews",
+      descKa: "An expert interview was conducted with a PR communications expert, covering personalized communication strategy, the goals of customer-oriented PR, the role of data and AI, and the transformation of banking communication."
     }
   ],
 
   segments: [
     {
-      labelKa: "პირველი სეგმენტი · 18–25",
-      bodyKa: "პირველი სეგმენტი გაერთიანდა 18-25 წლის სტუდენტებისა და ახალგაზრდა მომხმარებლებისგან, რომლებიც მობაილბანკის ყოველდღიური მომხმარებლები არიან და განსაკუთრებულ სიმპათიას გამოხატავენ ბრენდის საკომუნიკაციო ტონის, ვიზუალური მხარისა და ემოციური გზავნილების მიმართ."
+      labelKa: "First segment · 18–25",
+      bodyKa: "The first segment brought together students and young customers aged 18–25 who are daily users of the mobile bank and express particular affinity for the brand's communication tone, visual side and emotional messaging."
     },
     {
-      labelKa: "მეორე სეგმენტი · 25–34",
-      bodyKa: "მეორე სეგმენტს წარმოადგენდნენ 25-34 წლის დასაქმებული მომხმარებლები, რომლებიც რეგულარულად იყენებენ მრავალფეროვან საბანკო პროდუქტებს და კრიტიკულად აფასებენ პერსონალიზებულ შეთავაზებებს."
+      labelKa: "Second segment · 25–34",
+      bodyKa: "The second segment consisted of employed customers aged 25–34 who regularly use a variety of banking products and critically assess personalized offers."
     },
     {
-      labelKa: "მესამე სეგმენტი · 30–45",
-      bodyKa: "მესამე სეგმენტი მოიცავდა 30-45 წლის ფინანსურად სტაბილურ მომხმარებლებს, რომლებსაც აქვთ ოჯახური პასუხისმგებლობები და ბანკს ინსტიტუციური სანდოობისა და გრძელვადიანი პრაქტიკული საჭიროებების ჭრილში უყურებენ."
+      labelKa: "Third segment · 30–45",
+      bodyKa: "The third segment included financially stable customers aged 30–45 with family responsibilities, who view the bank through the lens of institutional reliability and long-term practical needs."
     },
     {
-      labelKa: "მეოთხე სეგმენტი · 25–45",
-      bodyKa: "მეოთხე სეგმენტში კი შევიდნენ 25-45 წლის ციფრულად აქტიური პირები, რომლებიც მკვეთრად ნეგატიურად არიან განწყობილნი ჭარბი მარკეტინგული კომუნიკაციის მიმართ."
+      labelKa: "Fourth segment · 25–45",
+      bodyKa: "The fourth segment comprised digitally active people aged 25–45 who are strongly negative toward excessive marketing communication."
     }
   ],
 
   banks: [
     {
-      name: "საქართველოს ბანკი",
-      sloganKa: "გაბედე ის, რაც შეუძლებლად გეჩვენება",
-      tones: ["ემოციური", "მოტივაციური", "ადამიანური", "მეგობრული"],
+      name: "Bank of Georgia",
+      sloganKa: "Dare what seems impossible to you",
+      tones: ["Emotional", "Motivational", "Human", "Friendly"],
       excerpts: [
-        "დისკურსის ანალიზის შედეგად გამოვლინდა, რომ საქართველოს ბანკის საკომუნიკაციო სტილი გადასულია უფრო ადამიანურ, ემოციურ და მომხმარებელზე ორიენტირებულ კომუნიკაციურ მოდელზე.",
-        "ერთ-ერთი მთავარი მიგნება არის მიმართვის ფორმების ცვლილება: ბანკი აქტიურად იყენებს მეორე პირის ნაცვალსახელს („შენ“), რაც ქმნის ინდივიდუალური მიმართვის ეფექტს და ამცირებს ინსტიტუციური დისტანციის განცდას.",
-        "პირველ მიმართულებას დრამატული და საიმიჯო სთორითელინგი წარმოადგენს, რომლის სამაგალითო ქეისია საახალწლო ვიდეოკამპანია „გაბედე ის, რაც შეუძლებლად გეჩვენება“, რომელიც ქართველი გამომგონებლის, გრიგოლ კობახიძის (ჯორჯ კობის) რეალურ ბიოგრაფიას ეფუძნება.",
-        "საქართველოს ბანკი აქცენტს ენერგიულ, შთამაგონებელ storytelling-ზე, მოტივაციასა და პიროვნულ ზრდაზე აკეთებს, რითაც საზოგადოებას ფინანსური პროდუქტის ნაცვლად დიდ იდეასა და ინსპირაციას სთავაზობს."
+        "Discourse analysis revealed that Bank of Georgia's communication style has shifted toward a more human, emotional and customer-oriented communicative model.",
+        "One of the key findings is a change in forms of address: the bank actively uses the second-person pronoun (“you”), which creates an effect of individual address and reduces the sense of institutional distance.",
+        "The first direction is dramatic, image-driven storytelling, a prime case of which is the New Year video campaign “Dare what seems impossible to you,” based on the real biography of the Georgian inventor Grigol Kobakhidze (George Kobi).",
+        "Bank of Georgia places its emphasis on energetic, inspiring storytelling, motivation and personal growth, offering the public a big idea and inspiration rather than a financial product."
       ],
       accent: "orange"
     },
     {
-      name: "თიბისი ბანკი",
-      sloganKa: "მთავარია გჯეროდეს",
-      tones: ["მინიმალისტური", "ნეიტრალური", "ტექნოლოგიური"],
+      name: "TBC Bank",
+      sloganKa: "What matters is that you believe",
+      tones: ["Minimalist", "Neutral", "Technological"],
       excerpts: [
-        "დისკურსის ანალიზმა აჩვენა, რომ საქართველოს ბანკისგან განსხვავებით, თიბისი ბანკის კომუნიკაცია ორიენტირებულია მინიმალისტურ, ფუნქციურ და შედარებით ნეიტრალურ სტილზე.",
-        "მიუხედავად იმისა, რომ კომუნიკაციაში იშვიათად გვხვდება პირდაპირი მოტივაციური მიმართვები, მის სლოგანში „მთავარია გჯეროდეს“ მაინც იგრძნობა პერსონალიზაცია, რასაც მომხმარებელი პირადად იღებს.",
-        "თიბისი ბანკის კამპანია „სიყვარული ბრუნდება“ აგებულია ემიგრაციისა და ოჯახური კავშირის თემაზე, კამპანია ფოკუსირდება მონატრების, დისტანციისა და ოჯახური სითბოს ემოციებზე, რაც რელევანტურია ქართული საზოგადოებისთვის, სადაც ემიგრაცია მრავალი ოჯახის ყოველდღიური რეალობაა.",
-        "თიბისი ბანკი ინარჩუნებს მინიმალისტურ და ნეიტრალურ სტილს, სადაც პრიორიტეტი ტექნოლოგიურობა და პროცესების სიმარტივეა, ხოლო პერსონალიზაცია ძირითადად ფუნქციურ დონეზე ვლინდება."
+        "Discourse analysis showed that, unlike Bank of Georgia, TBC Bank's communication is oriented toward a minimalist, functional and relatively neutral style.",
+        "Although direct motivational appeals rarely appear in its communication, its slogan “What matters is that you believe” still carries a sense of personalization that the customer takes personally.",
+        "TBC Bank's campaign “Love Returns” is built on the theme of emigration and family ties; it focuses on the emotions of longing, distance and family warmth, which is relevant for Georgian society, where emigration is a daily reality for many families.",
+        "TBC Bank maintains a minimalist and neutral style where the priority is technology and simplicity of processes, while personalization is mainly expressed on a functional level."
       ],
       accent: "cyan"
     }
@@ -168,39 +168,39 @@ window.RESEARCH = {
 
   quotes: [
     {
-      textKa: "საქართველოს ბანკს ჰქონდა ფუნქცია რომ შემეძლო დამეყენებინა სასურველი ფოტო და როდესაც შევდიოდი ინტერნეტ ბანკში მხვდებოდა ეგრევე ჩემი საოცნებო მანქანის ფოტო და ყოველ ჯერზე როგორც კი ამას ვუყურებდი მქონდა ის შეგრძნება რომ ჩემს მიზანს უფრო ვუახლოვდები, მქონდა შეგრძნება რომ შემიძლია, ხოდა 5 თვეში შევიძინე ჩემი საოცნებო მანქანა და დღემდე მახსოვს ეს ქეისი, რადგან თითქოს მე და საქართველოს ბანკი ჩემი საერთო მიზნისკენ მივდიოდით",
-      sourceKa: "რესპონდენტი 2"
+      textKa: "Bank of Georgia had a feature where I could set a photo I wanted, and when I logged into the internet bank I would immediately see a photo of my dream car. Every time I looked at it, I had the feeling that I was getting closer to my goal — I felt that I could do it. And in 5 months I bought my dream car. I still remember this case, because it felt as if Bank of Georgia and I were moving toward our shared goal together.",
+      sourceKa: "Respondent 2"
     },
     {
-      textKa: "ეხლა Porsche-ზე 5%-ს დამიკლებ თუ არ დამიკლებ, ჩემთვის პირადად მაგას არანაირი მნიშვნელობა არა აქვს, იმიტომ რომ Porsche-ს ისედაც ვერ ვყიდულობ",
-      sourceKa: "რესპონდენტი 4"
+      textKa: "Whether you give me 5% off on a Porsche now or not makes absolutely no difference to me personally, because I can't afford a Porsche anyway.",
+      sourceKa: "Respondent 4"
     },
     {
-      textKa: "ჩემი აღფრთოვანებით და ემოციებით მანიპულირებენ: “ვაიმე, რა კაია”, უცებ მომაჩვენებენ რაღაცას, შემხვდება პოსტი რომ 12%იანი სესხის გახსნა შემიძლია და მერე გაირკვევა რომ 35%-მდე ავდივარ",
-      sourceKa: "რესპონდენტი 6"
+      textKa: "They manipulate my excitement and emotions: “wow, how great,” they suddenly show me something — a post appears that I can take out a loan at 12%, and then it turns out the rate goes up to 35%.",
+      sourceKa: "Respondent 6"
     },
     {
-      textKa: "მე როგორც მომხმარებელს მინდა, რომ არ მომატყუო, ნუ მეუბნები, რომ 12% უნდა გადავიხადო, როცა რეალურად მიწევს 35%..., ასეთ დროს საშინელი უნდობლობა მიჩნდება ბანკის მიმართ, მირჩევნია თავიდანვე მითხრა რომ 35% მომიწევს და მე თავად გადავწყვეტ მიღირს თუ არა",
-      sourceKa: "რესპონდენტი 4"
+      textKa: "As a customer, I want you not to deceive me — don't tell me I have to pay 12% when in reality it's 35%. At times like that I feel terrible distrust toward the bank. I would rather you told me from the start that it will be 35% and let me decide for myself whether it's worth it.",
+      sourceKa: "Respondent 4"
     },
     {
-      textKa: "ბანკი უბრალოდ ბანკი უნდა იყოს... ჩემთვის პირადად არანაირ ემოციურ დამოკიდებულებას არ ქმნის ჩემსა და ბანკს შორის ილია თოფურიას გამოჩენა... ბევრად კმაყოფილი დავრჩი იმით, რო მოვაგვარე უცებ პრობლემა",
-      sourceKa: "რესპონდენტი 7"
+      textKa: "A bank should just be a bank... Ilia Topuria appearing creates no emotional attachment between me and the bank personally... I was far more satisfied by simply having my problem solved quickly.",
+      sourceKa: "Respondent 7"
     }
   ],
 
   generations: [
     {
       labelKa: "Gen Z · 18–25",
-      bodyKa: "ციფრულ არხებზე ორიენტირებულ Gen Z თაობას ესაჭიროება ინტერაქციული, მეგობრული, არაფორმალური და ვიზუალურ storytelling-ზე დაფუძნებული მიდგომები, რაც მათში ბრენდთან იდენტიფიკაციასა და გრძელვადიან ლოიალობას იწვევს."
+      bodyKa: "The digitally oriented Gen Z generation needs interactive, friendly, informal approaches based on visual storytelling, which drives identification with the brand and long-term loyalty."
     },
     {
-      labelKa: "მილენიალები & 45+",
-      bodyKa: "საპირისპიროდ, მილენიალებისა და 45+ კატეგორიისთვის არაფორმალურობა მიუღებელია; მათთვის კომუნიკაცია უნდა ეფუძნებოდეს ინსტიტუციურ სტაბილურობას, საოპერაციო გამჭვირვალობასა და პერსონალურ ასისტენტობას (მაგალითად, „სოლოსა“ და „კონცეპტის“ ლაუნჯ-მოდელები)."
+      labelKa: "Millennials & 45+",
+      bodyKa: "Conversely, for Millennials and the 45+ category, informality is unacceptable; for them communication must be grounded in institutional stability, operational transparency and personal assistance (for example, the “Solo” and “Concept” lounge models)."
     }
   ],
 
-  conclusionKa: "წინამდებარე ნაშრომში ჩატარებულმა კვლევამ დაადასტურა, რომ ქართულ საბანკო სექტორში ფორმალური და ინსტიტუციური ენიდან მომხმარებელზე მორგებულ პერსონალიზებულ PR-სტრატეგიებზე გადასვლა კანონზომიერი პროცესია.…რეალური ერთგულება ყალიბდება არა გრძნობებით მანიპულირებით, არამედ ამ საკომუნიკაციო აცდენის შემცირებით, საინფორმაციო გამჭვირვალობითა და საოპერაციო გულწრფელობით.",
+  conclusionKa: "The research conducted in this thesis confirmed that the shift in Georgia's banking sector — from formal, institutional language to customer-centric personalized PR strategies — is a natural process. … Real loyalty is built not by manipulating emotions, but by reducing this communicative gap, through informational transparency and operational honesty.",
 
   references: [
     "McKinsey & Company. (2021, November 12). The value of getting personalization right—or wrong—is multiplying.",
