@@ -16,8 +16,8 @@
 /* ===========================================================
    ANIKO — Portfolio · Editorial (V5)
    A signature magazine editorial. A cover-story HERO that
-   features the first project as the issue cover, a scrolling
-   discipline marquee, clickable discipline FILTER chips, then
+   features the first project as the issue cover, clickable
+   discipline FILTER chips, then
    big alternating editorial SPREADS for the remaining 7 — each
    with a ghost index number, ✦ diamond points, accent-tinted
    "View →" pill, flower/asterisk dividers. Brand deep-purple
@@ -101,26 +101,6 @@
 .cv-dek{margin:18px 0 0;color:var(--ink-dim);font-size:1.08rem;line-height:1.6;max-width:42ch}
 .cv-open{margin-top:26px;display:inline-flex}
 .cv-open .btn{color:var(--ink-dark)}
-
-/* ---------- discipline marquee ---------- */
-.cv-marquee{
-  margin-top:8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  overflow:hidden;padding:16px 0;position:relative;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-}
-.cv-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:cvScroll 28s linear infinite}
-.cv-marquee:hover .cv-track{animation-play-state:paused}
-.cv-track span{
-  font-family:var(--font-syne);font-weight:800;letter-spacing:-.01em;
-  font-size:clamp(1.3rem,3vw,2rem);color:transparent;
-  -webkit-text-stroke:1.3px rgba(243,241,255,.30);padding:0 .5em;
-}
-.cv-track span.sep{color:var(--yellow);-webkit-text-stroke:0;}
-.cv-track .c1{-webkit-text-stroke-color:rgba(255,210,63,.55)}
-.cv-track .c2{-webkit-text-stroke-color:rgba(255,111,174,.55)}
-.cv-track .c3{-webkit-text-stroke-color:rgba(63,212,227,.55)}
-@keyframes cvScroll{to{transform:translateX(-50%)}}
 
 /* ---------- editorial spreads ---------- */
 .cv-spreads{padding:6px 0 30px}
@@ -246,7 +226,6 @@
   .cv-num{font-size:clamp(4.4rem,26vw,6.4rem)}
 }
 @media(prefers-reduced-motion:reduce){
-  .cv-track{animation:none}
   .cv-shot img,.cv-shot,.cv-frame img,.cv-frame{transition:none}
 }
 </style>
@@ -284,13 +263,6 @@
       <div class="cv-cover m m-float" style="--d:.12s" id="cvCover"></div>
     </div>
   </section>
-
-  <!-- DISCIPLINE MARQUEE -->
-  <div class="wrap">
-    <div class="cv-marquee m m-float" aria-hidden="true" id="cvMarquee">
-      <div class="cv-track" id="cvTrack"></div>
-    </div>
-  </div>
 
   <!-- EDITORIAL SPREADS -->
   <div class="wrap">
@@ -393,22 +365,6 @@
 
     coverMount.appendChild(media);
     coverMount.appendChild(story);
-  }
-
-  /* ---------------- discipline marquee ---------------- */
-  var track = document.getElementById("cvTrack");
-  if(track){
-    var words = [
-      {t:"Photography", c:"c1"}, {t:"Videography", c:"c2"}, {t:"Graphic Design", c:"c3"},
-      {t:"Tbilisi", c:"c1"}, {t:"Storytelling", c:"c2"}, {t:"Colour & Light", c:"c3"}
-    ];
-    function fillTrack(){
-      words.forEach(function(w){
-        var sp = el("span", w.c); sp.textContent = w.t; track.appendChild(sp);
-        var sep = el("span","sep"); sep.textContent = "✦"; track.appendChild(sep);
-      });
-    }
-    fillTrack(); fillTrack();   // duplicate for seamless -50% loop
   }
 
   /* ---------------- editorial spreads (rest) ---------------- */
