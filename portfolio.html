@@ -35,27 +35,12 @@
 }
 .cv-hero .wrap{position:relative;z-index:1}
 
-/* masthead row */
-.cv-masthead{display:flex;align-items:center;gap:clamp(14px,2.4vw,26px);flex-wrap:wrap;margin-bottom:6px}
-.cv-mast{
-  font-family:var(--font-syne);font-weight:800;letter-spacing:-.03em;line-height:.82;
-  font-size:clamp(3.2rem,13vw,9.2rem);color:var(--ink);margin:0;text-transform:uppercase;
-}
-.cv-mast .hl{color:var(--accent)}
-.cv-aster{
-  width:clamp(46px,8vw,96px);height:clamp(46px,8vw,96px);flex:none;display:inline-block;
-}
-.cv-aster svg{width:100%;height:100%;display:block}
-
-/* "The W❀rk" — flower in place of the O + hand-drawn underline */
-.cv-mast{display:block}
-.cv-word{position:relative;display:inline-block;color:var(--ink)}
-.cv-o{display:inline-flex;align-items:center;justify-content:center;width:.8em;height:.8em;vertical-align:-.11em;margin:0 .015em;color:var(--yellow)}
-.cv-o svg{width:100%;height:100%;display:block;overflow:visible}
-.cv-ul{position:absolute;left:-2%;right:0;bottom:-.12em;width:104%;height:.34em;overflow:visible;pointer-events:none}
-.cv-ul path{fill:none;stroke:var(--pink);stroke-width:7;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1000;stroke-dashoffset:1000;animation:cvDraw 1s ease .45s forwards}
-@keyframes cvDraw{to{stroke-dashoffset:0}}
-@media(prefers-reduced-motion:reduce){.cv-ul path{stroke-dashoffset:0;animation:none}}
+/* masthead — "Portfolio" wordmark + italic script kicker */
+.cv-masthead{display:block;margin-bottom:6px}
+.pf-kicker{font-family:var(--font-display);font-style:italic;font-weight:600;font-size:clamp(1.05rem,2.4vw,1.7rem);color:var(--pink);margin:0 0 4px;letter-spacing:.005em}
+.pf-mast{font-family:var(--font-display);font-weight:700;line-height:.9;letter-spacing:-.015em;color:var(--ink);margin:0;font-size:clamp(3.4rem,14vw,9.6rem)}
+.pf-mast .fo{color:var(--pink)}
+.pf-mast .lio{color:var(--yellow)}
 
 
 .cv-issue{
@@ -292,10 +277,8 @@
   <section class="cv-hero" id="cvHero">
     <div class="wrap">
       <div class="cv-masthead m m-reveal">
-        <h1 class="cv-mast">
-          <span class="sr">The Work</span>
-          <span aria-hidden="true">The <span class="cv-word">W<span class="cv-o"><svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><g transform="translate(50 50)"><circle r="13"/><ellipse cy="-26" rx="9.5" ry="23"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(40)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(80)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(120)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(160)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(200)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(240)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(280)"/><ellipse cy="-26" rx="9.5" ry="23" transform="rotate(320)"/></g></svg></span>rk<svg class="cv-ul" viewBox="0 0 220 24" preserveAspectRatio="none"><path d="M6 16 C 50 8 110 8 150 11 C 180 13 205 14 214 9"/></svg></span></span>
-        </h1>
+        <p class="pf-kicker">Projects I&rsquo;ve shot, made or directed</p>
+        <h1 class="pf-mast"><span class="sr">Portfolio</span><span aria-hidden="true">Port<span class="fo">fo</span><span class="lio">lio</span></span></h1>
       </div>
       <!-- cover spread builds into here -->
       <div class="cv-cover m m-float" style="--d:.12s" id="cvCover"></div>
